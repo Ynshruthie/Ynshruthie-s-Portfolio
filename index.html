@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ynshruthie - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="glow-text">Entering Ynshruthie's World...</div>
+    </div>
+
+    <!-- Main Site Logo -->
+    <div class="logo">Ynshruthie's Portfolio</div>
+
+    <!-- Main dynamic scene container -->
+    <div id="scene-container">
+        <!-- The background image (1536x1024) -->
+        <img id="background-img" src="Assests/home.PNG" alt="Lush outdoor environment">
+
+        <!-- Invisible, clickable hotspots that exactly match the elements in the picture -->
+        
+        <!-- Door 1 Hotspot (Left Mushroom House - Content Creator) -->
+        <div class="hotspot" id="door1" data-label="Content Creator">
+            <div class="hover-label">Content Creator</div>
+        </div>
+
+        <!-- Door 2 Hotspot (Right Mushroom House - Tech Career) -->
+        <div class="hotspot" id="door2" data-label="Tech Career">
+            <div class="hover-label">Tech Career</div>
+        </div>
+
+        <!-- Girl Hotspot (Sitting in the middle) -->
+        <div class="hotspot" id="girl" data-label="My Profile">
+            <div class="hover-label">My Profile</div>
+        </div>
+
+        <!-- Ambient particles (leaves/fireflies) -->
+        <canvas id="particle-canvas"></canvas>
+
+        <!-- Ambient overlay for cozy lighting -->
+        <div class="ambient-light"></div>
+    </div>
+
+    <!-- Modals -->
+    <div id="door-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass">
+            <h2 id="door-title">Enter World</h2>
+            <p id="door-desc">Do you want to enter the Content Creator world or the Tech world?</p>
+            <div class="modal-buttons">
+                <button class="btn enter-btn" id="enter-btn">Enter</button>
+                <button class="btn close-btn" id="cancel-door-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal (Here is where girl1.PNG shown!) -->
+    <div id="profile-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass profile-glass">
+            <button class="btn close-btn profile-close" id="close-profile-btn">&times;</button>
+            <div class="profile-header">
+                <!-- Using the pixel art girl in the profile overlay -->
+                <img src="Assests/girl1.PNG" alt="Profile" class="profile-avatar">
+                <div>
+                    <h2>Ynshruthie</h2>
+                    <p class="subtitle">Creative & Tech Enthusiast</p>
+                </div>
+            </div>
+            <div class="profile-body">
+                <p>Welcome to my dreamy digital space! I bridge the gap between creative content and technical innovation. Look out for more soon!</p>
+            </div>
+            <div class="profile-socials">
+                <button class="btn social-btn">Resume</button>
+                <button class="btn social-btn">Projects</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
