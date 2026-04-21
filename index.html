@@ -3,17 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ynshruthie - Portfolio</title>
+    <title>Yelika Nagashruthi - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="loader" id="loader">
-        <div class="glow-text">Entering Ynshruthie's World...</div>
+        <!-- Cinematic Background Orbs -->
+        <div class="golden-bokeh b-1"></div>
+        <div class="golden-bokeh b-2"></div>
+        <div class="golden-bokeh b-3"></div>
+        <div class="golden-bokeh b-4"></div>
+        
+        <!-- Upward Floating Dust -->
+        <div class="ambient-dust">
+            <div class="dust d-1"></div><div class="dust d-2"></div><div class="dust d-3"></div>
+            <div class="dust d-4"></div><div class="dust d-5"></div><div class="dust d-6"></div>
+            <div class="dust d-7"></div><div class="dust d-8"></div><div class="dust d-9"></div>
+            <div class="dust d-10"></div><div class="dust d-11"></div><div class="dust d-12"></div>
+        </div>
+
+        <div class="loader-content">
+            <!-- 3D Gyroscope Center -->
+            <div class="gyroscope">
+                <div class="gyro-ring ring-x"></div>
+                <div class="gyro-ring ring-y"></div>
+                <div class="gyro-ring ring-z"></div>
+            </div>
+            
+            <div class="glow-text">Entering Ynshruthie's World...</div>
+            <div class="elegant-line"></div>
+        </div>
     </div>
 
     <!-- Main Site Logo -->
-    <div class="logo">Ynshruthie's Portfolio</div>
+    <div class="logo-container">
+        <img src="Assests/logo.PNG" alt="Profile Logo" class="profile-logo-img">
+        <div class="logo-text">Ynshruthie's Portfolio</div>
+    </div>
 
     <!-- Main dynamic scene container -->
     <div id="scene-container">
@@ -22,14 +50,14 @@
 
         <!-- Invisible, clickable hotspots that exactly match the elements in the picture -->
         
-        <!-- Door 1 Hotspot (Left Mushroom House - Content Creator) -->
-        <div class="hotspot" id="door1" data-label="Content Creator">
-            <div class="hover-label">Content Creator</div>
+        <!-- Door 1 Hotspot (Left Mushroom House - Tech Career) -->
+        <div class="hotspot" id="door1" data-label="Tech Career">
+            <div class="hover-label">Tech Career</div>
         </div>
 
-        <!-- Door 2 Hotspot (Right Mushroom House - Tech Career) -->
-        <div class="hotspot" id="door2" data-label="Tech Career">
-            <div class="hover-label">Tech Career</div>
+        <!-- Door 2 Hotspot (Right Mushroom House - Content Creator) -->
+        <div class="hotspot" id="door2" data-label="Content Creator">
+            <div class="hover-label">Content Creator</div>
         </div>
 
         <!-- Girl Hotspot (Sitting in the middle) -->
@@ -43,6 +71,11 @@
         <!-- Ambient overlay for cozy lighting -->
         <div class="ambient-light"></div>
     </div>
+
+    <!-- Floating Aesthetic Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Yelika Nagashruthi. All Rights Reserved.</p>
+    </footer>
 
     <!-- Modals -->
     <div id="door-modal" class="modal hidden">
@@ -66,7 +99,7 @@
                 <!-- Using the pixel art girl in the profile overlay -->
                 <img src="Assests/girl1.PNG" alt="Profile" class="profile-avatar">
                 <div>
-                    <h2>Ynshruthie</h2>
+                    <h2>Yelika Nagashruthi</h2>
                     <p class="subtitle">Creative & Tech Enthusiast</p>
                 </div>
             </div>

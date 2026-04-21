@@ -6,21 +6,21 @@
 const CONFIG = {
     originalWidth: 1536,
     originalHeight: 1024,
-    // Door 1 configuration (Pink House / Content Creator)
+    // Door 1 configuration (Pink House / Tech Career)
     door1: {
         left: 360,   // px from left
         top: 520,    // px from top
         width: 120,  // px width
         height: 180, // px height
-        name: "Content Creator"
+        name: "Tech Career"
     },
-    // Door 2 configuration (Right Mushroom House / Tech Career)
+    // Door 2 configuration (Right Mushroom House / Content Creator)
     door2: {
         left: 1140,
         top: 490,
         width: 100,
         height: 190,
-        name: "Tech Career"
+        name: "Content Creator"
     },
     // Girl Profile configuration (Middle character drawn in the painting)
     girl: {
@@ -108,6 +108,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Interaction Setup
     function setupInteractions() {
+        const sceneContainer = document.getElementById('scene-container');
+
+        // Helper to remove zoom
+        const closeModalsContent = () => {
+             doorModal.classList.add('hidden');
+             profileModal.classList.add('hidden');
+             sceneContainer.classList.remove('zoomed-scene');
+        };
+
         // Doors
         [door1, door2].forEach(door => {
             door.addEventListener('click', () => {
@@ -115,48 +124,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 const label = door.dataset.label;
                 doorTitle.textContent = `Enter ${label}`;
                 
-                // Add a small bounce/click visual effect
-                door.style.transform = 'scale(0.95)';
-                setTimeout(() => door.style.transform = 'scale(1)', 150);
+                // Magical click depression and scene zoom
+                door.style.transform = 'scale(0.9) perspective(400px) rotateX(5deg)';
+                sceneContainer.classList.add('zoomed-scene');
 
-                // Wait a moment for animation, then show modal
+                // Restore dot scale and redirect after a cinematic delay
                 setTimeout(() => {
-                    doorModal.classList.remove('hidden');
-                }, 100);
+                    door.style.transform = 'scale(1)';
+                    // Completely go to the different page
+                    if (door.id === 'door1') {
+                        window.location.href = 'tech.html';
+                    } else if (door.id === 'door2') {
+                        window.location.href = 'content.html';
+                    }
+                }, 1000); // 1-second delay lets the cinematic zoom complete
             });
         });
 
-        cancelDoorBtn.addEventListener('click', () => {
-            doorModal.classList.add('hidden');
-        });
+        cancelDoorBtn.addEventListener('click', closeModalsContent);
 
         enterBtn.addEventListener('click', () => {
             // Action when they click enter
             alert(`Transitioning to ${doorTitle.textContent}...`);
-            doorModal.classList.add('hidden');
+            closeModalsContent();
         });
 
         // Girl Profile
         girl.addEventListener('click', () => {
-             // Add a small bounce/click visual effect
-             girl.style.transform = 'scale(0.95)';
-             setTimeout(() => girl.style.transform = 'scale(1)', 150);
+             girl.style.transform = 'scale(0.9) perspective(400px) rotateX(5deg)';
+             sceneContainer.classList.add('zoomed-scene');
              
              setTimeout(() => {
+                girl.style.transform = 'scale(1)';
                 profileModal.classList.remove('hidden');
-             }, 100);
+             }, 600);
         });
 
-        closeProfileBtn.addEventListener('click', () => {
-            profileModal.classList.add('hidden');
-        });
+        closeProfileBtn.addEventListener('click', closeModalsContent);
 
         // Close modals when clicking backdrop
         document.querySelectorAll('.modal-backdrop').forEach(bd => {
-            bd.addEventListener('click', () => {
-                doorModal.classList.add('hidden');
-                profileModal.classList.add('hidden');
-            });
+            bd.addEventListener('click', closeModalsContent);
         });
     }
 
