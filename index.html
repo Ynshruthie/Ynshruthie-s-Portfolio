@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="loader" id="loader">
@@ -52,17 +53,17 @@
         
         <!-- Door 1 Hotspot (Left Mushroom House - Tech Career) -->
         <div class="hotspot" id="door1" data-label="Tech Career">
-            <div class="hover-label">Tech Career</div>
+            <div class="hover-label">Enter the Tech Career World ✦</div>
         </div>
 
         <!-- Door 2 Hotspot (Right Mushroom House - Content Creator) -->
         <div class="hotspot" id="door2" data-label="Content Creator">
-            <div class="hover-label">Content Creator</div>
+            <div class="hover-label">Enter the Content Creator World ✦</div>
         </div>
 
         <!-- Girl Hotspot (Sitting in the middle) -->
         <div class="hotspot" id="girl" data-label="My Profile">
-            <div class="hover-label">My Profile</div>
+            <div class="hover-label">View My Profile ✦</div>
         </div>
 
         <!-- Ambient particles (leaves/fireflies) -->
@@ -90,28 +91,13 @@
         </div>
     </div>
 
-    <!-- Profile Modal (Here is where girl1.PNG shown!) -->
-    <div id="profile-modal" class="modal hidden">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content glass profile-glass">
-            <button class="btn close-btn profile-close" id="close-profile-btn">&times;</button>
-            <div class="profile-header">
-                <!-- Using the pixel art girl in the profile overlay -->
-                <img src="Assests/girl1.PNG" alt="Profile" class="profile-avatar">
-                <div>
-                    <h2>Yelika Nagashruthi</h2>
-                    <p class="subtitle">Creative & Tech Enthusiast</p>
-                </div>
-            </div>
-            <div class="profile-body">
-                <p>Welcome to my dreamy digital space! I bridge the gap between creative content and technical innovation. Look out for more soon!</p>
-            </div>
-            <div class="profile-socials">
-                <button class="btn social-btn">Resume</button>
-                <button class="btn social-btn">Projects</button>
-            </div>
-        </div>
+    <!-- Fullscreen Video Transition Overlay -->
+    <div id="video-transition-overlay" class="hidden">
+        <video id="transition-video" playsinline preload="auto" muted></video>
     </div>
+
+    <!-- Magical Flash Overlay for Profile -->
+    <div id="magic-flash-overlay"></div>
 
     <script src="script.js"></script>
 </body>

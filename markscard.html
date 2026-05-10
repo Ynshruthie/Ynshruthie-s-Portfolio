@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Card / Certificate - Ynshruthie</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="markscard-page">
+
+        <!-- Back Button -->
+        <a href="profile.html" class="mc-back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Profile</a>
+
+        <div class="markscard-container">
+            <div id="mc-header" class="mc-header">
+                <div class="mc-icon" id="mc-icon"><i class="fa-solid fa-file-lines"></i></div>
+                <div>
+                    <h1 id="mc-title">Loading...</h1>
+                    <p id="mc-subtitle" class="mc-subtitle"></p>
+                </div>
+            </div>
+
+            <!-- Image viewer area -->
+            <div class="mc-image-area" id="mc-image-area">
+                <!-- When image is uploaded, it shows here -->
+                <div class="mc-placeholder" id="mc-placeholder">
+                    <i class="fa-solid fa-image fa-3x"></i>
+                    <p>Marks card / Certificate image coming soon!</p>
+                    <span class="mc-upload-note">The document for <strong id="mc-placeholder-name"></strong> will be added here.</span>
+                </div>
+                <img id="mc-img" src="" alt="Marks Card" class="mc-document-img hidden">
+            </div>
+
+            <!-- Details table (for education) -->
+            <div id="mc-details" class="mc-details hidden"></div>
+        </div>
+    </div>
+
+    <script>
+        const EDU_DATA = {
+            mca: {
+                title: "MCA – Master of Computer Applications",
+                subtitle: "REVA University · 2026 – Present",
+                icon: "fa-laptop-code",
+                color: "#2B3A67",
+                details: [
+                    { label: "Degree", value: "MCA" },
+                    { label: "Specialization", value: "Computer Science & Applications" },
+                    { label: "Institute", value: "REVA University" },
+                    { label: "Year", value: "2026 – Present" },
+                    { label: "CPI", value: "9.04" }
+                ],
+                img: "Assests/markscard_mca.jpg"  // upload image here
+            },
+            bsc: {
+                title: "BSC – Bachelor of Science",
+                subtitle: "REVA University · July 2024",
+                icon: "fa-flask",
+                color: "#3a6b2b",
+                details: [
+                    { label: "Degree", value: "BSC" },
+                    { label: "Specialization", value: "Mathematics, Statistics & Computer Science" },
+                    { label: "Institute", value: "REVA University" },
+                    { label: "Year", value: "July 2024" },
+                    { label: "CPI", value: "8.90" }
+                ],
+                img: "Assests/markscard_bsc.jpg"
+            },
+            "12th": {
+                title: "12th Grade",
+                subtitle: "REVA Independent PU College · July 2021",
+                icon: "fa-school",
+                color: "#6b2b2b",
+                details: [
+                    { label: "Level", value: "12th" },
+                    { label: "Specialization", value: "Physics, Chemistry, Mathematics & Biology" },
+                    { label: "Institute", value: "REVA Independent PU College" },
+                    { label: "Year", value: "July 2021" },
+                    { label: "Percentage", value: "87.83%" }
+                ],
+                img: "Assests/markscard_12th.jpg"
+            },
+            "10th": {
+                title: "10th Grade",
+                subtitle: "Allwin Public School · April 2019",
+                icon: "fa-book",
+                color: "#6b4f2b",
+                details: [
+                    { label: "Level", value: "10th" },
+                    { label: "Board", value: "State Board" },
+                    { label: "Institute", value: "Allwin Public School" },
+                    { label: "Year", value: "April 2019" },
+                    { label: "Percentage", value: "84.96%" }
+                ],
+                img: "Assests/markscard_10th.jpg"
+            }
+        };
+
+        const CERT_DATA = {
+            cisco: {
+                title: "Cisco Certified Support Technician",
+                subtitle: "Cybersecurity Certification",
+                icon: "fa-shield-halved",
+                color: "#1ba0d8",
+                img: "Assests/cert_cisco.jpg"
+            },
+            pragati: {
+                title: "Pragati: Path to Future",
+                subtitle: "Cohort 6",
+                icon: "fa-seedling",
+                color: "#27ae60",
+                img: "Assests/cert_pragati.jpg"
+            },
+            devops: {
+                title: "Code to Cloud: DevOps & Deployment",
+                subtitle: "Power Bootcamp",
+                icon: "fa-cloud-arrow-up",
+                color: "#e67e22",
+                img: "Assests/cert_devops.jpg"
+            },
+            ai: {
+                title: "Artificial Intelligence Foundation",
+                subtitle: "AI Certification",
+                icon: "fa-brain",
+                color: "#8e44ad",
+                img: "Assests/cert_ai.jpg"
+            },
+            django: {
+                title: "Django Mastery: From Basics to Deployment",
+                subtitle: "Full Course Certification",
+                icon: "fa-python",
+                color: "#092e20",
+                img: "Assests/cert_django.jpg"
+            }
+        };
+
+        // Read URL param
+        const params = new URLSearchParams(window.location.search);
+        const eduKey = params.get("edu");
+        const certKey = params.get("cert");
+        const key = eduKey || certKey;
+        const data = eduKey ? EDU_DATA[key] : CERT_DATA[key];
+
+        if (data) {
+            document.title = data.title + " – Ynshruthie";
+            document.getElementById("mc-title").textContent = data.title;
+            document.getElementById("mc-subtitle").textContent = data.subtitle;
+            document.getElementById("mc-placeholder-name").textContent = data.title;
+
+            const iconEl = document.getElementById("mc-icon");
+            iconEl.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+            iconEl.style.background = data.color;
+
+            // Try load image
+            const img = document.getElementById("mc-img");
+            img.src = data.img;
+            img.onload = () => {
+                img.classList.remove("hidden");
+                document.getElementById("mc-placeholder").classList.add("hidden");
+            };
+            img.onerror = () => {
+                // keep placeholder visible
+            };
+
+            // Show details table for edu
+            if (data.details) {
+                const detailsEl = document.getElementById("mc-details");
+                detailsEl.classList.remove("hidden");
+                detailsEl.innerHTML = `<table class="mc-table">
+                    ${data.details.map(d => `<tr><td class="mc-label">${d.label}</td><td class="mc-value">${d.value}</td></tr>`).join("")}
+                </table>`;
+            }
+        } else {
+            document.getElementById("mc-title").textContent = "Page Not Found";
+        }
+    </script>
+</body>
+</html>

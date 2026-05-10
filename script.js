@@ -42,11 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Modals
     const doorModal = document.getElementById('door-modal');
-    const profileModal = document.getElementById('profile-modal');
     const doorTitle = document.getElementById('door-title');
     const enterBtn = document.getElementById('enter-btn');
     const cancelDoorBtn = document.getElementById('cancel-door-btn');
-    const closeProfileBtn = document.getElementById('close-profile-btn');
 
     let scale = 1;
 
@@ -113,31 +111,56 @@ document.addEventListener('DOMContentLoaded', () => {
         // Helper to remove zoom
         const closeModalsContent = () => {
              doorModal.classList.add('hidden');
-             profileModal.classList.add('hidden');
              sceneContainer.classList.remove('zoomed-scene');
         };
+
+        // Elements for video transition
+        const videoOverlay = document.getElementById('video-transition-overlay');
+        const transitionVideo = document.getElementById('transition-video');
 
         // Doors
         [door1, door2].forEach(door => {
             door.addEventListener('click', () => {
-                // Determine which door
                 const label = door.dataset.label;
-                doorTitle.textContent = `Enter ${label}`;
                 
+                // Set the correct video source immediately
+                if (door.id === 'door1') {
+                    transitionVideo.src = 'o_left_door.mp4';
+                } else if (door.id === 'door2') {
+                    transitionVideo.src = 'o_right_door.mp4';
+                }
+                
+                transitionVideo.load();
+
                 // Magical click depression and scene zoom
                 door.style.transform = 'scale(0.9) perspective(400px) rotateX(5deg)';
                 sceneContainer.classList.add('zoomed-scene');
 
-                // Restore dot scale and redirect after a cinematic delay
+                // Restore dot scale quickly
                 setTimeout(() => {
                     door.style.transform = 'scale(1)';
-                    // Completely go to the different page
-                    if (door.id === 'door1') {
-                        window.location.href = 'tech.html';
-                    } else if (door.id === 'door2') {
-                        window.location.href = 'content.html';
+                }, 400);
+
+                // Show the black overlay right away to mask the zoom transitioning to video
+                setTimeout(() => {
+                    videoOverlay.classList.remove('hidden');
+                    
+                    // Attempt to play it. The promise will resolve once the video is ready.
+                    const playPromise = transitionVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.log("Autoplay prevented or failed", error);
+                            // Fallback to direct redirect if video completely fails
+                            if (door.id === 'door1') window.location.href = 'tech.html';
+                            else if (door.id === 'door2') window.location.href = 'content.html';
+                        });
                     }
-                }, 1000); // 1-second delay lets the cinematic zoom complete
+
+                    transitionVideo.onended = () => {
+                        if (door.id === 'door1') window.location.href = 'tech.html';
+                        else if (door.id === 'door2') window.location.href = 'content.html';
+                    };
+                }, 600); // Wait 600ms for the zoom effect, then show video
             });
         });
 
@@ -150,17 +173,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Girl Profile
-        girl.addEventListener('click', () => {
-             girl.style.transform = 'scale(0.9) perspective(400px) rotateX(5deg)';
-             sceneContainer.classList.add('zoomed-scene');
+        const magicFlashOverlay = document.getElementById('magic-flash-overlay');
+        
+        girl.addEventListener('click', (e) => {
+             // Position the flash exactly where the click happened or at the center of the girl
+             const rect = girl.getBoundingClientRect();
+             const centerX = rect.left + rect.width / 2;
+             const centerY = rect.top + rect.height / 2;
              
+             magicFlashOverlay.style.left = `${centerX}px`;
+             magicFlashOverlay.style.top = `${centerY}px`;
+             
+             // Trigger the magical flash
+             magicFlashOverlay.classList.add('flash-active');
+             
+             // Optional: a slight push-back on the character for impact
+             girl.style.transform = 'scale(0.9) perspective(400px) rotateX(10deg)';
+             
+             // Redirect exactly when the flash covers the screen (around 600-800ms)
              setTimeout(() => {
-                girl.style.transform = 'scale(1)';
-                profileModal.classList.remove('hidden');
-             }, 600);
+                window.location.href = 'profile.html';
+             }, 750);
         });
-
-        closeProfileBtn.addEventListener('click', closeModalsContent);
 
         // Close modals when clicking backdrop
         document.querySelectorAll('.modal-backdrop').forEach(bd => {
