@@ -325,7 +325,7 @@ body, html {
 
 /* Push the girl's hover label higher so it doesn't cover her beautiful pixel art face */
 #girl .hover-label {
-    top: -90px;
+    top: -110px;
 }
 
 
