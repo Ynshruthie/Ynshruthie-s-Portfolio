@@ -47,6 +47,11 @@ body, html {
     pointer-events: none;
 }
 
+/* Instant skip for returning users */
+.skip-loader #loader {
+    display: none !important;
+}
+
 .loader-content {
     display: flex;
     flex-direction: column;

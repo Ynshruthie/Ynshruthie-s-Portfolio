@@ -8,6 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <script>
+        // Instant check to prevent loader flicker if already played
+        if (sessionStorage.getItem('hasPlayedEntry')) {
+            document.documentElement.classList.add('skip-loader');
+        }
+    </script>
 </head>
 <body>
     <div class="loader" id="loader">

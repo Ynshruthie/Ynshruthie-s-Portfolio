@@ -50,10 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialization
     function init() {
-        // Remove loader after fake loading or when image loads
-        setTimeout(() => {
-            loader.classList.add('hidden');
-        }, 1500);
+        // Only play entry animation once per session
+        if (!sessionStorage.getItem('hasPlayedEntry')) {
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                sessionStorage.setItem('hasPlayedEntry', 'true');
+            }, 1500);
+        } else {
+            loader.style.display = 'none';
+        }
 
         updateLayout();
         window.addEventListener('resize', updateLayout);
