@@ -3,38 +3,620 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Career</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        body, html {
-            margin: 0; padding: 0;
-            width: 100%; height: 100vh;
-            background: #ffffff;
-            color: #1a1a1a;
-            font-family: 'Outfit', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        h1 { 
-            font-size: 2rem; 
-            font-weight: 300; 
-            letter-spacing: 1px;
-            text-align: center;
-        }
-        .back-btn { 
-            margin-top: 40px; 
-            text-decoration: none; 
-            color: #888; 
-            font-size: 0.9rem; 
-            transition: color 0.3s;
-        }
-        .back-btn:hover { color: #000; }
-    </style>
+    <title>Yelika Nagashruthi – Vibrant Journey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="tech.css">
 </head>
 <body>
-    <h1>You have now entered the Tech Career path.</h1>
-    <a href="index.html" class="back-btn">Go Back</a>
+
+    <!-- VIBRANT BACKGROUND -->
+    <div class="storybook-bg"></div>
+
+    <!-- HOME BUTTON -->
+    <a href="index.html" class="home-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+
+    <div class="container">
+        
+        <!-- HEADER -->
+        <header class="tech-header anim-fade-up visible">
+            <h1 class="storybook-title">Software Professional</h1>
+            <div class="typewriter" id="typewriter-text"></div>
+        </header>
+
+        <!-- RESUME DOWNLOAD SECTION -->
+        <section class="resume-section anim-fade-up visible stagger-2">
+            <div class="resume-info">
+                <h3><i class="fa-solid fa-scroll"></i> The Professional Scroll</h3>
+                <p>View my complete professional history, skills, and operations.</p>
+            </div>
+            <a href="Assests/resume.pdf" target="_blank" class="wood-btn">
+                <i class="fa-solid fa-download"></i> Get Resume
+            </a>
+        </section>
+
+        <!-- MAIN GRID -->
+        <div class="dashboard-grid">
+            
+            <!-- PROJECTS SECTION (Moved to Top) -->
+            <div class="projects-column">
+                <h2 class="sec-head anim-fade-up"><i class="fa-solid fa-wand-magic-sparkles"></i> Magical Projects</h2>
+                
+                <div class="projects-grid">
+                    <!-- Trip On -->
+                    <div class="polaroid-card anim-slide-left" data-modal="modal-tripon">
+                        <img src="Assests/proj_trip_on.png" class="polaroid-thumb" alt="Trip On">
+                        <h3 class="polaroid-title">Trip On Network</h3>
+                        <div class="tag-group" style="justify-content: center; margin-top: 10px;">
+                            <span class="story-tag">HTML/CSS</span>
+                            <span class="story-tag">PHP</span>
+                        </div>
+                    </div>
+
+                    <!-- Esports -->
+                    <div class="polaroid-card anim-slide-right" data-modal="modal-esports">
+                        <img src="Assests/proj_esports.png" class="polaroid-thumb" alt="Esports">
+                        <h3 class="polaroid-title">Esports Oracle</h3>
+                        <div class="tag-group" style="justify-content: center; margin-top: 10px;">
+                            <span class="story-tag">Python</span>
+                            <span class="story-tag">Scikit-Learn</span>
+                        </div>
+                    </div>
+
+                    <!-- Chatbot -->
+                    <div class="polaroid-card anim-slide-left" data-modal="modal-chatbot">
+                        <img src="Assests/proj_chatbot.png" class="polaroid-thumb" alt="Chatbot">
+                        <h3 class="polaroid-title">A.I. Companion</h3>
+                        <div class="tag-group" style="justify-content: center; margin-top: 10px;">
+                            <span class="story-tag">Java</span>
+                            <span class="story-tag">Gemini API</span>
+                        </div>
+                    </div>
+
+                    <!-- Sirelle Co -->
+                    <div class="polaroid-card anim-slide-right" data-modal="modal-sirelle">
+                        <img src="Assests/proj_sirelle.png" class="polaroid-thumb" alt="Sirelle">
+                        <h3 class="polaroid-title">The Sirelle Emporium</h3>
+                        <div class="tag-group" style="justify-content: center; margin-top: 10px;">
+                            <span class="story-tag">AI Modules</span>
+                            <span class="story-tag">Mobile Arch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="sec-head anim-fade-up"><i class="fa-solid fa-award"></i> Honors & Certifications</h2>
+                <div class="parchment-panel anim-fade-up">
+                    <ul class="story-list cert-list">
+                        <li data-modal="modal-cert-cisco" class="cert-item">Cisco Certified Support Technician Cybersecurity <i class="fa-solid fa-wand-sparkles"></i></li>
+                        <li data-modal="modal-cert-pragati" class="cert-item">Pragati: Path to Future – Cohort 6 <i class="fa-solid fa-wand-sparkles"></i></li>
+                        <li data-modal="modal-cert-codetocloud" class="cert-item">CODE TO CLOUD: A DEVOPS & DEPLOYMENT BOOTCAMP <i class="fa-solid fa-wand-sparkles"></i></li>
+                        <li data-modal="modal-cert-ai" class="cert-item">Artificial Intelligence Foundation Certification <i class="fa-solid fa-wand-sparkles"></i></li>
+                        <li data-modal="modal-cert-django" class="cert-item">DJANGO MASTERY: FROM BASICS TO DEPLOYMENT <i class="fa-solid fa-wand-sparkles"></i></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SKILLS & TOOLS -->
+            <div class="skills-column">
+                <div class="parchment-panel anim-fade-up">
+                    <h2 class="sec-head"><i class="fa-solid fa-leaf"></i> Skill Compendium</h2>
+                    
+                    <div class="skills-container" id="skills-container">
+                        <div class="skill-item">
+                            <div class="skill-label"><span>PYTHON / JAVA / C++</span> <span>95%</span></div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label"><span>AI & MACHINE LEARNING</span> <span>88%</span></div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label"><span>SQL & DBMS</span> <span>92%</span></div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label"><span>WEB DEV / JAVASCRIPT</span> <span>85%</span></div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label"><span>CYBER SECURITY</span> <span>80%</span></div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div>
+                        </div>
+                    </div>
+
+                    <h2 class="sec-head" style="margin-top: 40px;"><i class="fa-solid fa-toolbox"></i> Tools & Magic</h2>
+                    <div class="tag-group" style="margin-bottom: 35px;">
+                        <span class="story-tag"><i class="fa-brands fa-microsoft"></i> VS Code</span>
+                        <span class="story-tag"><i class="fa-brands fa-github"></i> Git/Github</span>
+                        <span class="story-tag"><i class="fa-solid fa-flask"></i> Colab</span>
+                        <span class="story-tag"><i class="fa-solid fa-brain"></i> Scikit-learn</span>
+                        <span class="story-tag"><i class="fa-solid fa-paper-plane"></i> Postman</span>
+                        <span class="story-tag"><i class="fa-brands fa-python"></i> Django</span>
+                        <span class="story-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="story-tag"><i class="fa-brands fa-linux"></i> Linux</span>
+                        <span class="story-tag"><i class="fa-solid fa-cloud"></i> Supabase</span>
+                    </div>
+
+                    <h2 class="sec-head"><i class="fa-solid fa-heart"></i> Soft Skills</h2>
+                    <div class="tag-group">
+                        <span class="story-tag tag-pink"><i class="fa-solid fa-comments"></i> Communication</span>
+                        <span class="story-tag tag-pink"><i class="fa-solid fa-arrows-rotate"></i> Adaptability</span>
+                        <span class="story-tag tag-pink"><i class="fa-solid fa-users"></i> Team Collaboration</span>
+                        <span class="story-tag tag-pink"><i class="fa-solid fa-clock"></i> Punctual</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACADEMY JOURNEY -->
+            <div class="journey-column">
+                <div class="anim-fade-up" id="roadmap-section">
+                    <h2 class="sec-head"><i class="fa-solid fa-book-open"></i> Academy Journey</h2>
+                    
+                    <div class="roadmap-container" id="roadmap">
+                        <!-- SVG Winding Path -->
+                        <svg class="roadmap-svg" viewBox="0 0 100 800" preserveAspectRatio="none">
+                            <path id="rm-path-bg" class="roadmap-path-bg" d="M 50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800" />
+                            <path id="rm-path-fill" class="roadmap-path-fill" d="M 50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800" />
+                        </svg>
+
+                        <div class="roadmap-nodes">
+                            <!-- 10th -->
+                            <div class="rm-node" data-modal="modal-10th">
+                                <div class="rm-content">
+                                    <div class="rm-date">April 2019</div>
+                                    <div class="rm-title">10th – State Board</div>
+                                    <div class="rm-desc">Allwin Public School | 84.96%</div>
+                                    <div class="rm-hint">Click to view Marks Card</div>
+                                </div>
+                            </div>
+                            <!-- 12th -->
+                            <div class="rm-node" data-modal="modal-12th">
+                                <div class="rm-content">
+                                    <div class="rm-date">July 2021</div>
+                                    <div class="rm-title">12th – PCMB</div>
+                                    <div class="rm-desc">REVA Independent PU | 87.83%</div>
+                                    <div class="rm-hint">Click to view Marks Card</div>
+                                </div>
+                            </div>
+                            <!-- BSC -->
+                            <div class="rm-node" data-modal="modal-bsc">
+                                <div class="rm-content">
+                                    <div class="rm-date">July 2024</div>
+                                    <div class="rm-title">BSC – Math, Stat & CS</div>
+                                    <div class="rm-desc">REVA University | CPI: 8.90</div>
+                                    <div class="rm-hint">Click to view Marks Card</div>
+                                </div>
+                            </div>
+                            <!-- MCA -->
+                            <div class="rm-node" data-modal="modal-mca">
+                                <div class="rm-content">
+                                    <div class="rm-date">2026 - Present</div>
+                                    <div class="rm-title">MCA – Computer Science</div>
+                                    <div class="rm-desc">REVA University | CPI: 9.04</div>
+                                    <div class="rm-hint">Current Enrollment</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STORYBOOK MODALS -->
+    <div class="modal-overlay" id="modal-overlay">
+        
+        <!-- Trip On Modal -->
+        <div class="storybook-modal hidden" id="modal-tripon">
+            <div class="modal-header">
+                <span class="modal-header-title">The Grand Journey</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="Assests/proj_trip_on.png" alt="Trip On">
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">Trip On Network</h2>
+                    <p class="modal-desc">
+                        Developed a full-stack travel and tourism website utilizing HTML, CSS, JavaScript, PHP, and MySQL. Features include secure authentication protocols, dynamic hotel booking systems, and interactive geographic maps. Built with a responsive matrix to provide users an optimized travel planning experience.
+                    </p>
+                    <div class="tag-group modal-tech">
+                        <span class="story-tag">HTML/CSS</span>
+                        <span class="story-tag">JavaScript</span>
+                        <span class="story-tag">PHP</span>
+                        <span class="story-tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Esports Modal -->
+        <div class="storybook-modal hidden" id="modal-esports">
+            <div class="modal-header">
+                <span class="modal-header-title">The Oracle's Vision</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="Assests/proj_esports.png" alt="Esports">
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">Esports Oracle</h2>
+                    <p class="modal-desc">
+                        Engineered a machine learning pipeline to predict competitive match outcomes from massive historical performance datasets. Achieving 88.9% accuracy and 0.967 ROC-AUC across multiple classification models, this system effectively forecasts player skills in real-time environments.
+                    </p>
+                    <div class="tag-group modal-tech">
+                        <span class="story-tag">Python</span>
+                        <span class="story-tag">Machine Learning</span>
+                        <span class="story-tag">Scikit-Learn</span>
+                        <span class="story-tag">Data Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot Modal -->
+        <div class="storybook-modal hidden" id="modal-chatbot">
+            <div class="modal-header">
+                <span class="modal-header-title">The Metallic Friend</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="Assests/proj_chatbot.png" alt="Chatbot">
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">A.I. Companion</h2>
+                    <p class="modal-desc">
+                        Programmed a Java Swing-based artificial intelligence chatbot integrating the Google Gemini API. Implemented multithreading for a fluid UI response, secure authentication, and persistent chat logs connected via JDBC to a MySQL database.
+                    </p>
+                    <div class="tag-group modal-tech">
+                        <span class="story-tag">Java Swing</span>
+                        <span class="story-tag">Gemini API</span>
+                        <span class="story-tag">JDBC / MySQL</span>
+                        <span class="story-tag">Multithreading</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sirelle Modal -->
+        <div class="storybook-modal hidden" id="modal-sirelle">
+            <div class="modal-header">
+                <span class="modal-header-title">The Magical Emporium</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="Assests/proj_sirelle.png" alt="Sirelle">
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">The Sirelle Emporium</h2>
+                    <p class="modal-desc">
+                        Built a mobile-based private-label e-commerce application equipped with lightweight AI modules. Features intelligent product discovery algorithms, user confusion detection, and predictive navigation, all operating within a highly scalable and modular network architecture.
+                    </p>
+                    <div class="tag-group modal-tech">
+                        <span class="story-tag">Mobile Dev</span>
+                        <span class="story-tag">AI Modules</span>
+                        <span class="story-tag">Predictive Nav</span>
+                        <span class="story-tag">Scalable Arch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10th Marks Modal -->
+        <div class="storybook-modal hidden" id="modal-10th">
+            <div class="modal-header">
+                <span class="modal-header-title">Academy Records - 10th</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <div class="marks-card-placeholder">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <p>10th Grade Marks Card</p>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">10th – State Board</h2>
+                    <p class="modal-desc">Completed 10th grade at Allwin Public School with a percentage of 84.96%.</p>
+                    <a href="#" class="wood-btn"><i class="fa-solid fa-download"></i> Download Marks Card</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12th Marks Modal -->
+        <div class="storybook-modal hidden" id="modal-12th">
+            <div class="modal-header">
+                <span class="modal-header-title">Academy Records - 12th</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <div class="marks-card-placeholder">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <p>12th Grade Marks Card</p>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">12th – PCMB</h2>
+                    <p class="modal-desc">Completed 12th grade at REVA Independent PU with a percentage of 87.83%.</p>
+                    <a href="#" class="wood-btn"><i class="fa-solid fa-download"></i> Download Marks Card</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BSC Marks Modal -->
+        <div class="storybook-modal hidden" id="modal-bsc">
+            <div class="modal-header">
+                <span class="modal-header-title">Academy Records - BSC</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <div class="marks-card-placeholder">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <p>BSC Degree Certificate</p>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">BSC – Math, Stat & CS</h2>
+                    <p class="modal-desc">Graduated from REVA University with a CPI of 8.90.</p>
+                    <a href="#" class="wood-btn"><i class="fa-solid fa-download"></i> Download Marks Card</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MCA Modal -->
+        <div class="storybook-modal hidden" id="modal-mca">
+            <div class="modal-header">
+                <span class="modal-header-title">Current Journey - MCA</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <div class="marks-card-placeholder">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <p>Ongoing Education</p>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">MCA – Computer Science</h2>
+                    <p class="modal-desc">Currently pursuing MCA at REVA University with a current CPI of 9.04.</p>
+                    <p><i>Official transcript will be available upon completion.</i></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cisco Certificate Modal -->
+        <div class="storybook-modal hidden" id="modal-cert-cisco">
+            <div class="modal-header">
+                <span class="modal-header-title">Professional Certification</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body cert-modal-body">
+                <div class="modal-image-container full-cert">
+                    <div class="marks-card-placeholder certificate-glow">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <p>Cisco Cybersecurity Certificate</p>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">Cisco Certified Support Technician</h2>
+                    <p class="modal-desc">Comprehensive certification in cybersecurity support, covering threat detection, network security, and fundamental protection protocols.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pragati Certificate Modal -->
+        <div class="storybook-modal hidden" id="modal-cert-pragati">
+            <div class="modal-header">
+                <span class="modal-header-title">Professional Certification</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body cert-modal-body">
+                <div class="modal-image-container full-cert">
+                    <div class="marks-card-placeholder certificate-glow">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <p>Pragati Cohort 6 Certificate</p>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">Pragati: Path to Future</h2>
+                    <p class="modal-desc">Successfully completed Cohort 6 of the Pragati program, focusing on future-ready skills and professional development.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code to Cloud Modal -->
+        <div class="storybook-modal hidden" id="modal-cert-codetocloud">
+            <div class="modal-header">
+                <span class="modal-header-title">Professional Certification</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body cert-modal-body">
+                <div class="modal-image-container full-cert">
+                    <div class="marks-card-placeholder certificate-glow">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p>Code to Cloud Bootcamp Certificate</p>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">CODE TO CLOUD Bootcamp</h2>
+                    <p class="modal-desc">Intensive training in DevOps methodologies and cloud deployment strategies for modern scalable applications.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Foundation Modal -->
+        <div class="storybook-modal hidden" id="modal-cert-ai">
+            <div class="modal-header">
+                <span class="modal-header-title">Professional Certification</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body cert-modal-body">
+                <div class="modal-image-container full-cert">
+                    <div class="marks-card-placeholder certificate-glow">
+                        <i class="fa-solid fa-robot"></i>
+                        <p>AI Foundation Certificate</p>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">Artificial Intelligence Foundation</h2>
+                    <p class="modal-desc">Certification in the foundational principles of Artificial Intelligence, including machine learning basics and neural networks.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Django Mastery Modal -->
+        <div class="storybook-modal hidden" id="modal-cert-django">
+            <div class="modal-header">
+                <span class="modal-header-title">Professional Certification</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body cert-modal-body">
+                <div class="modal-image-container full-cert">
+                    <div class="marks-card-placeholder certificate-glow">
+                        <i class="fa-solid fa-code"></i>
+                        <p>Django Mastery Certificate</p>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">DJANGO MASTERY</h2>
+                    <p class="modal-desc">In-depth mastery of the Django web framework, from database modeling to production deployment.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Typewriter Effect
+            const text = "Aspiring software professional, eager to innovate ✨";
+            const target = document.getElementById('typewriter-text');
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    target.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 50);
+                }
+            }
+            setTimeout(type, 500);
+
+            // 2. Intersection Observer for Scroll Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Special case: if it's the skills container, trigger the bars
+                        if(entry.target.id === 'skills-container') {
+                            const bars = entry.target.querySelectorAll('.skill-bar-fill');
+                            bars.forEach(bar => {
+                                const width = bar.getAttribute('data-width');
+                                setTimeout(() => {
+                                    bar.style.width = width;
+                                }, 200); // slight delay for visual effect
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.anim-fade-up, .anim-slide-left, .anim-slide-right').forEach(el => {
+                observer.observe(el);
+            });
+            // Observe skills specifically to trigger the width animation
+            observer.observe(document.getElementById('skills-container'));
+
+            // 3. Winding Roadmap Scroll Animation
+            const roadmapSection = document.getElementById('roadmap-section');
+            const pathFill = document.getElementById('rm-path-fill');
+            const nodes = document.querySelectorAll('.rm-node');
+            
+            // Get the total length of the SVG path
+            const pathLength = pathFill.getTotalLength();
+            pathFill.style.strokeDasharray = pathLength;
+            pathFill.style.strokeDashoffset = pathLength;
+
+            window.addEventListener('scroll', () => {
+                // Calculate how far the roadmap is from the top of the viewport
+                const rect = roadmapSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // If roadmap is in view
+                if(rect.top < windowHeight && rect.bottom > 0) {
+                    // Calculate percentage scrolled through the roadmap
+                    let scrollPercentage = (windowHeight - rect.top) / (rect.height + windowHeight * 0.5);
+                    scrollPercentage = Math.max(0, Math.min(1, scrollPercentage)); // Clamp between 0 and 1
+                    
+                    // Draw the line
+                    const drawLength = pathLength * scrollPercentage;
+                    pathFill.style.strokeDashoffset = pathLength - drawLength;
+
+                    // Reveal nodes based on scroll percentage
+                    nodes.forEach((node, index) => {
+                        // Assuming nodes are evenly distributed top to bottom
+                        const nodeTriggerPoint = (index + 0.5) / nodes.length;
+                        if(scrollPercentage > nodeTriggerPoint * 0.7) { // 0.7 to trigger a bit early
+                            node.classList.add('visible');
+                        }
+                    });
+                }
+            });
+
+            // 4. Modal Logic
+            const modalTriggers = document.querySelectorAll('.polaroid-card, .rm-node, .cert-item');
+            const overlay = document.getElementById('modal-overlay');
+            const modals = document.querySelectorAll('.storybook-modal');
+            const closeBtns = document.querySelectorAll('.modal-close');
+
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const targetId = trigger.getAttribute('data-modal');
+                    if(!targetId) return;
+                    
+                    modals.forEach(m => {
+                        m.classList.add('hidden');
+                        m.style.display = 'none';
+                    });
+                    const targetModal = document.getElementById(targetId);
+                    if(targetModal) {
+                        targetModal.classList.remove('hidden');
+                        targetModal.style.display = 'flex';
+                        overlay.classList.add('active');
+                    }
+                });
+            });
+
+            const closeModal = () => {
+                overlay.classList.remove('active');
+                setTimeout(() => {
+                    modals.forEach(m => {
+                        m.classList.add('hidden');
+                        m.style.display = 'none';
+                    });
+                }, 400);
+            };
+
+            closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+            overlay.addEventListener('click', (e) => {
+                if(e.target === overlay) closeModal();
+            });
+
+            // Make sure all modals are initially hidden
+            modals.forEach(m => m.style.display = 'none');
+        });
+    </script>
 </body>
 </html>
