@@ -42,9 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Modals
     const doorModal = document.getElementById('door-modal');
+    const profileModal = document.getElementById('profile-modal');
     const doorTitle = document.getElementById('door-title');
     const enterBtn = document.getElementById('enter-btn');
     const cancelDoorBtn = document.getElementById('cancel-door-btn');
+    const closeProfileBtn = document.getElementById('close-profile-btn');
 
     let scale = 1;
 
@@ -116,7 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Helper to remove zoom
         const closeModalsContent = () => {
              doorModal.classList.add('hidden');
+             profileModal.classList.add('hidden');
              sceneContainer.classList.remove('zoomed-scene');
+             sceneContainer.classList.remove('focus-girl');
         };
 
         // Elements for video transition
@@ -137,35 +141,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 transitionVideo.load();
 
-                // Magical click depression and scene zoom
+                // Magical click depression
                 door.style.transform = 'scale(0.9) perspective(400px) rotateX(5deg)';
-                sceneContainer.classList.add('zoomed-scene');
 
                 // Restore dot scale quickly
                 setTimeout(() => {
                     door.style.transform = 'scale(1)';
                 }, 400);
 
-                // Show the black overlay right away to mask the zoom transitioning to video
-                setTimeout(() => {
-                    videoOverlay.classList.remove('hidden');
-                    
-                    // Attempt to play it. The promise will resolve once the video is ready.
-                    const playPromise = transitionVideo.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            console.log("Autoplay prevented or failed", error);
-                            // Fallback to direct redirect if video completely fails
-                            if (door.id === 'door1') window.location.href = 'tech.html';
-                            else if (door.id === 'door2') window.location.href = 'content.html';
-                        });
-                    }
-
-                    transitionVideo.onended = () => {
+                // Show the black overlay right away and start video
+                videoOverlay.classList.remove('hidden');
+                
+                // Attempt to play it.
+                const playPromise = transitionVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Autoplay prevented or failed", error);
                         if (door.id === 'door1') window.location.href = 'tech.html';
                         else if (door.id === 'door2') window.location.href = 'content.html';
-                    };
-                }, 600); // Wait 600ms for the zoom effect, then show video
+                    });
+                }
+
+                transitionVideo.onended = () => {
+                    if (door.id === 'door1') window.location.href = 'tech.html';
+                    else if (door.id === 'door2') window.location.href = 'content.html';
+                };
             });
         });
 
@@ -178,28 +178,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Girl Profile
-        const magicFlashOverlay = document.getElementById('magic-flash-overlay');
-        
-        girl.addEventListener('click', (e) => {
-             // Position the flash exactly where the click happened or at the center of the girl
-             const rect = girl.getBoundingClientRect();
-             const centerX = rect.left + rect.width / 2;
-             const centerY = rect.top + rect.height / 2;
+        girl.addEventListener('click', () => {
+             // 1. Zoom into the character for cinematic impact
+             sceneContainer.classList.add('focus-girl');
              
-             magicFlashOverlay.style.left = `${centerX}px`;
-             magicFlashOverlay.style.top = `${centerY}px`;
-             
-             // Trigger the magical flash
-             magicFlashOverlay.classList.add('flash-active');
-             
-             // Optional: a slight push-back on the character for impact
-             girl.style.transform = 'scale(0.9) perspective(400px) rotateX(10deg)';
-             
-             // Redirect exactly when the flash covers the screen (around 600-800ms)
+             // 2. Slight delay for zoom effect, then show the profile summary modal
              setTimeout(() => {
-                window.location.href = 'profile.html';
-             }, 750);
+                profileModal.classList.remove('hidden');
+             }, 600);
         });
+
+        if (closeProfileBtn) {
+            closeProfileBtn.addEventListener('click', closeModalsContent);
+        }
 
         // Close modals when clicking backdrop
         document.querySelectorAll('.modal-backdrop').forEach(bd => {

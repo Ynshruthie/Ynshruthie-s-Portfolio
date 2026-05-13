@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
+<div class="ambient-bg" id="ambient-particles"></div>
 <div class="profile-page">
 
     <!-- BANNER -->
@@ -103,53 +104,58 @@
 
             <!-- RIGHT: Education + Design + Certs -->
             <div class="right-col">
+                <div class="edu-section">
+                    <h2 class="sec-head">Educations</h2>
+                    <p class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click to view marks card</p>
+                    <ul class="edu-list">
+                        <li><a href="markscard.html?edu=mca" class="edu-link">
+                            <div class="edu-dot" style="--c:#2B3A67"></div>
+                            <div class="edu-text"><strong>MCA – Computer Science &amp; Applications</strong><span>REVA University &nbsp;·&nbsp; 2026–Present &nbsp;·&nbsp; CPI 9.04</span></div>
+                            <i class="fa-solid fa-chevron-right edu-chev"></i>
+                        </a></li>
+                        <li><a href="markscard.html?edu=bsc" class="edu-link">
+                            <div class="edu-dot" style="--c:#3a6b2b"></div>
+                            <div class="edu-text"><strong>BSC – Mathematics, Statistics &amp; CS</strong><span>REVA University &nbsp;·&nbsp; July 2024 &nbsp;·&nbsp; CPI 8.90</span></div>
+                            <i class="fa-solid fa-chevron-right edu-chev"></i>
+                        </a></li>
+                        <li><a href="markscard.html?edu=12th" class="edu-link">
+                            <div class="edu-dot" style="--c:#6b2b2b"></div>
+                            <div class="edu-text"><strong>12th – Physics, Chemistry, Maths &amp; Biology</strong><span>REVA Independent PU College &nbsp;·&nbsp; July 2021 &nbsp;·&nbsp; 87.83%</span></div>
+                            <i class="fa-solid fa-chevron-right edu-chev"></i>
+                        </a></li>
+                        <li><a href="markscard.html?edu=10th" class="edu-link">
+                            <div class="edu-dot" style="--c:#6b4f2b"></div>
+                            <div class="edu-text"><strong>10th – State Board</strong><span>Allwin Public School &nbsp;·&nbsp; April 2019 &nbsp;·&nbsp; 84.96%</span></div>
+                            <i class="fa-solid fa-chevron-right edu-chev"></i>
+                        </a></li>
+                    </ul>
+                </div>
 
-                <h2 class="sec-head">Educations</h2>
-                <p class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click to view marks card</p>
-                <ul class="edu-list">
-                    <li><a href="markscard.html?edu=mca" class="edu-link">
-                        <div class="edu-dot" style="--c:#2B3A67"></div>
-                        <div class="edu-text"><strong>MCA – Computer Science &amp; Applications</strong><span>REVA University &nbsp;·&nbsp; 2026–Present &nbsp;·&nbsp; CPI 9.04</span></div>
-                        <i class="fa-solid fa-chevron-right edu-chev"></i>
-                    </a></li>
-                    <li><a href="markscard.html?edu=bsc" class="edu-link">
-                        <div class="edu-dot" style="--c:#3a6b2b"></div>
-                        <div class="edu-text"><strong>BSC – Mathematics, Statistics &amp; CS</strong><span>REVA University &nbsp;·&nbsp; July 2024 &nbsp;·&nbsp; CPI 8.90</span></div>
-                        <i class="fa-solid fa-chevron-right edu-chev"></i>
-                    </a></li>
-                    <li><a href="markscard.html?edu=12th" class="edu-link">
-                        <div class="edu-dot" style="--c:#6b2b2b"></div>
-                        <div class="edu-text"><strong>12th – Physics, Chemistry, Maths &amp; Biology</strong><span>REVA Independent PU College &nbsp;·&nbsp; July 2021 &nbsp;·&nbsp; 87.83%</span></div>
-                        <i class="fa-solid fa-chevron-right edu-chev"></i>
-                    </a></li>
-                    <li><a href="markscard.html?edu=10th" class="edu-link">
-                        <div class="edu-dot" style="--c:#6b4f2b"></div>
-                        <div class="edu-text"><strong>10th – State Board</strong><span>Allwin Public School &nbsp;·&nbsp; April 2019 &nbsp;·&nbsp; 84.96%</span></div>
-                        <i class="fa-solid fa-chevron-right edu-chev"></i>
-                    </a></li>
-                </ul>
+                <div class="design-section">
+                    <h2 class="sec-head">Design Skills</h2>
+                    <ul class="plain-list">
+                        <li>Branding &amp; Visual Identity Design</li>
+                        <li>Logo Design &amp; Concept Development</li>
+                        <li>Custom Typography (Hand-drawn Lettering)</li>
+                        <li>Poster &amp; Marketing Material Design</li>
+                        <li>Environmental Graphic Design</li>
+                        <li>Illustration &amp; Character Design</li>
+                        <li>Layout &amp; Composition</li>
+                        <li>Color Theory &amp; Visual Hierarchy</li>
+                    </ul>
+                </div>
 
-                <h2 class="sec-head" style="margin-top:32px;">Design Skills</h2>
-                <ul class="plain-list">
-                    <li>Branding &amp; Visual Identity Design</li>
-                    <li>Logo Design &amp; Concept Development</li>
-                    <li>Custom Typography (Hand-drawn Lettering)</li>
-                    <li>Poster &amp; Marketing Material Design</li>
-                    <li>Environmental Graphic Design</li>
-                    <li>Illustration &amp; Character Design</li>
-                    <li>Layout &amp; Composition</li>
-                    <li>Color Theory &amp; Visual Hierarchy</li>
-                </ul>
-
-                <h2 class="sec-head" style="margin-top:32px;">Certifications</h2>
-                <p class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click to view certificate</p>
-                <ul class="plain-list cert-list">
-                    <li><a href="markscard.html?cert=cisco" class="cert-link"><i class="fa-solid fa-shield-halved"></i> Cisco Certified Support Technician – Cybersecurity</a></li>
-                    <li><a href="markscard.html?cert=pragati" class="cert-link"><i class="fa-solid fa-seedling"></i> Pragati: Path to Future – Cohort 6</a></li>
-                    <li><a href="markscard.html?cert=devops" class="cert-link"><i class="fa-solid fa-cloud-arrow-up"></i> Code to Cloud: DevOps &amp; Deployment Bootcamp</a></li>
-                    <li><a href="markscard.html?cert=ai" class="cert-link"><i class="fa-solid fa-brain"></i> Artificial Intelligence Foundation Certification</a></li>
-                    <li><a href="markscard.html?cert=django" class="cert-link"><i class="fa-brands fa-python"></i> Django Mastery: From Basics to Deployment</a></li>
-                </ul>
+                <div class="cert-section">
+                    <h2 class="sec-head">Certifications</h2>
+                    <p class="click-hint"><i class="fa-solid fa-hand-pointer"></i> Click to view certificate</p>
+                    <ul class="plain-list cert-list">
+                        <li><a href="markscard.html?cert=cisco" class="cert-link"><i class="fa-solid fa-shield-halved"></i> Cisco Certified Support Technician – Cybersecurity</a></li>
+                        <li><a href="markscard.html?cert=pragati" class="cert-link"><i class="fa-solid fa-seedling"></i> Pragati: Path to Future – Cohort 6</a></li>
+                        <li><a href="markscard.html?cert=devops" class="cert-link"><i class="fa-solid fa-cloud-arrow-up"></i> Code to Cloud: DevOps &amp; Deployment Bootcamp</a></li>
+                        <li><a href="markscard.html?cert=ai" class="cert-link"><i class="fa-solid fa-brain"></i> Artificial Intelligence Foundation Certification</a></li>
+                        <li><a href="markscard.html?cert=django" class="cert-link"><i class="fa-brands fa-python"></i> Django Mastery: From Basics to Deployment</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -161,5 +167,38 @@
     </div>
 
 </div>
+<script>
+    // Ambient Firefly Spawning
+    const particleContainer = document.getElementById('ambient-particles');
+    function spawnFirefly() {
+        const firefly = document.createElement('div');
+        firefly.className = 'firefly';
+        
+        // Random position
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * window.innerHeight;
+        
+        firefly.style.left = `${startX}px`;
+        firefly.style.top = `${startY}px`;
+        
+        // Random animation properties
+        const duration = Math.random() * 4 + 4; // 4-8s
+        const delay = Math.random() * 2;
+        firefly.style.animationDuration = `${duration}s`;
+        firefly.style.animationDelay = `${delay}s`;
+        
+        particleContainer.appendChild(firefly);
+        
+        // Remove after animation
+        setTimeout(() => {
+            firefly.remove();
+        }, (duration + delay) * 1000);
+    }
+
+    // Spawn initial set
+    for(let i=0; i<15; i++) spawnFirefly();
+    // Continue spawning
+    setInterval(spawnFirefly, 1000);
+</script>
 </body>
 </html>

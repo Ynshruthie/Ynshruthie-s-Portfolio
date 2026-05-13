@@ -346,9 +346,15 @@ body, html {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-#profile-modal {
-    justify-content: flex-end; /* Push profile to the right side */
-    padding-right: 5vw; /* keep it away from the edge */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .modal.hidden {
@@ -385,6 +391,143 @@ body, html {
 
 #profile-modal.hidden .modal-content {
     transform: translateX(40px) scale(0.95); /* Slides in from the right */
+}
+
+#profile-modal {
+    justify-content: flex-end;
+    padding-right: 5vw;
+}
+
+.profile-summary {
+    max-width: 420px;
+    padding: 40px;
+    background: #fdf8e7; /* Parchment Color */
+    border: 5px solid #4a2c11; /* Thick Wooden Border */
+    border-radius: 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 0 30px rgba(74, 44, 17, 0.1);
+    position: relative;
+    color: #2b1808; /* Dark Brown Text */
+}
+
+/* Corner Nails */
+.profile-summary::before, .profile-summary::after {
+    content: '';
+    position: absolute;
+    width: 15px; height: 15px;
+    background: #4a2c11;
+    border-radius: 50%;
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+.profile-summary::before { top: 15px; left: 15px; }
+.profile-summary::after { bottom: 15px; right: 15px; }
+
+.profile-avatar-mini {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 5px solid #4a2c11;
+    padding: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.profile-avatar-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name-mini {
+    font-family: 'Syne', sans-serif; /* Game Title Font */
+    font-size: 2.2rem !important;
+    font-weight: 800;
+    color: #4a2c11 !important;
+    margin-bottom: 5px !important;
+    text-transform: none;
+    letter-spacing: -0.5px;
+}
+
+.profile-tagline {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem;
+    color: #5c4126; /* Darker muted brown */
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.profile-summary-body {
+    margin: 25px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2b1808; /* Deep dark brown */
+    font-weight: 700;
+}
+
+.profile-mini-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+    text-align: left;
+    background: rgba(74, 44, 17, 0.08); /* Slightly more visible bg */
+    padding: 24px;
+    border-radius: 20px;
+    border: 2px solid rgba(74, 44, 17, 0.15);
+}
+
+.profile-mini-stats span {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.05rem;
+    color: #2b1808; /* High contrast */
+    font-weight: 800;
+}
+
+.profile-mini-stats i {
+    color: #4a2c11;
+    font-size: 1.1rem;
+}
+
+/* Wooden 3D Button */
+.profile-summary .enter-btn {
+    background: linear-gradient(145deg, #a66a3d, #4a2c11) !important;
+    border: 3px solid #2b1808 !important;
+    color: #fdf8e7 !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 0 #2b1808, 0 15px 25px rgba(0,0,0,0.3) !important;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    padding: 12px 30px !important;
+    font-family: 'Syne', sans-serif;
+}
+
+.profile-summary .enter-btn:hover {
+    transform: translateY(3px) !important;
+    box-shadow: 0 5px 0 #2b1808, 0 10px 15px rgba(0,0,0,0.2) !important;
+}
+
+.profile-summary .modal-close {
+    color: #4a2c11;
+    opacity: 0.5;
+}
+.profile-summary .modal-close:hover {
+    color: #4a2c11;
+    opacity: 1;
+}
+
+/* ── TRANSITIONS ───────────────────── */
+.zoomed-scene {
+    transform: scale(1.5);
+    filter: blur(4px) brightness(0.6);
+}
+
+.focus-girl {
+    transform: scale(2) translate(-10%, -5%);
+    filter: blur(8px) brightness(0.4);
 }
 
 .glass {
