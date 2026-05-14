@@ -141,26 +141,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 transitionVideo.load();
 
-                // Magical click depression
-                door.style.transform = 'scale(0.9) perspective(400px) rotateX(5deg)';
-
-                // Restore dot scale quickly
-                setTimeout(() => {
-                    door.style.transform = 'scale(1)';
-                }, 400);
-
-                // Show the black overlay right away and start video
-                videoOverlay.classList.remove('hidden');
+                // Magical pull animation
+                sceneContainer.classList.add('magical-pull');
                 
-                // Attempt to play it.
-                const playPromise = transitionVideo.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(error => {
-                        console.log("Autoplay prevented or failed", error);
-                        if (door.id === 'door1') window.location.href = 'tech.html';
-                        else if (door.id === 'door2') window.location.href = 'content.html';
-                    });
-                }
+                // Slight delay for the pull effect to be felt, then show video
+                setTimeout(() => {
+                    videoOverlay.classList.remove('hidden');
+                    const playPromise = transitionVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.log("Autoplay prevented or failed", error);
+                            if (door.id === 'door1') window.location.href = 'tech.html';
+                            else if (door.id === 'door2') window.location.href = 'content.html';
+                        });
+                    }
+                }, 500); // 500ms for a gentle blur before the video takes over
 
                 transitionVideo.onended = () => {
                     if (door.id === 'door1') window.location.href = 'tech.html';
