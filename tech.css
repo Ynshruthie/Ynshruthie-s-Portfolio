@@ -605,6 +605,12 @@ body {
 .modal-overlay.active {
     opacity: 1; pointer-events: all;
 }
+.storybook-modal.resume-modal {
+    max-width: 800px;
+    width: 95%;
+    max-height: 95vh;
+    height: auto;
+}
 .storybook-modal {
     width: 95%; max-width: 1100px;
     background: var(--parchment);

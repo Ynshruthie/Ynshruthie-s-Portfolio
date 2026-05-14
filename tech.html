@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="tech.css">
 </head>
+
 <body>
 
     <!-- VIBRANT BACKGROUND -->
@@ -16,7 +18,7 @@
     <a href="index.html" class="home-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
 
     <div class="container">
-        
+
         <!-- HEADER -->
         <header class="tech-header anim-fade-up visible">
             <h1 class="storybook-title">Software Professional</h1>
@@ -29,18 +31,18 @@
                 <h3><i class="fa-solid fa-scroll"></i> The Professional Scroll</h3>
                 <p>View my complete professional history, skills, and operations.</p>
             </div>
-            <a href="Assests/resume.pdf" target="_blank" class="wood-btn">
-                <i class="fa-solid fa-download"></i> Get Resume
-            </a>
+            <button class="wood-btn resume-trigger" data-modal="modal-resume">
+                <i class="fa-solid fa-file-pdf"></i> View & Download Resume
+            </button>
         </section>
 
         <!-- MAIN GRID -->
         <div class="dashboard-grid">
-            
+
             <!-- PROJECTS SECTION (Moved to Top) -->
             <div class="projects-column">
                 <h2 class="sec-head anim-fade-up"><i class="fa-solid fa-wand-magic-sparkles"></i> Magical Projects</h2>
-                
+
                 <div class="projects-grid">
                     <!-- Trip On -->
                     <div class="polaroid-card anim-slide-left" data-modal="modal-tripon">
@@ -72,73 +74,116 @@
             <div class="skills-column">
                 <div class="parchment-panel anim-fade-up">
                     <h2 class="sec-head"><i class="fa-solid fa-leaf"></i> Skill Compendium</h2>
-                    
+
                     <div class="skills-container" id="skills-container">
                         <div class="skill-item">
                             <div class="skill-label"><span>PYTHON / JAVA / C++</span> <span>95%</span></div>
-                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="95%"></div>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-label"><span>AI & MACHINE LEARNING</span> <span>88%</span></div>
-                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="88%"></div>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-label"><span>SQL & DBMS</span> <span>92%</span></div>
-                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="92%"></div>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-label"><span>WEB DEV / JAVASCRIPT</span> <span>85%</span></div>
-                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="85%"></div>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-label"><span>CYBER SECURITY</span> <span>80%</span></div>
-                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="80%"></div>
+                            </div>
                         </div>
                     </div>
 
-                    <h2 class="sec-head" style="margin-top: 40px;"><i class="fa-solid fa-toolbox"></i> Tools & Magic</h2>
+                    <h2 class="sec-head" style="margin-top: 40px;"><i class="fa-solid fa-toolbox"></i> Tools & Magic
+                    </h2>
                     <div class="tag-group" style="margin-bottom: 35px;">
                         <!-- Languages -->
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=python" class="tool-logo" alt="Python"> Python</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=java" class="tool-logo" alt="Java"> Java</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=cpp" class="tool-logo" alt="C++"> C++</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=js" class="tool-logo" alt="JS"> JavaScript</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=ts" class="tool-logo" alt="TS"> TypeScript</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=html" class="tool-logo" alt="HTML"> HTML5</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=css" class="tool-logo" alt="CSS"> CSS3</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=bash" class="tool-logo" alt="Bash"> Bash</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=python" class="tool-logo"
+                                alt="Python"> Python</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=java" class="tool-logo"
+                                alt="Java"> Java</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=cpp" class="tool-logo"
+                                alt="C++"> C++</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=js" class="tool-logo" alt="JS">
+                            JavaScript</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=ts" class="tool-logo" alt="TS">
+                            TypeScript</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=html" class="tool-logo"
+                                alt="HTML"> HTML5</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=css" class="tool-logo"
+                                alt="CSS"> CSS3</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=bash" class="tool-logo"
+                                alt="Bash"> Bash</span>
 
                         <!-- Frameworks -->
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=django" class="tool-logo" alt="Django"> Django</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=nodejs" class="tool-logo" alt="Node.js"> Node.js</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=express" class="tool-logo" alt="Express"> Express</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=bootstrap" class="tool-logo" alt="Bootstrap"> Bootstrap</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=flutter" class="tool-logo" alt="Flutter"> Flutter</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=nextjs" class="tool-logo" alt="Next.js"> Next.js</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=django" class="tool-logo"
+                                alt="Django"> Django</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=nodejs" class="tool-logo"
+                                alt="Node.js"> Node.js</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=express" class="tool-logo"
+                                alt="Express"> Express</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=bootstrap" class="tool-logo"
+                                alt="Bootstrap"> Bootstrap</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=flutter" class="tool-logo"
+                                alt="Flutter"> Flutter</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=nextjs" class="tool-logo"
+                                alt="Next.js"> Next.js</span>
 
                         <!-- AI & Data -->
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=sklearn" class="tool-logo" alt="Scikit-learn"> Scikit-learn</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=tensorflow" class="tool-logo" alt="TensorFlow"> TensorFlow</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=pytorch" class="tool-logo" alt="PyTorch"> PyTorch</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=numpy" class="tool-logo" alt="NumPy"> NumPy</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=pandas" class="tool-logo" alt="Pandas"> Pandas</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=opencv" class="tool-logo" alt="OpenCV"> OpenCV</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=sklearn" class="tool-logo"
+                                alt="Scikit-learn"> Scikit-learn</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=tensorflow" class="tool-logo"
+                                alt="TensorFlow"> TensorFlow</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=pytorch" class="tool-logo"
+                                alt="PyTorch"> PyTorch</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=numpy" class="tool-logo"
+                                alt="NumPy"> NumPy</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=pandas" class="tool-logo"
+                                alt="Pandas"> Pandas</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=opencv" class="tool-logo"
+                                alt="OpenCV"> OpenCV</span>
 
                         <!-- DB & Cloud -->
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=mysql" class="tool-logo" alt="MySQL"> MySQL</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=postgres" class="tool-logo" alt="Postgres"> Postgres</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=mongodb" class="tool-logo" alt="MongoDB"> MongoDB</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=supabase" class="tool-logo" alt="Supabase"> Supabase</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=firebase" class="tool-logo" alt="Firebase"> Firebase</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=gcp" class="tool-logo" alt="GCP"> Google Cloud</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=vercel" class="tool-logo" alt="Vercel"> Vercel</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=mysql" class="tool-logo"
+                                alt="MySQL"> MySQL</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=postgres" class="tool-logo"
+                                alt="Postgres"> Postgres</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=mongodb" class="tool-logo"
+                                alt="MongoDB"> MongoDB</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=supabase" class="tool-logo"
+                                alt="Supabase"> Supabase</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=firebase" class="tool-logo"
+                                alt="Firebase"> Firebase</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=gcp" class="tool-logo"
+                                alt="GCP"> Google Cloud</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=vercel" class="tool-logo"
+                                alt="Vercel"> Vercel</span>
 
                         <!-- Tools -->
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=git" class="tool-logo" alt="Git"> Git</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=github" class="tool-logo" alt="Github"> Github</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=postman" class="tool-logo" alt="Postman"> Postman</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=figma" class="tool-logo" alt="Figma"> Figma</span>
-                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=notion" class="tool-logo" alt="Notion"> Notion</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=git" class="tool-logo"
+                                alt="Git"> Git</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=github" class="tool-logo"
+                                alt="Github"> Github</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=postman" class="tool-logo"
+                                alt="Postman"> Postman</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=figma" class="tool-logo"
+                                alt="Figma"> Figma</span>
+                        <span class="story-tag"><img src="https://skillicons.dev/icons?i=notion" class="tool-logo"
+                                alt="Notion"> Notion</span>
                     </div>
 
                     <h2 class="sec-head"><i class="fa-solid fa-heart"></i> Soft Skills</h2>
@@ -147,10 +192,12 @@
                         <span class="story-tag"><i class="fa-solid fa-arrows-rotate icon-green"></i> Adaptability</span>
                         <span class="story-tag"><i class="fa-solid fa-users icon-orange"></i> Team Collaboration</span>
                         <span class="story-tag"><i class="fa-solid fa-clock icon-yellow"></i> Punctual</span>
-                        <span class="story-tag"><i class="fa-solid fa-puzzle-piece icon-purple"></i> Problem Solving</span>
+                        <span class="story-tag"><i class="fa-solid fa-puzzle-piece icon-purple"></i> Problem
+                            Solving</span>
                         <span class="story-tag"><i class="fa-solid fa-crown icon-gold"></i> Leadership</span>
                         <span class="story-tag"><i class="fa-solid fa-brain icon-teal"></i> Critical Thinking</span>
-                        <span class="story-tag"><i class="fa-solid fa-hourglass-half icon-red"></i> Time Management</span>
+                        <span class="story-tag"><i class="fa-solid fa-hourglass-half icon-red"></i> Time
+                            Management</span>
                         <span class="story-tag"><i class="fa-solid fa-briefcase icon-brown"></i> Work Ethic</span>
                     </div>
                 </div>
@@ -160,12 +207,14 @@
             <div class="journey-column">
                 <div class="anim-fade-up" id="roadmap-section">
                     <h2 class="sec-head"><i class="fa-solid fa-book-open"></i> Academy Journey</h2>
-                    
+
                     <div class="roadmap-container" id="roadmap">
                         <!-- SVG Winding Path -->
                         <svg class="roadmap-svg" viewBox="0 0 100 800" preserveAspectRatio="none">
-                            <path id="rm-path-bg" class="roadmap-path-bg" d="M 50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800" />
-                            <path id="rm-path-fill" class="roadmap-path-fill" d="M 50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800" />
+                            <path id="rm-path-bg" class="roadmap-path-bg"
+                                d="M 50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800" />
+                            <path id="rm-path-fill" class="roadmap-path-fill"
+                                d="M 50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800" />
                         </svg>
 
                         <div class="roadmap-nodes">
@@ -231,15 +280,26 @@
             </div>
 
             <!-- HONORS & CERTIFICATIONS (Moved) -->
-            <div class="cert-column full-width-column" style="grid-column: 1 / -1; margin-top: 40px; margin-bottom: 60px;">
+            <div class="cert-column full-width-column"
+                style="grid-column: 1 / -1; margin-top: 40px; margin-bottom: 60px;">
                 <h2 class="sec-head anim-fade-up"><i class="fa-solid fa-award"></i> Honors & Certifications</h2>
                 <div class="parchment-panel anim-fade-up">
                     <ul class="story-list cert-list">
-                        <li data-modal="modal-cert-cisco" class="cert-item"><span><img src="https://cdn.simpleicons.org/cisco/00bceb" class="cert-icon-lead" alt="Cisco"> Cisco Certified Support Technician Cybersecurity</span></li>
-                        <li data-modal="modal-cert-pragati" class="cert-item"><span><i class="fa-solid fa-users-gear cert-icon-lead"></i> Pragati: Path to Future – Cohort 6</span></li>
-                        <li data-modal="modal-cert-codetocloud" class="cert-item"><span><i class="fa-solid fa-cloud-arrow-up cert-icon-lead"></i> CODE TO CLOUD: DEVOPS BOOTCAMP</span></li>
-                        <li data-modal="modal-cert-ai" class="cert-item"><span><i class="fa-solid fa-robot cert-icon-lead"></i> Artificial Intelligence Foundation</span></li>
-                        <li data-modal="modal-cert-django" class="cert-item"><span><img src="https://cdn.simpleicons.org/django/092e20" class="cert-icon-lead" alt="Django"> DJANGO MASTERY: BASICS TO DEPLOYMENT</span></li>
+                        <li data-modal="modal-cert-cisco" class="cert-item"><span><img
+                                    src="https://cdn.simpleicons.org/cisco/00bceb" class="cert-icon-lead" alt="Cisco">
+                                Cisco Certified Support Technician Cybersecurity</span></li>
+                        <li data-modal="modal-cert-pragati" class="cert-item"><span><i
+                                    class="fa-solid fa-users-gear cert-icon-lead"></i> Pragati: Path to Future – Cohort
+                                6</span></li>
+                        <li data-modal="modal-cert-codetocloud" class="cert-item"><span><i
+                                    class="fa-solid fa-cloud-arrow-up cert-icon-lead"></i> CODE TO CLOUD: DEVOPS
+                                BOOTCAMP</span></li>
+                        <li data-modal="modal-cert-ai" class="cert-item"><span><i
+                                    class="fa-solid fa-robot cert-icon-lead"></i> Artificial Intelligence
+                                Foundation</span></li>
+                        <li data-modal="modal-cert-django" class="cert-item"><span><img
+                                    src="https://cdn.simpleicons.org/django/092e20" class="cert-icon-lead" alt="Django">
+                                DJANGO MASTERY: BASICS TO DEPLOYMENT</span></li>
                     </ul>
                 </div>
             </div>
@@ -248,7 +308,7 @@
 
     <!-- STORYBOOK MODALS -->
     <div class="modal-overlay" id="modal-overlay">
-        
+
         <!-- Trip On Modal -->
         <div class="storybook-modal hidden" id="modal-tripon">
             <div class="modal-header">
@@ -262,7 +322,10 @@
                 <div class="modal-details">
                     <h2 class="modal-title">Trip On Network</h2>
                     <p class="modal-desc">
-                        Developed a full-stack travel and tourism website utilizing HTML, CSS, JavaScript, PHP, and MySQL. Features include secure authentication protocols, dynamic hotel booking systems, and interactive geographic maps. Built with a responsive matrix to provide users an optimized travel planning experience.
+                        Developed a full-stack travel and tourism website utilizing HTML, CSS, JavaScript, PHP, and
+                        MySQL. Features include secure authentication protocols, dynamic hotel booking systems, and
+                        interactive geographic maps. Built with a responsive matrix to provide users an optimized travel
+                        planning experience.
                     </p>
                     <div class="tag-group modal-tech">
                         <span class="story-tag">HTML/CSS</span>
@@ -287,7 +350,10 @@
                 <div class="modal-details">
                     <h2 class="modal-title">Esports Oracle</h2>
                     <p class="modal-desc">
-                        Engineered a machine learning pipeline to predict competitive match outcomes from massive historical performance datasets. Achieving 88.9% accuracy and 0.967 ROC-AUC across multiple classification models, this system effectively forecasts player skills in real-time environments.
+                        Engineered a machine learning pipeline to predict competitive match outcomes from massive
+                        historical performance datasets. Achieving 88.9% accuracy and 0.967 ROC-AUC across multiple
+                        classification models, this system effectively forecasts player skills in real-time
+                        environments.
                     </p>
                     <div class="tag-group modal-tech">
                         <span class="story-tag">Python</span>
@@ -312,7 +378,9 @@
                 <div class="modal-details">
                     <h2 class="modal-title">A.I. Companion</h2>
                     <p class="modal-desc">
-                        Programmed a Java Swing-based artificial intelligence chatbot integrating the Google Gemini API. Implemented multithreading for a fluid UI response, secure authentication, and persistent chat logs connected via JDBC to a MySQL database.
+                        Programmed a Java Swing-based artificial intelligence chatbot integrating the Google Gemini API.
+                        Implemented multithreading for a fluid UI response, secure authentication, and persistent chat
+                        logs connected via JDBC to a MySQL database.
                     </p>
                     <div class="tag-group modal-tech">
                         <span class="story-tag">Java Swing</span>
@@ -337,7 +405,9 @@
                 <div class="modal-details">
                     <h2 class="modal-title">The Sirelle Emporium</h2>
                     <p class="modal-desc">
-                        Built a mobile-based private-label e-commerce application equipped with lightweight AI modules. Features intelligent product discovery algorithms, user confusion detection, and predictive navigation, all operating within a highly scalable and modular network architecture.
+                        Built a mobile-based private-label e-commerce application equipped with lightweight AI modules.
+                        Features intelligent product discovery algorithms, user confusion detection, and predictive
+                        navigation, all operating within a highly scalable and modular network architecture.
                     </p>
                     <div class="tag-group modal-tech">
                         <span class="story-tag">Mobile Dev</span>
@@ -448,7 +518,8 @@
                 </div>
                 <div class="modal-details">
                     <h2 class="modal-title">Cisco Certified Support Technician</h2>
-                    <p class="modal-desc">Comprehensive certification in cybersecurity support, covering threat detection, network security, and fundamental protection protocols.</p>
+                    <p class="modal-desc">Comprehensive certification in cybersecurity support, covering threat
+                        detection, network security, and fundamental protection protocols.</p>
                 </div>
             </div>
         </div>
@@ -468,7 +539,8 @@
                 </div>
                 <div class="modal-details">
                     <h2 class="modal-title">Pragati: Path to Future</h2>
-                    <p class="modal-desc">Successfully completed Cohort 6 of the Pragati program, focusing on future-ready skills and professional development.</p>
+                    <p class="modal-desc">Successfully completed Cohort 6 of the Pragati program, focusing on
+                        future-ready skills and professional development.</p>
                 </div>
             </div>
         </div>
@@ -488,7 +560,8 @@
                 </div>
                 <div class="modal-details">
                     <h2 class="modal-title">CODE TO CLOUD Bootcamp</h2>
-                    <p class="modal-desc">Intensive training in DevOps methodologies and cloud deployment strategies for modern scalable applications.</p>
+                    <p class="modal-desc">Intensive training in DevOps methodologies and cloud deployment strategies for
+                        modern scalable applications.</p>
                 </div>
             </div>
         </div>
@@ -508,7 +581,8 @@
                 </div>
                 <div class="modal-details">
                     <h2 class="modal-title">Artificial Intelligence Foundation</h2>
-                    <p class="modal-desc">Certification in the foundational principles of Artificial Intelligence, including machine learning basics and neural networks.</p>
+                    <p class="modal-desc">Certification in the foundational principles of Artificial Intelligence,
+                        including machine learning basics and neural networks.</p>
                 </div>
             </div>
         </div>
@@ -528,7 +602,34 @@
                 </div>
                 <div class="modal-details">
                     <h2 class="modal-title">DJANGO MASTERY</h2>
-                    <p class="modal-desc">In-depth mastery of the Django web framework, from database modeling to production deployment.</p>
+                    <p class="modal-desc">In-depth mastery of the Django web framework, from database modeling to
+                        production deployment.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Modal (Bigger for better viewing) -->
+        <div class="storybook-modal hidden resume-modal" id="modal-resume">
+            <div class="modal-header">
+                <span class="modal-header-title">The Professional Scroll</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body cert-modal-body">
+                <div class="modal-image-container full-cert"
+                    style="height: 1400px; background: white; border: 4px solid #4a2c11; border-radius: 12px; margin-bottom: 30px;">
+                    <iframe src="Assests/resume.pdf#toolbar=0&navpanes=0&view=FitH" class="resume-iframe"
+                        style="width: 100%; height: 100%; border: none; border-radius: 8px; background: white;"></iframe>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">Official Resume</h2>
+                    <p class="modal-desc">
+                        My complete professional history, educational background, and technical expertise consolidated
+                        into a single comprehensive document.
+                    </p>
+                    <a href="Assests/resume.pdf" download="Yelika_Nagashruthi_Resume.pdf" class="wood-btn"
+                        style="margin-top: 20px; text-decoration: none; display: inline-flex; width: auto; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-cloud-arrow-down"></i> Download PDF
+                    </a>
                 </div>
             </div>
         </div>
@@ -538,7 +639,7 @@
     <!-- SCRIPTS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // 1. Typewriter Effect
             const text = "Aspiring software professional, eager to innovate ✨";
             const target = document.getElementById('typewriter-text');
@@ -562,9 +663,9 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        
+
                         // Special case: if it's the skills container, trigger the bars
-                        if(entry.target.id === 'skills-container') {
+                        if (entry.target.id === 'skills-container') {
                             const bars = entry.target.querySelectorAll('.skill-bar-fill');
                             bars.forEach(bar => {
                                 const width = bar.getAttribute('data-width');
@@ -587,7 +688,7 @@
             const roadmapSection = document.getElementById('roadmap-section');
             const pathFill = document.getElementById('rm-path-fill');
             const nodes = document.querySelectorAll('.rm-node');
-            
+
             // Get the total length of the SVG path
             const pathLength = pathFill.getTotalLength();
             pathFill.style.strokeDasharray = pathLength;
@@ -597,13 +698,13 @@
                 // Calculate how far the roadmap is from the top of the viewport
                 const rect = roadmapSection.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-                
+
                 // If roadmap is in view
-                if(rect.top < windowHeight && rect.bottom > 0) {
+                if (rect.top < windowHeight && rect.bottom > 0) {
                     // Calculate percentage scrolled through the roadmap
                     let scrollPercentage = (windowHeight - rect.top) / (rect.height + windowHeight * 0.5);
                     scrollPercentage = Math.max(0, Math.min(1, scrollPercentage)); // Clamp between 0 and 1
-                    
+
                     // Draw the line
                     const drawLength = pathLength * scrollPercentage;
                     pathFill.style.strokeDashoffset = pathLength - drawLength;
@@ -612,7 +713,7 @@
                     nodes.forEach((node, index) => {
                         // Assuming nodes are evenly distributed top to bottom
                         const nodeTriggerPoint = (index + 0.5) / nodes.length;
-                        if(scrollPercentage > nodeTriggerPoint * 0.7) { // 0.7 to trigger a bit early
+                        if (scrollPercentage > nodeTriggerPoint * 0.7) { // 0.7 to trigger a bit early
                             node.classList.add('visible');
                         }
                     });
@@ -620,7 +721,7 @@
             });
 
             // 4. Modal Logic
-            const modalTriggers = document.querySelectorAll('.polaroid-card, .rm-node, .cert-item');
+            const modalTriggers = document.querySelectorAll('.polaroid-card, .rm-node, .cert-item, .resume-trigger');
             const overlay = document.getElementById('modal-overlay');
             const modals = document.querySelectorAll('.storybook-modal');
             const closeBtns = document.querySelectorAll('.modal-close');
@@ -628,14 +729,14 @@
             modalTriggers.forEach(trigger => {
                 trigger.addEventListener('click', () => {
                     const targetId = trigger.getAttribute('data-modal');
-                    if(!targetId) return;
-                    
+                    if (!targetId) return;
+
                     modals.forEach(m => {
                         m.classList.add('hidden');
                         m.style.display = 'none';
                     });
                     const targetModal = document.getElementById(targetId);
-                    if(targetModal) {
+                    if (targetModal) {
                         targetModal.classList.remove('hidden');
                         targetModal.style.display = 'flex';
                         overlay.classList.add('active');
@@ -655,7 +756,7 @@
 
             closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
             overlay.addEventListener('click', (e) => {
-                if(e.target === overlay) closeModal();
+                if (e.target === overlay) closeModal();
             });
 
             // Make sure all modals are initially hidden
@@ -663,4 +764,5 @@
         });
     </script>
 </body>
+
 </html>
