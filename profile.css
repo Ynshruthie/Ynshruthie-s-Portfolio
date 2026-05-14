@@ -58,8 +58,9 @@ body {
 
 /* ── PAGE WRAPPER ──────────────────── */
 .profile-page {
-    max-width: 1300px;
-    margin: 0 auto;
+    width: 96%;
+    max-width: 1600px;
+    margin: 20px auto;
     position: relative;
     z-index: 10;
 }
@@ -151,7 +152,7 @@ body {
     background: rgba(250, 248, 245, 0.96);
     backdrop-filter: blur(8px);
     border-radius: var(--radius);
-    margin: -32px 20px 40px;
+    margin: -32px 10px 40px; /* Reduced side margins */
     padding: 0 60px 60px;
     box-shadow: 0 12px 64px rgba(74,44,17,0.12);
     position: relative;
