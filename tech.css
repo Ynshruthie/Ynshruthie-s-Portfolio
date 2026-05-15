@@ -509,14 +509,11 @@ body {
     .cert-list { grid-template-columns: 1fr; }
 }
 
-/* Extra-Curricular 5-Column Layout */
+/* Extra-Curricular 4-Column Layout */
 .extra-curr-list {
-    grid-template-columns: repeat(5, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr) !important;
 }
-@media (max-width: 1500px) {
-    .extra-curr-list { grid-template-columns: repeat(4, 1fr) !important; }
-}
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
     .extra-curr-list { grid-template-columns: repeat(3, 1fr) !important; }
 }
 @media (max-width: 900px) {
