@@ -167,6 +167,22 @@ body {
     color: #ffe89e;
 }
 
+.sub-sec-head {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--wood-dark);
+    margin: 20px 0 25px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 3px dashed var(--parchment-dark);
+    padding-bottom: 10px;
+}
+.sub-sec-head i {
+    color: var(--wood-light);
+}
+
 /* ── POLAROID PROJECTS GRID ── */
 .projects-grid {
     display: grid;
@@ -492,6 +508,23 @@ body {
 @media (max-width: 768px) {
     .cert-list { grid-template-columns: 1fr; }
 }
+
+/* Extra-Curricular 5-Column Layout */
+.extra-curr-list {
+    grid-template-columns: repeat(5, 1fr) !important;
+}
+@media (max-width: 1500px) {
+    .extra-curr-list { grid-template-columns: repeat(4, 1fr) !important; }
+}
+@media (max-width: 1200px) {
+    .extra-curr-list { grid-template-columns: repeat(3, 1fr) !important; }
+}
+@media (max-width: 900px) {
+    .extra-curr-list { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 650px) {
+    .extra-curr-list { grid-template-columns: 1fr !important; }
+}
 .cert-list li {
     padding: 0;
     margin: 0;
@@ -518,6 +551,7 @@ body {
     position: relative;
     overflow: hidden;
 }
+
 .cert-item::before {
     content: '';
     position: absolute;
@@ -555,6 +589,22 @@ body {
 .cert-list li:nth-child(3) { --cert-color: #2496ed; --cert-glow: rgba(36, 150, 237, 0.2); } /* DevOps/Docker Blue */
 .cert-list li:nth-child(4) { --cert-color: #6c5ce7; --cert-glow: rgba(108, 92, 231, 0.2); } /* AI Purple */
 .cert-list li:nth-child(5) { --cert-color: #092e20; --cert-glow: rgba(9, 46, 32, 0.2); }   /* Django Green */
+
+/* Extra-Curricular Colors */
+.extra-curr-list li:nth-child(1) { --cert-color: #e67e22; --cert-glow: rgba(230, 126, 34, 0.2); } /* Sports Orange */
+.extra-curr-list li:nth-child(2) { --cert-color: #27ae60; --cert-glow: rgba(39, 174, 96, 0.2); } /* Science/Volunteer Green */
+.extra-curr-list li:nth-child(3) { --cert-color: #2980b9; --cert-glow: rgba(41, 128, 185, 0.2); } /* Throwball Blue */
+.extra-curr-list li:nth-child(4) { --cert-color: #f39c12; --cert-glow: rgba(243, 156, 18, 0.2); } /* Mehandi Gold */
+.extra-curr-list li:nth-child(5) { --cert-color: #c0392b; --cert-glow: rgba(192, 57, 43, 0.2); }  /* Cultural Red */
+.extra-curr-list li:nth-child(6) { --cert-color: #1abc9c; --cert-glow: rgba(26, 188, 156, 0.2); } /* Yoga Teal */
+.extra-curr-list li:nth-child(7) { --cert-color: #8e44ad; --cert-glow: rgba(142, 68, 173, 0.2); } /* Poster Purple */
+.extra-curr-list li:nth-child(8) { --cert-color: #d35400; --cert-glow: rgba(211, 84, 0, 0.2); }   /* Sports 2018 Orange */
+.extra-curr-list li:nth-child(9) { --cert-color: #2c3e50; --cert-glow: rgba(44, 62, 80, 0.2); }   /* GK 2018 Navy */
+.extra-curr-list li:nth-child(10) { --cert-color: #16a085; --cert-glow: rgba(22, 160, 133, 0.2); } /* GK 2017 Teal */
+.extra-curr-list li:nth-child(11) { --cert-color: #e74c3c; --cert-glow: rgba(231, 76, 60, 0.2); }  /* Worli Art Red */
+.extra-curr-list li:nth-child(12) { --cert-color: #f1c40f; --cert-glow: rgba(241, 196, 15, 0.2); } /* Merit 10 Gold */
+.extra-curr-list li:nth-child(13) { --cert-color: #bdc3c7; --cert-glow: rgba(189, 195, 199, 0.2); } /* Merit 9 Silver */
+
 .cert-item span {
     line-height: 1.4;
 }
