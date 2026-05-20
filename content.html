@@ -455,12 +455,12 @@
             background: #ffdbe2;
         }
 
-        /* ── Home / Nav Button (matches tech.html) ── */
+        /* ── Home / Nav Button ── */
         .home-btn {
-            position: absolute;
+            position: fixed;
             top: 30px;
             left: 40px;
-            z-index: 100;
+            z-index: 1000;
             background: #fff;
             border: 2px solid #a66a3d;
             color: #5a3310;
@@ -478,6 +478,33 @@
         }
 
         .home-btn:hover {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #a66a3d;
+        }
+
+        /* ── Client Dashboard Button (right side, mirrors Home) ── */
+        .dashboard-btn {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            z-index: 1000;
+            background: #fff;
+            border: 2px solid #a66a3d;
+            color: #5a3310;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 0 #a66a3d;
+            transition: all 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dashboard-btn:hover {
             transform: translateY(3px);
             box-shadow: 0 3px 0 #a66a3d;
         }
@@ -752,8 +779,11 @@
 
 <body>
 
-    <!-- ── Home Button (same style as tech.html) ── -->
+    <!-- ── Home Button ── -->
     <a href="index.html" class="home-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+
+    <!-- ── Client Dashboard Button ── -->
+    <a href="#" class="dashboard-btn"><i class="fa-solid fa-grip"></i> Client Dashboard</a>
 
     <!-- ── Hero with content1.jpg background ── -->
     <section class="hero">
@@ -930,7 +960,7 @@
                 </div>
             </div>
 
-            <a href="index.html" class="back-btn-new" style="margin-top: 60px;"><i class="fa-solid fa-house"></i> Back to Main Portfolio</a>
+
         </div>
     </section>
 
