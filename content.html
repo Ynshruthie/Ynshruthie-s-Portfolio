@@ -4,37 +4,235 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Creator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body, html {
-            margin: 0; padding: 0;
-            width: 100%; height: 100vh;
-            background: #ffffff;
-            color: #1a1a1a;
+            width: 100%;
             font-family: 'Outfit', sans-serif;
+            background: #0a0a0a;
+            color: #f0f0f0;
+            scroll-behavior: smooth;
+        }
+
+        /* ── Hero Section with content1.jpg ── */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('Assests/content1.jpg') center center / cover no-repeat;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
         }
-        h1 { 
-            font-size: 2rem; 
-            font-weight: 300; 
-            letter-spacing: 1px;
+
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #e0b87a;
+            margin-bottom: 18px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #ffffff;
+            opacity: 0;
+            animation: fadeUp 0.9s ease 0.5s forwards;
+        }
+
+        .hero h1 span {
+            color: #e0b87a;
+        }
+
+        .hero p {
+            margin-top: 18px;
+            font-size: clamp(0.95rem, 2vw, 1.2rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 560px;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.7s forwards;
+        }
+
+        .hero-actions {
+            margin-top: 36px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.9s forwards;
+        }
+
+        .btn-primary {
+            padding: 13px 32px;
+            background: #e0b87a;
+            color: #0a0a0a;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(224, 184, 122, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #f0cc94;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(224, 184, 122, 0.55);
+        }
+
+        .btn-secondary {
+            padding: 13px 32px;
+            background: transparent;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            border: 1.5px solid rgba(255, 255, 255, 0.45);
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #e0b87a;
+            color: #e0b87a;
+            transform: translateY(-2px);
+        }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.4s forwards;
+        }
+
+        .scroll-hint span {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 42px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+            animation: scrollPulse 1.8s ease-in-out infinite;
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(1); }
+            50%       { opacity: 1;   transform: scaleY(1.15); }
+        }
+
+        /* ── Content below hero ── */
+        .section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 24px;
             text-align: center;
         }
-        .back-btn { 
-            margin-top: 40px; 
-            text-decoration: none; 
-            color: #888; 
-            font-size: 0.9rem; 
+
+        .section h2 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 600;
+            color: #e0b87a;
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(240, 240, 240, 0.7);
+            line-height: 1.8;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            color: rgba(240,240,240,0.45);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
-        .back-btn:hover { color: #000; }
+
+        .back-btn:hover { color: #e0b87a; }
     </style>
 </head>
 <body>
-    <h1>You have now entered the Content Creator path.</h1>
-    <a href="index.html" class="back-btn">Go Back</a>
+
+    <!-- ── Hero with content1.jpg background ── -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Content Creator Path</span>
+            <h1>Create. <span>Inspire.</span><br>Tell Your Story.</h1>
+            <p>Step into the world of creative content — where your voice, vision, and ideas come to life across every platform.</p>
+            <div class="hero-actions">
+                <a href="#explore" class="btn-primary">Explore More</a>
+                <a href="index.html" class="btn-secondary">← Go Back</a>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ── Section below hero ── -->
+    <div class="section" id="explore">
+        <h2>Coming Soon</h2>
+        <p>This section is being crafted with care. Check back soon for creative content, behind-the-scenes stories, and more.</p>
+        <a href="index.html" class="back-btn">← Return to Home</a>
+    </div>
+
 </body>
 </html>
