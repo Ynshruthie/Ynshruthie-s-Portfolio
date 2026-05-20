@@ -457,20 +457,20 @@
 
         /* ── Home / Nav Button ── */
         .home-btn {
-            position: fixed;
+            position: absolute;
             top: 30px;
             left: 40px;
             z-index: 1000;
             background: #fff;
-            border: 2px solid #a66a3d;
-            color: #5a3310;
+            border: 2px solid #8a1f38; /* Dark Pink */
+            color: #8a1f38;
             padding: 10px 20px;
             border-radius: 20px;
             text-decoration: none;
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
             font-size: 0.95rem;
-            box-shadow: 0 6px 0 #a66a3d;
+            box-shadow: 0 6px 0 #611224; /* Darker Pink Shadow */
             transition: all 0.1s;
             display: inline-flex;
             align-items: center;
@@ -479,25 +479,25 @@
 
         .home-btn:hover {
             transform: translateY(3px);
-            box-shadow: 0 3px 0 #a66a3d;
+            box-shadow: 0 3px 0 #611224;
         }
 
         /* ── Client Dashboard Button (right side, mirrors Home) ── */
         .dashboard-btn {
-            position: fixed;
+            position: absolute;
             top: 30px;
             right: 40px;
             z-index: 1000;
             background: #fff;
-            border: 2px solid #a66a3d;
-            color: #5a3310;
+            border: 2px solid #24402a; /* Dark Green */
+            color: #24402a;
             padding: 10px 20px;
             border-radius: 20px;
             text-decoration: none;
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
             font-size: 0.95rem;
-            box-shadow: 0 6px 0 #a66a3d;
+            box-shadow: 0 6px 0 #132619; /* Darker Green Shadow */
             transition: all 0.1s;
             display: inline-flex;
             align-items: center;
@@ -506,7 +506,7 @@
 
         .dashboard-btn:hover {
             transform: translateY(3px);
-            box-shadow: 0 3px 0 #a66a3d;
+            box-shadow: 0 3px 0 #132619;
         }
 
         /* ── Gallery Section (content3.JPEG background) ── */
@@ -783,7 +783,7 @@
     <a href="index.html" class="home-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
 
     <!-- ── Client Dashboard Button ── -->
-    <a href="#" class="dashboard-btn"><i class="fa-solid fa-grip"></i> Client Dashboard</a>
+    <a href="dashboard.html" class="dashboard-btn"><i class="fa-solid fa-grip"></i> Client Dashboard</a>
 
     <!-- ── Hero with content1.jpg background ── -->
     <section class="hero">
@@ -861,11 +861,14 @@
 
             <!-- Category Filter Tabs -->
             <div class="category-filters">
-                <button class="cat-btn active" data-cat="all">✨ All</button>
-                <button class="cat-btn" data-cat="beauty">🪷 Beauty</button>
+                <button class="cat-btn active" data-cat="beauty">🪷 Beauty</button>
                 <button class="cat-btn" data-cat="fashion">🫐 Fashion</button>
                 <button class="cat-btn" data-cat="lifestyle">🌿 Lifestyle</button>
                 <button class="cat-btn" data-cat="food">🍓 Food</button>
+                <button class="cat-btn" data-cat="workout">🏃‍♀️ Workout</button>
+                <button class="cat-btn" data-cat="brands">🏷️ Brands</button>
+                <button class="cat-btn" data-cat="tech">💻 Tech</button>
+                <button class="cat-btn" data-cat="dance">💃 Dance</button>
             </div>
 
             <div class="iphone-grid">
@@ -973,19 +976,13 @@
         florals: 'https://player.vimeo.com/external/459389279.sd.mp4?s=f5ef84b3ca4876b5d94cf21d8b725c48b2d1d07c&profile_id=165&oauth2_token_id=57447761',
         city:    'https://player.vimeo.com/external/394334336.sd.mp4?s=d07c088ef56b9c9d5e30fa1db4e24eb5eeeb83ab&profile_id=165&oauth2_token_id=57447761',
         coffee:  'https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0542738137398ccf149b5c1ab610a20&profile_id=139&oauth2_token_id=57447761',
+        workout1:'https://player.vimeo.com/external/384761655.sd.mp4?s=34f8286a60db26b772db9e08abdfc599b5b292c3&profile_id=165&oauth2_token_id=57447761',
+        workout2:'https://player.vimeo.com/external/517602120.sd.mp4?s=d3248695022ed0d11f8e1fae3ecdc9e93345e6eb&profile_id=165&oauth2_token_id=57447761',
         local1:  'Assests/video1.MP4'
     };
 
     // ── 6 videos per category ──
     var cats = {
-        all: [
-            { src: V.local1,  title: 'Food & Culture',    desc: 'Exploring local eats',           local: true  },
-            { src: V.sunset,  title: 'Sunset Wanderlust', desc: 'Chasing cozy golden lights',      local: false },
-            { src: V.journal, title: 'Desk Musings',       desc: 'Creating cozy journaling spaces', local: false },
-            { src: V.nature,  title: 'Cozy Greenery',     desc: 'Slow-living nature walks',        local: false },
-            { src: V.florals, title: 'Summer Florals',    desc: 'Styling colorful stories',        local: false },
-            { src: V.city,    title: 'City Glows',        desc: 'Cozy nighttime b-roll',           local: false }
-        ],
         beauty: [
             { src: V.florals, title: 'Floral GRWM',       desc: 'Morning skincare ritual',         local: false },
             { src: V.city,    title: 'Night Glow',         desc: 'Nighttime glow-up routine',       local: false },
@@ -1017,6 +1014,38 @@
             { src: V.journal, title: 'Recipe Journal',    desc: 'Food planning & recipes',         local: false },
             { src: V.florals, title: 'Garden Harvest',    desc: 'Farm-to-table living',            local: false },
             { src: V.city,    title: 'Night Market',      desc: 'Street food adventures',          local: false }
+        ],
+        workout: [
+            { src: V.workout1, title: 'Morning Pilates',  desc: 'Stretch & flow movement routine', local: false },
+            { src: V.workout2, title: 'Daily Workout',    desc: 'Setting physical goals',          local: false },
+            { src: V.nature,   title: 'Trail Run',        desc: 'Connecting with nature outdoors', local: false },
+            { src: V.sunset,   title: 'Evening Flow',     desc: 'Gentle wind-down yoga stretch',   local: false },
+            { src: V.coffee,   title: 'Hydration Routine',desc: 'Post-workout green juice & water',local: false },
+            { src: V.journal,  title: 'Mindfulness Desk', desc: 'Planning the weekly workout log', local: false }
+        ],
+        brands: [
+            { src: V.florals, title: 'Summer Lookbook',   desc: 'Aesthetic brand editorial look',  local: false },
+            { src: V.journal, title: 'Aesthetic Unboxing',desc: 'PR package curation and details',  local: false },
+            { src: V.coffee,  title: 'Visual Campaign',   desc: 'Coffee brand creative concepts',  local: false },
+            { src: V.city,    title: 'Night Brand Shoot', desc: 'Urban fashion collaboration',     local: false },
+            { src: V.sunset,  title: 'Sunlit Product',    desc: 'Showcasing luxury accessories',   local: false },
+            { src: V.nature,  title: 'Sustainable Edit',  desc: 'Eco-friendly brand storytelling',  local: false }
+        ],
+        tech: [
+            { src: V.journal, title: 'Digital Planning',  desc: 'Aesthetic templates and designs', local: false },
+            { src: V.coffee,  title: 'Workspace Setup',   desc: 'Creating inspiring desk spaces',  local: false },
+            { src: V.city,    title: 'Behind The Scenes', desc: 'Creative studio editing flow',    local: false },
+            { src: V.sunset,  title: 'Productivity Time', desc: 'Designing tech & creative assets',local: false },
+            { src: V.nature,  title: 'Desk View',         desc: 'Natural light creative desk',     local: false },
+            { src: V.florals, title: 'Design Session',    desc: 'Developing brand visual language',local: false }
+        ],
+        dance: [
+            { src: V.sunset,  title: 'Dance Cover',       desc: 'Recreating trending choreography',local: false },
+            { src: V.city,    title: 'Studio Rehearsal',  desc: 'Behind the scenes practice',      local: false },
+            { src: V.workout1,title: 'Contemporary Flow', desc: 'Expressive movement diaries',     local: false },
+            { src: V.nature,  title: 'Outdoor Freestyle', desc: 'Dancing in scenic locations',     local: false },
+            { src: V.workout2,title: 'Evening Session',   desc: 'Late night freestyle edits',      local: false },
+            { src: V.journal, title: 'Choreography Log',  desc: 'Learning and styling movements',  local: false }
         ]
     };
 
@@ -1071,8 +1100,6 @@
             var overlay = document.getElementById('overlay-' + num);
             if (!screen || !video) return;
 
-            if (num === 1) { video.pause(); } // local video: wait for user
-
             screen.addEventListener('click', function() {
                 if (video.paused) {
                     if (video.src.includes('Assests')) { video.muted = false; }
@@ -1087,6 +1114,11 @@
             });
         })(i);
     }
+
+    // ── Initialize with default category (beauty) ──
+    window.addEventListener('DOMContentLoaded', function() {
+        switchCategory('beauty');
+    });
 </script>
 
 </body>
