@@ -701,6 +701,52 @@
                 0 0 0 3px #9c2d43,
                 inset 0 0 15px rgba(0, 0, 0, 0.9);
         }
+
+        /* ── Category Filter Tabs ── */
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 28px 0 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cat-btn {
+            padding: 10px 26px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border: 2px dashed #a66a3d;
+            border-radius: 50px;
+            background: rgba(254, 251, 243, 0.88);
+            color: #5a3310;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 3px 0 rgba(166, 106, 61, 0.2);
+        }
+
+        .cat-btn:hover {
+            background: rgba(224, 184, 122, 0.35);
+            border-color: #3e5340;
+            border-style: solid;
+            color: #3e5340;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(62, 83, 64, 0.15);
+        }
+
+        .cat-btn.active {
+            background: #3e5340;
+            border-color: #3e5340;
+            border-style: solid;
+            color: #fffdf9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(62, 83, 64, 0.32);
+        }
     </style>
 </head>
 
@@ -782,6 +828,15 @@
         <div class="gallery-content">
             <h2 class="gallery-title">My Creative <span>Diary</span></h2>
             <p class="gallery-subtitle">A cozy collection of aesthetic moments, editorial stories, and visual curations.</p>
+
+            <!-- Category Filter Tabs -->
+            <div class="category-filters">
+                <button class="cat-btn active" data-cat="all">✨ All</button>
+                <button class="cat-btn" data-cat="beauty">🪷 Beauty</button>
+                <button class="cat-btn" data-cat="fashion">🫐 Fashion</button>
+                <button class="cat-btn" data-cat="lifestyle">🌿 Lifestyle</button>
+                <button class="cat-btn" data-cat="food">🍓 Food</button>
+            </div>
 
             <div class="iphone-grid">
                 <!-- iPhone 1 (local video — click for sound + play/pause) -->
@@ -880,7 +935,105 @@
     </section>
 
 <script>
-    // Play / Pause + Sound toggle for all iPhones
+    // ── Video source library ──
+    var V = {
+        sunset:  'https://player.vimeo.com/external/459389137.sd.mp4?s=894386cc71c4cbf050edca0cb5d6ab1b17b62fe0&profile_id=165&oauth2_token_id=57447761',
+        journal: 'https://player.vimeo.com/external/409249767.sd.mp4?s=fb14777cd3c103da4d39ec3b7b25e796e625a58c&profile_id=165&oauth2_token_id=57447761',
+        nature:  'https://player.vimeo.com/external/435674703.sd.mp4?s=7fdf702c2e9b0365778848a60586e3926cb17e88&profile_id=165&oauth2_token_id=57447761',
+        florals: 'https://player.vimeo.com/external/459389279.sd.mp4?s=f5ef84b3ca4876b5d94cf21d8b725c48b2d1d07c&profile_id=165&oauth2_token_id=57447761',
+        city:    'https://player.vimeo.com/external/394334336.sd.mp4?s=d07c088ef56b9c9d5e30fa1db4e24eb5eeeb83ab&profile_id=165&oauth2_token_id=57447761',
+        coffee:  'https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0542738137398ccf149b5c1ab610a20&profile_id=139&oauth2_token_id=57447761',
+        local1:  'Assests/video1.MP4'
+    };
+
+    // ── 6 videos per category ──
+    var cats = {
+        all: [
+            { src: V.local1,  title: 'Food & Culture',    desc: 'Exploring local eats',           local: true  },
+            { src: V.sunset,  title: 'Sunset Wanderlust', desc: 'Chasing cozy golden lights',      local: false },
+            { src: V.journal, title: 'Desk Musings',       desc: 'Creating cozy journaling spaces', local: false },
+            { src: V.nature,  title: 'Cozy Greenery',     desc: 'Slow-living nature walks',        local: false },
+            { src: V.florals, title: 'Summer Florals',    desc: 'Styling colorful stories',        local: false },
+            { src: V.city,    title: 'City Glows',        desc: 'Cozy nighttime b-roll',           local: false }
+        ],
+        beauty: [
+            { src: V.florals, title: 'Floral GRWM',       desc: 'Morning skincare ritual',         local: false },
+            { src: V.city,    title: 'Night Glow',         desc: 'Nighttime glow-up routine',       local: false },
+            { src: V.nature,  title: 'Natural Aesthetics', desc: 'Fresh-faced beauty edit',         local: false },
+            { src: V.sunset,  title: 'Golden Skin',       desc: 'Warm tone makeup looks',          local: false },
+            { src: V.journal, title: 'Vanity Flatlay',    desc: 'Beauty product curation',         local: false },
+            { src: V.coffee,  title: 'Coffee & Glow',     desc: 'Morning beauty essentials',       local: false }
+        ],
+        fashion: [
+            { src: V.sunset,  title: 'Golden OOTD',       desc: 'Autumn wardrobe styling',         local: false },
+            { src: V.city,    title: 'Night Fashion',      desc: 'City lights editorial',           local: false },
+            { src: V.florals, title: 'Floral Fits',       desc: 'Spring fashion inspo',            local: false },
+            { src: V.nature,  title: 'Earthy Tones',      desc: 'Natural palette outfits',         local: false },
+            { src: V.journal, title: 'Studio Shoot',      desc: 'Creative fashion editorial',      local: false },
+            { src: V.coffee,  title: 'Café Outfit',       desc: 'Aesthetic dining looks',          local: false }
+        ],
+        lifestyle: [
+            { src: V.journal, title: 'Study Vlog',        desc: 'Aesthetic productivity setup',    local: false },
+            { src: V.nature,  title: 'Morning Walk',      desc: 'Slow-living morning ritual',      local: false },
+            { src: V.sunset,  title: 'Sunset Drive',      desc: 'Golden hour moments',             local: false },
+            { src: V.city,    title: 'City Walk',         desc: 'Urban lifestyle moments',         local: false },
+            { src: V.florals, title: 'Garden Time',       desc: 'Weekend flower market',           local: false },
+            { src: V.coffee,  title: 'Coffee Time',       desc: 'Aesthetic café moments',          local: false }
+        ],
+        food: [
+            { src: V.local1,  title: 'Korean Eats',       desc: 'Trying local cuisine',            local: true  },
+            { src: V.coffee,  title: 'Coffee Art',        desc: 'Brewing cozy mornings',           local: false },
+            { src: V.sunset,  title: 'Picnic Vibes',      desc: 'Golden hour outdoor dining',      local: false },
+            { src: V.journal, title: 'Recipe Journal',    desc: 'Food planning & recipes',         local: false },
+            { src: V.florals, title: 'Garden Harvest',    desc: 'Farm-to-table living',            local: false },
+            { src: V.city,    title: 'Night Market',      desc: 'Street food adventures',          local: false }
+        ]
+    };
+
+    // ── Switch all 6 iPhones to a new category ──
+    function switchCategory(cat) {
+        var set = cats[cat];
+        for (var i = 1; i <= 6; i++) {
+            (function(num) {
+                var video   = document.getElementById('vid-'    + num);
+                var overlay = document.getElementById('overlay-' + num);
+                var card    = document.getElementById('screen-' + num).closest('.iphone-card');
+                var h4 = card.querySelector('.iphone-caption h4');
+                var p  = card.querySelector('.iphone-caption p');
+                if (!video) return;
+
+                var d = set[num - 1];
+                video.pause();
+                video.src   = d.src;
+                video.muted = true;
+                video.load();
+
+                if (d.local) {
+                    overlay.classList.remove('playing');
+                    overlay.querySelector('i').className = 'fa-solid fa-play';
+                } else {
+                    video.play().then(function() {
+                        overlay.classList.add('playing');
+                        overlay.querySelector('i').className = 'fa-solid fa-pause';
+                    }).catch(function(){});
+                }
+
+                if (h4) h4.textContent = d.title;
+                if (p)  p.textContent  = d.desc;
+            })(i);
+        }
+    }
+
+    // ── Category button clicks ──
+    document.querySelectorAll('.cat-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            switchCategory(btn.getAttribute('data-cat'));
+        });
+    });
+
+    // ── Play / Pause + Sound toggle per iPhone ──
     for (var i = 1; i <= 6; i++) {
         (function(num) {
             var screen  = document.getElementById('screen-'  + num);
@@ -888,13 +1041,11 @@
             var overlay = document.getElementById('overlay-' + num);
             if (!screen || !video) return;
 
-            // iPhone 1 starts paused (local video — user decides when to play with sound)
-            if (num === 1) { video.pause(); }
+            if (num === 1) { video.pause(); } // local video: wait for user
 
             screen.addEventListener('click', function() {
                 if (video.paused) {
-                    // Unmute local video on first play
-                    if (num === 1) { video.muted = false; }
+                    if (video.src.includes('Assests')) { video.muted = false; }
                     video.play();
                     overlay.classList.add('playing');
                     overlay.querySelector('i').className = 'fa-solid fa-pause';
