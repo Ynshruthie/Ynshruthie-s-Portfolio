@@ -957,16 +957,111 @@
             width: 132px;
             height: 132px;
             border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: transparent;
-            border: none;
-            padding: 0;
             position: relative;
             box-sizing: border-box;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            perspective: 800px;
         }
+
+        .stamp-front,
+        .stamp-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .stamp-front {
+            transform: rotateY(0deg);
+            z-index: 2;
+            background: transparent;
+        }
+
+        .stamp-back {
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .stamp-wrapper.flipped .stamp-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Brand Name & Description on the back face */
+        .stamp-back .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.82rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .stamp-back .brand-desc {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.58rem;
+            margin-top: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            max-width: 110px;
+            line-height: 1.3;
+        }
+
+        /* Backgrounds and Colors matching their SVG doilies */
+        .stamp-vogue .stamp-back { background-color: #fef2f4 !important; }
+        .stamp-vogue .brand-name { color: #82354c !important; }
+        .stamp-vogue .brand-desc { color: rgba(130, 53, 76, 0.75) !important; }
+
+        .stamp-chanel .stamp-back { background-color: #f8f7f5 !important; }
+        .stamp-chanel .brand-name { color: #2d2a2b !important; }
+        .stamp-chanel .brand-desc { color: rgba(45, 42, 43, 0.75) !important; }
+
+        .stamp-sephora .stamp-back { background-color: #fff0eb !important; }
+        .stamp-sephora .brand-name { color: #912a28 !important; }
+        .stamp-sephora .brand-desc { color: rgba(145, 42, 40, 0.75) !important; }
+
+        .stamp-starbucks .stamp-back { background-color: #f0f5f1 !important; }
+        .stamp-starbucks .brand-name { color: #253527 !important; }
+        .stamp-starbucks .brand-desc { color: rgba(37, 53, 39, 0.75) !important; }
+
+        .stamp-adobe .stamp-back { background-color: #fdf0f0 !important; }
+        .stamp-adobe .brand-name { color: #a81c1c !important; }
+        .stamp-adobe .brand-desc { color: rgba(168, 28, 28, 0.75) !important; }
+
+        .stamp-spotify .stamp-back { background-color: #f1f3f9 !important; }
+        .stamp-spotify .brand-name { color: #38436e !important; }
+        .stamp-spotify .brand-desc { color: rgba(56, 67, 110, 0.75) !important; }
+
+        .stamp-nike .stamp-back { background-color: #f5f5f5 !important; }
+        .stamp-nike .brand-name { color: #111111 !important; }
+        .stamp-nike .brand-desc { color: rgba(17, 17, 17, 0.75) !important; }
+
+        .stamp-zara .stamp-back { background-color: #faf4eb !important; }
+        .stamp-zara .brand-name { color: #8c5a23 !important; }
+        .stamp-zara .brand-desc { color: rgba(140, 90, 35, 0.75) !important; }
+
+        .stamp-pinterest .stamp-back { background-color: #fdf0f1 !important; }
+        .stamp-pinterest .brand-name { color: #bd081c !important; }
+        .stamp-pinterest .brand-desc { color: rgba(189, 8, 28, 0.75) !important; }
+
+        .stamp-dior .stamp-back { background-color: #fcf1f6 !important; }
+        .stamp-dior .brand-name { color: #4d2657 !important; }
+        .stamp-dior .brand-desc { color: rgba(77, 38, 87, 0.75) !important; }
 
         /* Hiding header/footer to match clean aesthetic of the circular doily inspiration */
         .stamp-header,
@@ -1115,6 +1210,129 @@
         }
         .stamp-dior i, .stamp-dior .brand-name { color: #4d2657 !important; }
         .stamp-dior .brand-desc { color: rgba(77, 38, 87, 0.75) !important; }
+
+        /* ── Offer Section (content5.jpg background) ── */
+        .offer-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: url('Assests/content5.jpg') center center / 100% 100% no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px;
+            overflow: hidden;
+        }
+
+        .offer-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .offer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            color: #9c2d43; /* Signature rose */
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.85);
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .offer-title span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #4a1028; /* Signature deep plum */
+        }
+
+        .offer-subtitle {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+            color: #4a1028;
+            font-weight: 500;
+            max-width: 600px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            text-shadow: 0 1px 5px rgba(255, 255, 255, 0.9);
+        }
+
+        .offer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .offer-card {
+            width: 320px;
+            background: rgba(254, 251, 243, 0.96); /* Warm vintage parchment paper card */
+            border: 2px solid #e5dcce; /* Scrapbook border */
+            border-radius: 24px;
+            padding: 35px 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s, border-color 0.4s;
+            box-shadow: 0 8px 20px rgba(74, 16, 40, 0.03);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            border-color: #9c2d43;
+            box-shadow: 0 15px 30px rgba(156, 45, 67, 0.12);
+        }
+
+        .offer-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            background: #fff0f3;
+            color: #9c2d43;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 12px rgba(156, 45, 67, 0.08);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s, color 0.3s;
+        }
+
+        .offer-card:hover .offer-icon-wrapper {
+            transform: scale(1.15) rotate(8deg);
+            background: #9c2d43;
+            color: #fffdf9;
+        }
+
+        .offer-card h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #3b0f1f;
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+        }
+
+        .offer-card p {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 450;
+            color: #5a2e3f;
+            line-height: 1.5;
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -1317,7 +1535,13 @@
                 <div class="stamp-wrapper stamp-vogue">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <img src="Assests/koreyaki.jpg" alt="Koreyaki Logo" class="brand-logo-img">
+                            <div class="stamp-front">
+                                <img src="Assests/koreyaki.jpg" alt="Koreyaki Logo" class="brand-logo-img">
+                            </div>
+                            <div class="stamp-back">
+                                <span class="brand-name">Koreyaki</span>
+                                <span class="brand-desc">Food</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1326,16 +1550,13 @@
                 <div class="stamp-wrapper stamp-chanel">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>25¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
+                            <div class="stamp-front">
                                 <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div class="stamp-back">
                                 <span class="brand-name">Chanel</span>
                                 <span class="brand-desc">Luxury Beauty</span>
                             </div>
-                            <div class="stamp-footer">Special Edition</div>
                         </div>
                     </div>
                 </div>
@@ -1344,16 +1565,13 @@
                 <div class="stamp-wrapper stamp-sephora">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>15¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
+                            <div class="stamp-front">
                                 <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div class="stamp-back">
                                 <span class="brand-name">Sephora</span>
                                 <span class="brand-desc">Cosmetics Edit</span>
                             </div>
-                            <div class="stamp-footer">Premium Edit</div>
                         </div>
                     </div>
                 </div>
@@ -1362,16 +1580,13 @@
                 <div class="stamp-wrapper stamp-starbucks">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>50¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
+                            <div class="stamp-front">
                                 <i class="fa-solid fa-mug-hot"></i>
+                            </div>
+                            <div class="stamp-back">
                                 <span class="brand-name">Starbucks</span>
                                 <span class="brand-desc">Lifestyle & Café</span>
                             </div>
-                            <div class="stamp-footer">Cozy Collab</div>
                         </div>
                     </div>
                 </div>
@@ -1380,16 +1595,13 @@
                 <div class="stamp-wrapper stamp-adobe">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>90¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
+                            <div class="stamp-front">
                                 <i class="fa-solid fa-compass-drafting"></i>
+                            </div>
+                            <div class="stamp-back">
                                 <span class="brand-name">Adobe</span>
                                 <span class="brand-desc">Tech & Creative</span>
                             </div>
-                            <div class="stamp-footer">Digital Art</div>
                         </div>
                     </div>
                 </div>
@@ -1398,16 +1610,13 @@
                 <div class="stamp-wrapper stamp-spotify">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>30¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
+                            <div class="stamp-front">
                                 <i class="fa-solid fa-music"></i>
+                            </div>
+                            <div class="stamp-back">
                                 <span class="brand-name">Spotify</span>
                                 <span class="brand-desc">Audio Stories</span>
                             </div>
-                            <div class="stamp-footer">Sound Diaries</div>
                         </div>
                     </div>
                 </div>
@@ -1416,16 +1625,13 @@
                 <div class="stamp-wrapper stamp-nike">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>80¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
+                            <div class="stamp-front">
                                 <i class="fa-solid fa-shoe-prints"></i>
+                            </div>
+                            <div class="stamp-back">
                                 <span class="brand-name">Nike</span>
                                 <span class="brand-desc">Active Lifestyle</span>
                             </div>
-                            <div class="stamp-footer">Endurance</div>
                         </div>
                     </div>
                 </div>
@@ -1434,16 +1640,13 @@
                 <div class="stamp-wrapper stamp-zara">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>45¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
+                            <div class="stamp-front">
                                 <i class="fa-solid fa-shirt"></i>
+                            </div>
+                            <div class="stamp-back">
                                 <span class="brand-name">Zara</span>
                                 <span class="brand-desc">Modern Styling</span>
                             </div>
-                            <div class="stamp-footer">OOTD Series</div>
                         </div>
                     </div>
                 </div>
@@ -1452,16 +1655,13 @@
                 <div class="stamp-wrapper stamp-pinterest">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>60¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
+                            <div class="stamp-front">
                                 <i class="fa-solid fa-thumbtack"></i>
+                            </div>
+                            <div class="stamp-back">
                                 <span class="brand-name">Pinterest</span>
                                 <span class="brand-desc">Inspiration Hub</span>
                             </div>
-                            <div class="stamp-footer">Mood Boards</div>
                         </div>
                     </div>
                 </div>
@@ -1470,18 +1670,70 @@
                 <div class="stamp-wrapper stamp-dior">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>75¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
+                            <div class="stamp-front">
                                 <i class="fa-solid fa-spray-can-sparkles"></i>
+                            </div>
+                            <div class="stamp-back">
                                 <span class="brand-name">Dior</span>
                                 <span class="brand-desc">Couture Perfumes</span>
                             </div>
-                            <div class="stamp-footer">Haute Edit</div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── What I Offer Section (content5.jpg background) ── -->
+    <section class="offer-section" id="offers">
+        <div class="offer-content">
+            <h2 class="offer-title">What I <span>Offer</span></h2>
+            <p class="offer-subtitle">High-quality UGC content tailored to your brand and audience.</p>
+
+            <div class="offer-grid">
+                <!-- Card 1: UGC Videos -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fa-solid fa-clapperboard"></i>
+                    </div>
+                    <h4>UGC Videos</h4>
+                    <p>Authentic videos for ads, TikTok, Reels & more.</p>
+                </div>
+
+                <!-- Card 2: Product Photography -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <h4>Product Photography</h4>
+                    <p>High-quality product & lifestyle photography.</p>
+                </div>
+
+                <!-- Card 3: Ad Creatives -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fa-solid fa-rectangle-ad"></i>
+                    </div>
+                    <h4>Ad Creatives</h4>
+                    <p>Scroll-stopping creatives that convert.</p>
+                </div>
+
+                <!-- Card 4: Monthly Packages -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                    <h4>Monthly Packages</h4>
+                    <p>Consistent content to keep your brand active.</p>
+                </div>
+
+                <!-- Card 5: Extra Add-ons -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h4>Extra Add-ons</h4>
+                    <p>Raw footage, extra hooks, usage rights & more.</p>
                 </div>
             </div>
         </div>
@@ -1634,6 +1886,13 @@
             });
         })(i);
     }
+
+    // ── Toggle stamp flip on click ──
+    document.querySelectorAll('.stamp-wrapper').forEach(function(stamp) {
+        stamp.addEventListener('click', function() {
+            stamp.classList.toggle('flipped');
+        });
+    });
 
     // ── Initialize with default category (beauty) ──
     window.addEventListener('DOMContentLoaded', function() {
