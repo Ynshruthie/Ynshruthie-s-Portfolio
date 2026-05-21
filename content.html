@@ -923,12 +923,14 @@
 
         .stamp-wrapper {
             position: relative;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
         }
 
-        .stamp-wrapper:hover {
-            transform: translateY(-8px) rotate(2deg) scale(1.05);
+        /* Subtle depth shadow highlight on hover, but NO physical layout or size changes */
+        .stamp-wrapper:hover .brand-stamp {
+            box-shadow: 
+                0 15px 32px rgba(45, 20, 28, 0.12), 
+                0 5px 12px rgba(0, 0, 0, 0.04);
         }
 
         /* ── Scalloped Lace Doily Container (Inspo Redesign) ── */
@@ -1121,22 +1123,24 @@
 
 
 
-        /* Organic layout variations (Subtle physical tilts) */
-        .stamp-wrapper:nth-child(1) .brand-stamp { transform: rotate(-1.8deg); }
-        .stamp-wrapper:nth-child(2) .brand-stamp { transform: rotate(1.5deg); }
-        .stamp-wrapper:nth-child(3) .brand-stamp { transform: rotate(-0.8deg); }
-        .stamp-wrapper:nth-child(4) .brand-stamp { transform: rotate(2.2deg); }
-        .stamp-wrapper:nth-child(5) .brand-stamp { transform: rotate(-1.5deg); }
-        .stamp-wrapper:nth-child(6) .brand-stamp { transform: rotate(1.2deg); }
-        .stamp-wrapper:nth-child(7) .brand-stamp { transform: rotate(-2.0deg); }
-        .stamp-wrapper:nth-child(8) .brand-stamp { transform: rotate(1.8deg); }
-        .stamp-wrapper:nth-child(9) .brand-stamp { transform: rotate(-1.0deg); }
-        .stamp-wrapper:nth-child(10) .brand-stamp { transform: rotate(2.0deg); }
+        /* Keep all brand stamps perfectly normal, straight, and unrotated */
+        .stamp-wrapper:nth-child(1) .brand-stamp,
+        .stamp-wrapper:nth-child(2) .brand-stamp,
+        .stamp-wrapper:nth-child(3) .brand-stamp,
+        .stamp-wrapper:nth-child(4) .brand-stamp,
+        .stamp-wrapper:nth-child(5) .brand-stamp,
+        .stamp-wrapper:nth-child(6) .brand-stamp,
+        .stamp-wrapper:nth-child(7) .brand-stamp,
+        .stamp-wrapper:nth-child(8) .brand-stamp,
+        .stamp-wrapper:nth-child(9) .brand-stamp,
+        .stamp-wrapper:nth-child(10) .brand-stamp {
+            transform: none !important;
+        }
 
-        /* Bounce/Grow micro-interaction on hover */
+        /* Keep brand logo images and icons straight, normal, and unscaled on hover */
         .stamp-wrapper:hover .stamp-body i,
         .stamp-wrapper:hover .brand-logo-img {
-            transform: scale(1.18) rotate(5deg);
+            transform: none !important;
         }
 
         /* ── Dynamic Doily SVG Configurations with Custom Brand Color Palette ── */
@@ -1276,40 +1280,33 @@
 
         .offer-card {
             position: relative;
-            width: 320px;
-            background: #ffffff; /* Crisp polaroid photo white */
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            border-radius: 8px; /* Classic soft polaroid corners */
-            padding: 30px 24px 38px 24px; /* Lower-heavy padding mimicking a real polaroid print */
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 
-                0 10px 28px rgba(74, 16, 40, 0.05),
-                0 3px 6px rgba(0, 0, 0, 0.02),
-                inset 0 0 40px rgba(0, 0, 0, 0.01);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s;
+            width: 280px;
+            height: 290px; /* Perfectly compact height to eliminate excessive empty space */
+            perspective: 1200px;
             cursor: pointer;
             z-index: 1;
+            transform: none !important;
+            transition: z-index 0.3s;
         }
 
-        /* Scattered polaroids - organic angles */
-        .offer-card:nth-child(1) { transform: rotate(-2.2deg) translateY(0); }
-        .offer-card:nth-child(2) { transform: rotate(1.5deg) translateY(4px); }
-        .offer-card:nth-child(3) { transform: rotate(-1deg) translateY(-2px); }
-        .offer-card:nth-child(4) { transform: rotate(1.8deg) translateY(3px); }
-        .offer-card:nth-child(5) { transform: rotate(-1.5deg) translateY(5px); }
+        /* Keep all cards unrotated and normal */
+        .offer-card:nth-child(1),
+        .offer-card:nth-child(2),
+        .offer-card:nth-child(3),
+        .offer-card:nth-child(4),
+        .offer-card:nth-child(5) {
+            transform: none !important;
+        }
 
-        /* Cute decorative torn washi tape */
+        /* Cute decorative torn washi tape - centered, flat, and perfectly scaled down */
         .offer-card::before {
             content: '';
             position: absolute;
-            top: -18px;
+            top: -14px;
             left: 50%;
-            transform: translateX(-50%) rotate(-3deg);
-            width: 110px;
-            height: 28px;
+            transform: translateX(-50%) rotate(0deg); /* Flat centered tape */
+            width: 95px;
+            height: 24px;
             background-color: rgba(255, 204, 213, 0.75); /* Default pastel rose tape */
             background-image: linear-gradient(135deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);
             background-size: 12px 12px;
@@ -1322,7 +1319,7 @@
                 100% 88%, 95% 100%, 90% 90%, 85% 98%, 80% 88%, 75% 99%, 70% 91%, 65% 100%, 60% 89%, 55% 98%, 50% 90%,
                 45% 97%, 40% 89%, 35% 100%, 30% 91%, 25% 99%, 20% 88%, 15% 98%, 10% 90%, 5% 100%, 0% 88%
             );
-            transition: transform 0.5s ease;
+            transition: background-color 0.3s;
         }
 
         /* Color variations for each card's tape */
@@ -1331,50 +1328,106 @@
         .offer-card:nth-child(4)::before { background-color: rgba(255, 235, 204, 0.75); } /* Peach Cream */
         .offer-card:nth-child(5)::before { background-color: rgba(220, 245, 220, 0.75); } /* Sage Herb */
 
-        .offer-card:hover {
-            transform: rotate(0deg) scale(1.06) translateY(-10px) !important;
+        /* Inner container that performs the 3D flip */
+        .offer-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* When flipped class is present, execute pure Y-axis rotation */
+        .offer-card.flipped .offer-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Front and Back Face Panels of the polaroid */
+        .offer-card-front,
+        .offer-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #ffffff; /* Crisp polaroid photo white */
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 8px; /* Classic soft polaroid corners */
+            padding: 24px 20px 20px 20px; /* Snugger padding for tight borders */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Beautifully center content vertically */
             box-shadow: 
-                0 22px 45px rgba(156, 45, 67, 0.14),
-                0 8px 16px rgba(0, 0, 0, 0.03);
+                0 10px 28px rgba(74, 16, 40, 0.05),
+                0 3px 6px rgba(0, 0, 0, 0.02),
+                inset 0 0 40px rgba(0, 0, 0, 0.01);
+            box-sizing: border-box;
+        }
+
+        .offer-card-front {
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+
+        .offer-card-back {
+            transform: rotateY(180deg);
+            background: #fffefe; /* Soft clean off-white */
+        }
+
+        /* Hover States - Absolutely NO size change (scale) and NO translation/tilts */
+        .offer-card:hover {
             z-index: 10;
         }
 
+        /* Subtle depth shadow highlight on hover, but NO physical layout changes */
+        .offer-card:hover .offer-card-front,
+        .offer-card:hover .offer-card-back {
+            box-shadow: 
+                0 15px 35px rgba(156, 45, 67, 0.08),
+                0 5px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Keep tape straight on hover, no rotation or scale adjustments */
         .offer-card:hover::before {
-            transform: translateX(-50%) rotate(0deg) scale(1.04) translateY(-2px);
+            transform: translateX(-50%) rotate(0deg);
         }
 
         .offer-icon-wrapper {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: #fff0f3;
             color: #9c2d43;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 22px;
+            font-size: 1.25rem;
+            margin-bottom: 14px;
             box-shadow: 0 4px 10px rgba(156, 45, 67, 0.06);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s, color 0.3s;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
         }
 
+        /* Subtle rotate icon on hover, keeping the main card static and normal */
         .offer-card:hover .offer-icon-wrapper {
-            transform: scale(1.15) rotate(8deg);
+            transform: rotate(8deg);
             background: #9c2d43;
             color: #ffffff;
         }
 
         .offer-card h4 {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 800;
             letter-spacing: 1px;
             text-transform: uppercase;
             color: #3b0f1f;
-            margin: 0 0 12px 0;
+            margin: 0 0 10px 0;
             position: relative;
-            padding-bottom: 8px;
+            padding-bottom: 6px;
             line-height: 1.2;
+            width: 100%;
         }
 
         /* Hand-drawn gradient divider line */
@@ -1391,12 +1444,378 @@
 
         .offer-card p {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.84rem;
             font-weight: 450;
             color: #5a2e3f;
-            line-height: 1.6;
+            line-height: 1.45;
             margin: 0;
         }
+
+        /* Description layout for back of the card */
+        .offer-card-back p {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #5a2e3f;
+            line-height: 1.4;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Premium Gold Numbers on the back of polaroids */
+        .offer-card-num {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #c48c3b;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        /* ── Pricing Section (Rates & Baskets) ── */
+        .pricing-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: #fefbf3; /* Cozy warm vintage cream background */
+            /* Add a nice sewing dash outline on top and bottom borders */
+            border-top: 3px dashed #dfd5c2;
+            border-bottom: 3px dashed #dfd5c2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px;
+            overflow: hidden;
+        }
+
+        .pricing-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pricing-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            color: #9c2d43; /* Rose accent */
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.85);
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .pricing-title span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #3e5340; /* Sage accent */
+        }
+
+        .pricing-subtitle {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+            color: #4a1028;
+            font-weight: 500;
+            max-width: 600px;
+            line-height: 1.5;
+            margin-bottom: 50px;
+            text-shadow: 0 1px 5px rgba(255, 255, 255, 0.9);
+        }
+
+        /* 2-Column Split Layout */
+        .pricing-layout {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 50px;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        /* Left Side Collab Card - Cozy handwriting layout */
+        .pricing-intro-card {
+            flex: 1.2 1 450px;
+            background: #ffffff;
+            border: 2px solid #e5dcce;
+            border-radius: 30px;
+            padding: 40px 35px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 
+                0 15px 35px rgba(74, 16, 40, 0.04), 
+                0 5px 15px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        /* Cute decorative recipe ribbon tab */
+        .recipe-tag {
+            align-self: flex-start;
+            background: #fff0f3;
+            border: 1.5px dashed #9c2d43;
+            color: #9c2d43;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(156, 45, 67, 0.05);
+        }
+
+        .pricing-intro-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            color: #3b0f1f;
+            margin-bottom: 15px;
+            line-height: 1.25;
+        }
+
+        .pricing-intro-card p {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            color: #5a2e3f;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .recipe-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .recipe-list li {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .recipe-num {
+            width: 32px;
+            height: 32px;
+            background: #fffdf9;
+            border: 2px solid #e0b87a;
+            color: #c48c3b;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 3px 6px rgba(196, 140, 59, 0.1);
+        }
+
+        .recipe-list li div strong {
+            color: #3b0f1f;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .recipe-list li div {
+            font-size: 0.92rem;
+            color: #5a2e3f;
+            line-height: 1.45;
+        }
+
+        .btn-book-collab {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 36px;
+            background: #9c2d43;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(156, 45, 67, 0.35);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-book-collab:hover {
+            background: #b23a52;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(156, 45, 67, 0.45);
+        }
+
+        /* Right Side: Aspect Ratio Canvas with content6.PNG background */
+        .pricing-canvas {
+            flex: 1 1 380px;
+            max-width: 440px;
+            aspect-ratio: 9/16;
+            background: url('Assests/content6.PNG') center center / 100% 100% no-repeat;
+            border-radius: 36px;
+            box-shadow: 
+                0 25px 55px rgba(74, 16, 40, 0.18),
+                0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 5% 4%;
+            box-sizing: border-box;
+            border: 4px solid #ffffff; /* Frame overlay border */
+        }
+
+        /* Transparent overlays nestled strictly inside the baskets */
+        .basket-paper {
+            position: absolute;
+            left: 20%; /* Centered perfectly inside the red-gingham opening */
+            width: 60%; /* Strictly matches the inner opening width */
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            box-sizing: border-box;
+            box-shadow: none;
+            z-index: 10;
+        }
+
+        /* Top Basket Positioning */
+        .basket-paper.normal-basket {
+            top: 19%; /* Aligned inside top basket opening */
+            height: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        /* Bottom Basket Positioning */
+        .basket-paper.premium-basket {
+            top: 61%; /* Aligned inside bottom basket opening */
+            height: 22%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        /* Ruled list */
+        .price-list {
+            list-style: none;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0;
+            margin: 0;
+        }
+
+        .price-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Dancing Script', cursive; /* Extremely cool handwritten scrap style! */
+            font-size: clamp(1.05rem, 2.2vw, 1.25rem); /* Cursive scales perfectly with clamp */
+            font-weight: 800;
+            color: #3b0f1f; /* Rich dark plum */
+            padding: 0;
+            position: relative;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Symmetrical outline to deliver absolute legibility over checkered patterns */
+            text-shadow: 
+                2px 2px 0px #ffffff, 
+                -2px -2px 0px #ffffff, 
+                2px -2px 0px #ffffff, 
+                -2px 2px 0px #ffffff,
+                0 0 6px #ffffff,
+                0 0 10px #ffffff;
+        }
+
+        .service-name {
+            font-weight: 800;
+            color: #3b0f1f;
+            position: relative;
+            z-index: 2;
+            white-space: nowrap; /* Prevent messy visual wrapping */
+        }
+
+        .service-price {
+            font-family: 'Outfit', sans-serif; /* Standard readable font for numbers */
+            font-weight: 800;
+            color: #ffffff;
+            background: #9c2d43; /* Rose badge pricing pill */
+            padding: 2px 9px;
+            border-radius: 20px;
+            font-size: clamp(0.6rem, 1.4vw, 0.72rem);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 2px 6px rgba(156, 45, 67, 0.35);
+            text-shadow: none; /* Keep text clean inside pill */
+        }
+
+        /* Interactive Micro-animations */
+        .price-list li:hover {
+            transform: translateX(8px) scale(1.02); /* Cute hand-written slide */
+        }
+
+        .price-list li:hover .service-price {
+            background: #3b0f1f; /* Cool deep plum badge transformation */
+            transform: scale(1.15) rotate(-4deg); /* Playful rotating badge pop! */
+            box-shadow: 0 5px 12px rgba(59, 15, 31, 0.45);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 991px) {
+            .pricing-layout {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            .pricing-intro-card {
+                width: 100%;
+                max-width: 600px;
+                flex: none;
+            }
+            .pricing-canvas {
+                width: 100%;
+                max-width: 440px;
+                flex: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-canvas {
+                border-radius: 24px;
+            }
+            .price-list li {
+                font-size: 0.7rem;
+            }
+            .service-price {
+                font-size: 0.65rem;
+                padding: 1px 6px;
+            }
+            .basket-paper-header {
+                font-size: 0.85rem;
+            }
+        }
+
     </style>
 </head>
 
@@ -1757,47 +2176,181 @@
             <div class="offer-grid">
                 <!-- Card 1: UGC Videos -->
                 <div class="offer-card">
-                    <div class="offer-icon-wrapper">
-                        <i class="fa-solid fa-clapperboard"></i>
+                    <div class="offer-card-inner">
+                        <div class="offer-card-front">
+                            <div class="offer-icon-wrapper">
+                                <i class="fa-solid fa-clapperboard"></i>
+                            </div>
+                            <h4>UGC Videos</h4>
+                            <p>Authentic videos for ads, TikTok, Reels & more.</p>
+                        </div>
+                        <div class="offer-card-back">
+                            <span class="offer-card-num">01</span>
+                            <h4>UGC Videos</h4>
+                            <p>Highly engaging, aesthetic short-form videos tailored to your brand. From scroll-stopping hooks to seamless edits, I create high-converting content for ads, TikTok, and Reels.</p>
+                        </div>
                     </div>
-                    <h4>UGC Videos</h4>
-                    <p>Authentic videos for ads, TikTok, Reels & more.</p>
                 </div>
 
                 <!-- Card 2: Product Photography -->
                 <div class="offer-card">
-                    <div class="offer-icon-wrapper">
-                        <i class="fa-solid fa-camera-retro"></i>
+                    <div class="offer-card-inner">
+                        <div class="offer-card-front">
+                            <div class="offer-icon-wrapper">
+                                <i class="fa-solid fa-camera-retro"></i>
+                            </div>
+                            <h4>Product Photography</h4>
+                            <p>High-quality product & lifestyle photography.</p>
+                        </div>
+                        <div class="offer-card-back">
+                            <span class="offer-card-num">02</span>
+                            <h4>Product Photography</h4>
+                            <p>Stunning lifestyle and studio product photography that tells a story. Cozy setups, high-fidelity lighting, and beautifully styled compositions designed to elevate your brand catalog.</p>
+                        </div>
                     </div>
-                    <h4>Product Photography</h4>
-                    <p>High-quality product & lifestyle photography.</p>
                 </div>
 
                 <!-- Card 3: Ad Creatives -->
                 <div class="offer-card">
-                    <div class="offer-icon-wrapper">
-                        <i class="fa-solid fa-rectangle-ad"></i>
+                    <div class="offer-card-inner">
+                        <div class="offer-card-front">
+                            <div class="offer-icon-wrapper">
+                                <i class="fa-solid fa-rectangle-ad"></i>
+                            </div>
+                            <h4>Ad Creatives</h4>
+                            <p>Scroll-stopping creatives that convert.</p>
+                        </div>
+                        <div class="offer-card-back">
+                            <span class="offer-card-num">03</span>
+                            <h4>Ad Creatives</h4>
+                            <p>Strategic, visual ad creatives engineered for conversion. Combining aesthetic design with marketing psychology to capture attention, build trust, and drive meaningful clicks.</p>
+                        </div>
                     </div>
-                    <h4>Ad Creatives</h4>
-                    <p>Scroll-stopping creatives that convert.</p>
                 </div>
 
                 <!-- Card 4: Monthly Packages -->
                 <div class="offer-card">
-                    <div class="offer-icon-wrapper">
-                        <i class="fa-solid fa-calendar-days"></i>
+                    <div class="offer-card-inner">
+                        <div class="offer-card-front">
+                            <div class="offer-icon-wrapper">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </div>
+                            <h4>Monthly Packages</h4>
+                            <p>Consistent content to keep your brand active.</p>
+                        </div>
+                        <div class="offer-card-back">
+                            <span class="offer-card-num">04</span>
+                            <h4>Monthly Packages</h4>
+                            <p>A recurring monthly supply of fresh, high-quality content. Perfect for brands seeking consistent aesthetic posts, story curation, and video reels to maintain an active digital presence.</p>
+                        </div>
                     </div>
-                    <h4>Monthly Packages</h4>
-                    <p>Consistent content to keep your brand active.</p>
                 </div>
 
                 <!-- Card 5: Extra Add-ons -->
                 <div class="offer-card">
-                    <div class="offer-icon-wrapper">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <div class="offer-card-inner">
+                        <div class="offer-card-front">
+                            <div class="offer-icon-wrapper">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h4>Extra Add-ons</h4>
+                            <p>Raw footage, extra hooks, usage rights & more.</p>
+                        </div>
+                        <div class="offer-card-back">
+                            <span class="offer-card-num">05</span>
+                            <h4>Extra Add-ons</h4>
+                            <p>Expand your campaign value with versatile add-ons. Request unedited raw footage, multiple variations of hooks/call-to-actions, and extended commercial usage rights.</p>
+                        </div>
                     </div>
-                    <h4>Extra Add-ons</h4>
-                    <p>Raw footage, extra hooks, usage rights & more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Interactive Picnic Baskets Rate Card Section (content6.PNG) ── -->
+    <section class="pricing-section" id="pricing">
+        <div class="pricing-content">
+            <h2 class="pricing-title">Rates &amp; <span>Baskets</span></h2>
+            <p class="pricing-subtitle">Transparent pricing designed for powerful, authentic partnerships.</p>
+
+            <div class="pricing-layout">
+                <!-- Left Side: Collab Intro Card -->
+                <div class="pricing-intro-card">
+                    <div>
+                        <span class="recipe-tag">How It Works</span>
+                        <h3>Let's Whip Up Something Delicious!</h3>
+                        <p>Collaborating with me is as easy and satisfying as a weekend picnic. Here is our simple recipe for success:</p>
+                        
+                        <ul class="recipe-list">
+                            <li>
+                                <div class="recipe-num">1</div>
+                                <div><strong>Choose Your Ingredients:</strong> Select your preferred video length, package, or add-ons from the baskets.</div>
+                            </li>
+                            <li>
+                                <div class="recipe-num">2</div>
+                                <div><strong>Briefing &amp; Concept:</strong> We align on visual concepts, script hooks, and brand guidelines.</div>
+                            </li>
+                            <li>
+                                <div class="recipe-num">3</div>
+                                <div><strong>Fresh Delivery:</strong> Get high-converting, aesthetic UGC within 5–7 days of product arrival.</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="mailto:yelikanagashruthiofficial@gmail.com?subject=UGC%20Collaboration%20Inquiry" class="btn-book-collab">
+                        <i class="fa-solid fa-paper-plane"></i> Let's Work Together!
+                    </a>
+                </div>
+
+                <!-- Right Side: Interactive Picnic Baskets -->
+                <div class="pricing-canvas">
+                    <!-- Top Basket Paper -->
+                    <div class="basket-paper normal-basket">
+                        <ul class="price-list">
+                            <li>
+                                <span class="service-name">15 Sec UGC Video</span>
+                                <span class="service-price">₹5,000</span>
+                            </li>
+                            <li>
+                                <span class="service-name">30 Sec UGC Video</span>
+                                <span class="service-price">₹8,000</span>
+                            </li>
+                            <li>
+                                <span class="service-name">60 Sec UGC Video</span>
+                                <span class="service-price">₹12,000</span>
+                            </li>
+                            <li>
+                                <span class="service-name">3 Video Bundle (15-30s)</span>
+                                <span class="service-price">₹20,000</span>
+                            </li>
+                            <li>
+                                <span class="service-name">Product Photo (5 Photos)</span>
+                                <span class="service-price">₹4,000</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Bottom Basket Paper -->
+                    <div class="basket-paper premium-basket">
+                        <ul class="price-list">
+                            <li>
+                                <span class="service-name">Raw Footage</span>
+                                <span class="service-price">+ ₹2,000</span>
+                            </li>
+                            <li>
+                                <span class="service-name">Extra Hook</span>
+                                <span class="service-price">+ ₹1,500</span>
+                            </li>
+                            <li>
+                                <span class="service-name">Rush Delivery</span>
+                                <span class="service-price">+ ₹2,000</span>
+                            </li>
+                            <li>
+                                <span class="service-name">Usage Rights (30 Days)</span>
+                                <span class="service-price">Custom</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1955,6 +2508,13 @@
     document.querySelectorAll('.stamp-wrapper').forEach(function(stamp) {
         stamp.addEventListener('click', function() {
             stamp.classList.toggle('flipped');
+        });
+    });
+
+    // ── Toggle offer card flip on click ──
+    document.querySelectorAll('.offer-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+            card.classList.toggle('flipped');
         });
     });
 
