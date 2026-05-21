@@ -993,6 +993,16 @@
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
+        .brand-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            mix-blend-mode: multiply;
+            display: block;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
         .stamp-body .brand-name {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
@@ -1029,7 +1039,8 @@
         .stamp-wrapper:nth-child(10) .brand-stamp { transform: rotate(2.0deg); }
 
         /* Bounce/Grow micro-interaction on hover */
-        .stamp-wrapper:hover .stamp-body i {
+        .stamp-wrapper:hover .stamp-body i,
+        .stamp-wrapper:hover .brand-logo-img {
             transform: scale(1.18) rotate(5deg);
         }
 
@@ -1306,16 +1317,7 @@
                 <div class="stamp-wrapper stamp-vogue">
                     <div class="brand-stamp">
                         <div class="stamp-inner">
-                            <div class="stamp-header">
-                                <span>10¢</span>
-                                <span>Y.N.</span>
-                            </div>
-                            <div class="stamp-body">
-                                <i class="fa-solid fa-feather-pointed"></i>
-                                <span class="brand-name">Vogue</span>
-                                <span class="brand-desc">Editorial & Style</span>
-                            </div>
-                            <div class="stamp-footer">First Class</div>
+                            <img src="Assests/koreyaki.jpg" alt="Koreyaki Logo" class="brand-logo-img">
                         </div>
                     </div>
                 </div>
