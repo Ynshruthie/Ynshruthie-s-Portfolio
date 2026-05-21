@@ -8,6 +8,91 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern, premium accents for markscard page */
+        .mc-tabs-container {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .mc-tabs-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .mc-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .mc-tab-btn {
+            background: #fff;
+            border: 1.5px solid var(--border);
+            color: var(--brown);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(74,44,17,0.04);
+        }
+        .mc-tab-btn:hover {
+            border-color: var(--brown);
+            background: rgba(74,44,17,0.02);
+            transform: translateY(-1px);
+        }
+        .mc-tab-btn.active {
+            background: var(--brown);
+            color: #fff;
+            border-color: var(--brown);
+            box-shadow: 0 4px 12px rgba(74,44,17,0.15);
+        }
+        .mc-pdf-frame {
+            width: 100%;
+            height: 650px;
+            border: none;
+            display: block;
+            border-radius: var(--radius-sm);
+        }
+        .mc-action-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+        .mc-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--brown);
+            color: #fff !important;
+            padding: 12px 26px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(74,44,17,0.15);
+        }
+        .mc-action-btn:hover {
+            background: var(--dark-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74,44,17,0.22);
+        }
+        .mc-action-btn i {
+            font-size: 1.1rem;
+        }
+        /* Make mc-image-area flexible when showing iframe */
+        .mc-image-area.has-pdf {
+            min-height: auto;
+            background: transparent;
+            border: 1px solid var(--border);
+        }
+    </style>
 </head>
 <body>
     <div class="markscard-page">
@@ -24,7 +109,13 @@
                 </div>
             </div>
 
-            <!-- Image viewer area -->
+            <!-- Dynamic Semester tabs container (only shown for BSC) -->
+            <div id="mc-tabs-container" class="mc-tabs-container hidden">
+                <p class="mc-tabs-title">Select Semester Document</p>
+                <div id="mc-tabs" class="mc-tabs"></div>
+            </div>
+
+            <!-- Image/PDF viewer area -->
             <div class="mc-image-area" id="mc-image-area">
                 <!-- When image is uploaded, it shows here -->
                 <div class="mc-placeholder" id="mc-placeholder">
@@ -33,6 +124,13 @@
                     <span class="mc-upload-note">The document for <strong id="mc-placeholder-name"></strong> will be added here.</span>
                 </div>
                 <img id="mc-img" src="" alt="Marks Card" class="mc-document-img hidden">
+            </div>
+
+            <!-- Dynamic Action button for PDFs/Downloads -->
+            <div id="mc-action-container" class="mc-action-btn-container hidden">
+                <a id="mc-action-link" href="#" target="_blank" class="mc-action-btn">
+                    <i class="fa-solid fa-file-pdf"></i> Open PDF in New Tab
+                </a>
             </div>
 
             <!-- Details table (for education) -->
@@ -54,7 +152,7 @@
                     { label: "Year", value: "2026 – Present" },
                     { label: "CPI", value: "9.04" }
                 ],
-                img: "Assests/markscard_mca.jpg"  // upload image here
+                img: ""  // keep empty to trigger placeholder since it is ongoing
             },
             bsc: {
                 title: "BSC – Bachelor of Science",
@@ -68,7 +166,16 @@
                     { label: "Year", value: "July 2024" },
                     { label: "CPI", value: "8.90" }
                 ],
-                img: "Assests/markscard_bsc.jpg"
+                sems: [
+                    { name: "1st Sem", img: "Assests/Degree 1st sem Markscard .pdf" },
+                    { name: "2nd Sem", img: "Assests/ Degree 2nd sem Markscard.pdf" },
+                    { name: "3rd Sem", img: "Assests/Degree 3rd sem Markscard.pdf" },
+                    { name: "4th Sem", img: "Assests/Degree 4th sem Markscard.pdf" },
+                    { name: "5th Sem", img: "Assests/Degree 5th sem Markscard.pdf" },
+                    { name: "6th Sem", img: "Assests/Degree 6th sem Markscard.pdf" },
+                    { name: "Degree Certificate", img: "Assests/ Degree Completion Certificate.pdf" }
+                ],
+                img: "Assests/Degree 6th sem Markscard.pdf" // default to 6th sem
             },
             "12th": {
                 title: "12th Grade",
@@ -82,7 +189,7 @@
                     { label: "Year", value: "July 2021" },
                     { label: "Percentage", value: "87.83%" }
                 ],
-                img: "Assests/markscard_12th.jpg"
+                img: "Assests/12th Markscard.pdf"
             },
             "10th": {
                 title: "10th Grade",
@@ -96,7 +203,7 @@
                     { label: "Year", value: "April 2019" },
                     { label: "Percentage", value: "84.96%" }
                 ],
-                img: "Assests/markscard_10th.jpg"
+                img: "Assests/10th Markscard .pdf"
             }
         };
 
@@ -106,37 +213,93 @@
                 subtitle: "Cybersecurity Certification",
                 icon: "fa-shield-halved",
                 color: "#1ba0d8",
-                img: "Assests/cert_cisco.jpg"
+                img: "Assests/Cisco Certified Support Technician Cybersecurity.pdf"
             },
             pragati: {
                 title: "Pragati: Path to Future",
                 subtitle: "Cohort 6",
                 icon: "fa-seedling",
                 color: "#27ae60",
-                img: "Assests/cert_pragati.jpg"
+                img: "Assests/Pragati_ Path to Future – Cohort 6.pdf"
             },
             devops: {
                 title: "Code to Cloud: DevOps & Deployment",
                 subtitle: "Power Bootcamp",
                 icon: "fa-cloud-arrow-up",
                 color: "#e67e22",
-                img: "Assests/cert_devops.jpg"
+                img: "Assests/CODE TO CLOUD_ A DEVOPS & DEPLOYMENT POWER BOOTCAMP.jpeg"
             },
             ai: {
                 title: "Artificial Intelligence Foundation",
                 subtitle: "AI Certification",
                 icon: "fa-brain",
                 color: "#8e44ad",
-                img: "Assests/cert_ai.jpg"
+                img: "Assests/Artificial Intelligence Foundation Certification.pdf"
             },
             django: {
                 title: "Django Mastery: From Basics to Deployment",
                 subtitle: "Full Course Certification",
                 icon: "fa-python",
                 color: "#092e20",
-                img: "Assests/cert_django.jpg"
+                img: "Assests/DJANGO MASTERY_ FROM BASICS TO DEPLOYMENT.jpeg"
             }
         };
+
+        function renderDocument(filePath, title) {
+            const viewerArea = document.getElementById("mc-image-area");
+            const imgEl = document.getElementById("mc-img");
+            const placeholderEl = document.getElementById("mc-placeholder");
+            const actionContainer = document.getElementById("mc-action-container");
+            const actionLink = document.getElementById("mc-action-link");
+
+            // Remove any existing iframe
+            const existingFrame = viewerArea.querySelector("iframe");
+            if (existingFrame) {
+                existingFrame.remove();
+            }
+
+            // Hide/reset default elements
+            imgEl.classList.add("hidden");
+            placeholderEl.classList.add("hidden");
+            actionContainer.classList.add("hidden");
+            viewerArea.classList.remove("has-pdf");
+
+            if (!filePath) {
+                // No document loaded, show placeholder
+                placeholderEl.classList.remove("hidden");
+                return;
+            }
+
+            const isPdf = filePath.toLowerCase().endsWith(".pdf");
+
+            if (isPdf) {
+                // Render PDF in Iframe
+                viewerArea.classList.add("has-pdf");
+                const iframe = document.createElement("iframe");
+                iframe.src = `${filePath}#toolbar=0&navpanes=0&view=FitH`;
+                iframe.className = "mc-pdf-frame";
+                viewerArea.appendChild(iframe);
+
+                // Show backup open action button
+                actionLink.href = filePath;
+                actionLink.innerHTML = `<i class="fa-solid fa-file-pdf"></i> Open ${title || "Document"} in New Tab`;
+                actionContainer.classList.remove("hidden");
+            } else {
+                // Render Image
+                imgEl.src = filePath;
+                imgEl.onload = () => {
+                    imgEl.classList.remove("hidden");
+                };
+                imgEl.onerror = () => {
+                    placeholderEl.classList.remove("hidden");
+                };
+
+                // Show dynamic view button for images as well
+                actionLink.href = filePath;
+                actionLink.innerHTML = `<i class="fa-solid fa-up-right-from-square"></i> Open Image in New Tab`;
+                actionContainer.classList.remove("hidden");
+            }
+        }
 
         // Read URL param
         const params = new URLSearchParams(window.location.search);
@@ -155,16 +318,33 @@
             iconEl.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
             iconEl.style.background = data.color;
 
-            // Try load image
-            const img = document.getElementById("mc-img");
-            img.src = data.img;
-            img.onload = () => {
-                img.classList.remove("hidden");
-                document.getElementById("mc-placeholder").classList.add("hidden");
-            };
-            img.onerror = () => {
-                // keep placeholder visible
-            };
+            // Handle multi-sem BSC tabs
+            if (data.sems) {
+                const tabsContainer = document.getElementById("mc-tabs-container");
+                const tabsEl = document.getElementById("mc-tabs");
+                tabsContainer.classList.remove("hidden");
+
+                data.sems.forEach((sem, idx) => {
+                    const btn = document.createElement("button");
+                    btn.className = "mc-tab-btn";
+                    btn.textContent = sem.name;
+                    // Default to last sem (6th Sem)
+                    if (idx === 5) {
+                        btn.classList.add("active");
+                        renderDocument(sem.img, sem.name);
+                    }
+                    btn.addEventListener("click", () => {
+                        // Deactivate others
+                        tabsEl.querySelectorAll(".mc-tab-btn").forEach(b => b.classList.remove("active"));
+                        btn.classList.add("active");
+                        renderDocument(sem.img, sem.name);
+                    });
+                    tabsEl.appendChild(btn);
+                });
+            } else {
+                // Standard single document loading
+                renderDocument(data.img, data.title);
+            }
 
             // Show details table for edu
             if (data.details) {
