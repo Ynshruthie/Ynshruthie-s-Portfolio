@@ -741,13 +741,369 @@
         }
 
         .cat-btn.active {
-            background: #3e5340;
-            border-color: #3e5340;
-            border-style: solid;
             color: #fffdf9;
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(62, 83, 64, 0.32);
         }
+
+        /* ── Individual Category Colors (Active & Hover) ── */
+        
+        /* Beauty - Deep Burgundy Rose */
+        .cat-btn[data-cat="beauty"]:hover {
+            background: rgba(130, 53, 76, 0.15);
+            border-color: #82354c;
+            border-style: solid;
+            color: #82354c;
+            box-shadow: 0 6px 16px rgba(130, 53, 76, 0.2);
+        }
+        .cat-btn[data-cat="beauty"].active,
+        .cat-btn[data-cat="beauty"].active:hover {
+            background: #82354c;
+            border-color: #82354c;
+            border-style: solid;
+            color: #fffdf9;
+            box-shadow: 0 6px 18px rgba(130, 53, 76, 0.35);
+        }
+
+        /* Fashion - Midnight Navy / Deep Slate */
+        .cat-btn[data-cat="fashion"]:hover {
+            background: rgba(56, 67, 110, 0.15);
+            border-color: #38436e;
+            border-style: solid;
+            color: #38436e;
+            box-shadow: 0 6px 16px rgba(56, 67, 110, 0.2);
+        }
+        .cat-btn[data-cat="fashion"].active,
+        .cat-btn[data-cat="fashion"].active:hover {
+            background: #38436e;
+            border-color: #38436e;
+            border-style: solid;
+            color: #fffdf9;
+            box-shadow: 0 6px 18px rgba(56, 67, 110, 0.35);
+        }
+
+        /* Lifestyle - Deep Forest Olive */
+        .cat-btn[data-cat="lifestyle"]:hover {
+            background: rgba(72, 89, 63, 0.15);
+            border-color: #48593f;
+            border-style: solid;
+            color: #48593f;
+            box-shadow: 0 6px 16px rgba(72, 89, 63, 0.2);
+        }
+        .cat-btn[data-cat="lifestyle"].active,
+        .cat-btn[data-cat="lifestyle"].active:hover {
+            background: #48593f;
+            border-color: #48593f;
+            border-style: solid;
+            color: #fffdf9;
+            box-shadow: 0 6px 18px rgba(72, 89, 63, 0.35);
+        }
+
+        /* Food - Deep Crimson Maroon */
+        .cat-btn[data-cat="food"]:hover {
+            background: rgba(145, 42, 40, 0.15);
+            border-color: #912a28;
+            border-style: solid;
+            color: #912a28;
+            box-shadow: 0 6px 16px rgba(145, 42, 40, 0.2);
+        }
+        .cat-btn[data-cat="food"].active,
+        .cat-btn[data-cat="food"].active:hover {
+            background: #912a28;
+            border-color: #912a28;
+            border-style: solid;
+            color: #fffdf9;
+            box-shadow: 0 6px 18px rgba(145, 42, 40, 0.35);
+        }
+
+        /* Workout - Deep Hunter Green */
+        .cat-btn[data-cat="workout"]:hover {
+            background: rgba(37, 53, 39, 0.15);
+            border-color: #253527;
+            border-style: solid;
+            color: #253527;
+            box-shadow: 0 6px 16px rgba(37, 53, 39, 0.2);
+        }
+        .cat-btn[data-cat="workout"].active,
+        .cat-btn[data-cat="workout"].active:hover {
+            background: #253527;
+            border-color: #253527;
+            border-style: solid;
+            color: #fffdf9;
+            box-shadow: 0 6px 18px rgba(37, 53, 39, 0.35);
+        }
+
+        /* Brands - Antique Bronze Gold */
+        .cat-btn[data-cat="brands"]:hover {
+            background: rgba(140, 90, 35, 0.15);
+            border-color: #8c5a23;
+            border-style: solid;
+            color: #8c5a23;
+            box-shadow: 0 6px 16px rgba(140, 90, 35, 0.2);
+        }
+        .cat-btn[data-cat="brands"].active,
+        .cat-btn[data-cat="brands"].active:hover {
+            background: #8c5a23;
+            border-color: #8c5a23;
+            border-style: solid;
+            color: #fffdf9;
+            box-shadow: 0 6px 18px rgba(140, 90, 35, 0.35);
+        }
+
+        /* Tech - Imperial Eggplant Purple */
+        .cat-btn[data-cat="tech"]:hover {
+            background: rgba(77, 38, 87, 0.15);
+            border-color: #4d2657;
+            border-style: solid;
+            color: #4d2657;
+            box-shadow: 0 6px 16px rgba(77, 38, 87, 0.2);
+        }
+        .cat-btn[data-cat="tech"].active,
+        .cat-btn[data-cat="tech"].active:hover {
+            background: #4d2657;
+            border-color: #4d2657;
+            border-style: solid;
+            color: #fffdf9;
+            box-shadow: 0 6px 18px rgba(77, 38, 87, 0.35);
+        }
+
+        /* Dance - Burnt Terracotta Orange */
+        .cat-btn[data-cat="dance"]:hover {
+            background: rgba(143, 59, 29, 0.15);
+            border-color: #8f3b1d;
+            border-style: solid;
+            color: #8f3b1d;
+            box-shadow: 0 6px 16px rgba(143, 59, 29, 0.2);
+        }
+        .cat-btn[data-cat="dance"].active,
+        .cat-btn[data-cat="dance"].active:hover {
+            background: #8f3b1d;
+            border-color: #8f3b1d;
+            border-style: solid;
+            color: #fffdf9;
+            box-shadow: 0 6px 18px rgba(143, 59, 29, 0.35);
+        }
+
+        /* ── Client Section and Postage Brand Stamps ── */
+        .client-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: url('Assests/content4.jpg') center center / 100% 100% no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px;
+            overflow: hidden;
+        }
+
+        .stamp-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 28px;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 40px;
+            justify-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .stamp-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stamp-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .stamp-wrapper {
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .stamp-wrapper:hover {
+            transform: translateY(-8px) rotate(2deg) scale(1.05);
+        }
+
+        /* ── Scalloped Lace Doily Container (Inspo Redesign) ── */
+        .brand-stamp {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            overflow: visible; /* Let the decorative outer scallops breathe */
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 
+                0 10px 25px rgba(45, 20, 28, 0.08), 
+                0 3px 8px rgba(0, 0, 0, 0.03);
+            background-color: transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Inner Content centered exactly inside the SVG's inner solid circular canvas */
+        .stamp-inner {
+            width: 132px;
+            height: 132px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            border: none;
+            padding: 0;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* Hiding header/footer to match clean aesthetic of the circular doily inspiration */
+        .stamp-header,
+        .stamp-footer {
+            display: none;
+        }
+
+        .stamp-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stamp-body i {
+            font-size: 2.2rem;
+            margin-bottom: 6px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stamp-body .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.82rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .stamp-body .brand-desc {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.58rem;
+            margin-top: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            max-width: 110px;
+            line-height: 1.3;
+        }
+
+
+
+        /* Organic layout variations (Subtle physical tilts) */
+        .stamp-wrapper:nth-child(1) .brand-stamp { transform: rotate(-1.8deg); }
+        .stamp-wrapper:nth-child(2) .brand-stamp { transform: rotate(1.5deg); }
+        .stamp-wrapper:nth-child(3) .brand-stamp { transform: rotate(-0.8deg); }
+        .stamp-wrapper:nth-child(4) .brand-stamp { transform: rotate(2.2deg); }
+        .stamp-wrapper:nth-child(5) .brand-stamp { transform: rotate(-1.5deg); }
+        .stamp-wrapper:nth-child(6) .brand-stamp { transform: rotate(1.2deg); }
+        .stamp-wrapper:nth-child(7) .brand-stamp { transform: rotate(-2.0deg); }
+        .stamp-wrapper:nth-child(8) .brand-stamp { transform: rotate(1.8deg); }
+        .stamp-wrapper:nth-child(9) .brand-stamp { transform: rotate(-1.0deg); }
+        .stamp-wrapper:nth-child(10) .brand-stamp { transform: rotate(2.0deg); }
+
+        /* Bounce/Grow micro-interaction on hover */
+        .stamp-wrapper:hover .stamp-body i {
+            transform: scale(1.18) rotate(5deg);
+        }
+
+        /* ── Dynamic Doily SVG Configurations with Custom Brand Color Palette ── */
+
+        /* 1. Vogue (Premium Burgundy) */
+        .stamp-vogue .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23fef2f4' /%3E%3C/svg%3E");
+        }
+        .stamp-vogue i, .stamp-vogue .brand-name { color: #82354c !important; }
+        .stamp-vogue .brand-desc { color: rgba(130, 53, 76, 0.75) !important; }
+
+        /* 2. Chanel (Premium Charcoal / Espresso) */
+        .stamp-chanel .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23f8f7f5' /%3E%3C/svg%3E");
+        }
+        .stamp-chanel i, .stamp-chanel .brand-name { color: #2d2a2b !important; }
+        .stamp-chanel .brand-desc { color: rgba(45, 42, 43, 0.75) !important; }
+
+        /* 3. Sephora (Premium Crimson Red) */
+        .stamp-sephora .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23fff0eb' /%3E%3C/svg%3E");
+        }
+        .stamp-sephora i, .stamp-sephora .brand-name { color: #912a28 !important; }
+        .stamp-sephora .brand-desc { color: rgba(145, 42, 40, 0.75) !important; }
+
+        /* 4. Starbucks (Forest Green) */
+        .stamp-starbucks .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23f0f5f1' /%3E%3C/svg%3E");
+        }
+        .stamp-starbucks i, .stamp-starbucks .brand-name { color: #253527 !important; }
+        .stamp-starbucks .brand-desc { color: rgba(37, 53, 39, 0.75) !important; }
+
+        /* 5. Adobe (Vibrant Dark Red) */
+        .stamp-adobe .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23fdf0f0' /%3E%3C/svg%3E");
+        }
+        .stamp-adobe i, .stamp-adobe .brand-name { color: #a81c1c !important; }
+        .stamp-adobe .brand-desc { color: rgba(168, 28, 28, 0.75) !important; }
+
+        /* 6. Spotify (Slate Navy) */
+        .stamp-spotify .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23f1f3f9' /%3E%3C/svg%3E");
+        }
+        .stamp-spotify i, .stamp-spotify .brand-name { color: #38436e !important; }
+        .stamp-spotify .brand-desc { color: rgba(56, 67, 110, 0.75) !important; }
+
+        /* 7. Nike (Jet Black) */
+        .stamp-nike .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23f5f5f5' /%3E%3C/svg%3E");
+        }
+        .stamp-nike i, .stamp-nike .brand-name { color: #111111 !important; }
+        .stamp-nike .brand-desc { color: rgba(17, 17, 17, 0.75) !important; }
+
+        /* 8. Zara (Warm Bronze) */
+        .stamp-zara .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23faf4eb' /%3E%3C/svg%3E");
+        }
+        .stamp-zara i, .stamp-zara .brand-name { color: #8c5a23 !important; }
+        .stamp-zara .brand-desc { color: rgba(140, 90, 35, 0.75) !important; }
+
+        /* 9. Pinterest (Crimson Red) */
+        .stamp-pinterest .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23fff0f1' /%3E%3C/svg%3E");
+        }
+        .stamp-pinterest i, .stamp-pinterest .brand-name { color: #bd081c !important; }
+        .stamp-pinterest .brand-desc { color: rgba(189, 8, 28, 0.75) !important; }
+
+        /* 10. Dior (Purple Orchid) */
+        .stamp-dior .brand-stamp {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='white' stroke-width='14' stroke-dasharray='0 14' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='90' fill='white' /%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%23e8dfd3' stroke-width='1.2' /%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23d5c8b5' stroke-width='3' stroke-dasharray='0 6' stroke-linecap='round' /%3E%3Ccircle cx='100' cy='100' r='66' fill='%23f6f0f7' /%3E%3C/svg%3E");
+        }
+        .stamp-dior i, .stamp-dior .brand-name { color: #4d2657 !important; }
+        .stamp-dior .brand-desc { color: rgba(77, 38, 87, 0.75) !important; }
     </style>
 </head>
 
@@ -936,6 +1292,196 @@
             </div>
 
 
+        </div>
+    </section>
+
+    <!-- ── Client Partnerships Section (content4.jpg background) ── -->
+    <section class="client-section" id="clients">
+        <div class="gallery-content">
+            <h2 class="gallery-title" style="color: #82354c;">Creative <span>Partnerships</span></h2>
+            <p class="gallery-subtitle" style="color: #3b0f1f;">A vintage stamp collection of brands, editorials, and companies I have collaborated with.</p>
+
+            <div class="stamp-grid">
+                <!-- Row 1 Stamp 1: Vogue -->
+                <div class="stamp-wrapper stamp-vogue">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>10¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-feather-pointed"></i>
+                                <span class="brand-name">Vogue</span>
+                                <span class="brand-desc">Editorial & Style</span>
+                            </div>
+                            <div class="stamp-footer">First Class</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 1 Stamp 2: Chanel -->
+                <div class="stamp-wrapper stamp-chanel">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>25¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-gem"></i>
+                                <span class="brand-name">Chanel</span>
+                                <span class="brand-desc">Luxury Beauty</span>
+                            </div>
+                            <div class="stamp-footer">Special Edition</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 1 Stamp 3: Sephora -->
+                <div class="stamp-wrapper stamp-sephora">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>15¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <span class="brand-name">Sephora</span>
+                                <span class="brand-desc">Cosmetics Edit</span>
+                            </div>
+                            <div class="stamp-footer">Premium Edit</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 1 Stamp 4: Starbucks -->
+                <div class="stamp-wrapper stamp-starbucks">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>50¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-mug-hot"></i>
+                                <span class="brand-name">Starbucks</span>
+                                <span class="brand-desc">Lifestyle & Café</span>
+                            </div>
+                            <div class="stamp-footer">Cozy Collab</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 1 Stamp 5: Adobe -->
+                <div class="stamp-wrapper stamp-adobe">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>90¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-compass-drafting"></i>
+                                <span class="brand-name">Adobe</span>
+                                <span class="brand-desc">Tech & Creative</span>
+                            </div>
+                            <div class="stamp-footer">Digital Art</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 Stamp 6: Spotify -->
+                <div class="stamp-wrapper stamp-spotify">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>30¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-music"></i>
+                                <span class="brand-name">Spotify</span>
+                                <span class="brand-desc">Audio Stories</span>
+                            </div>
+                            <div class="stamp-footer">Sound Diaries</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 Stamp 7: Nike -->
+                <div class="stamp-wrapper stamp-nike">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>80¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-shoe-prints"></i>
+                                <span class="brand-name">Nike</span>
+                                <span class="brand-desc">Active Lifestyle</span>
+                            </div>
+                            <div class="stamp-footer">Endurance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 Stamp 8: Zara -->
+                <div class="stamp-wrapper stamp-zara">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>45¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-shirt"></i>
+                                <span class="brand-name">Zara</span>
+                                <span class="brand-desc">Modern Styling</span>
+                            </div>
+                            <div class="stamp-footer">OOTD Series</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 Stamp 9: Pinterest -->
+                <div class="stamp-wrapper stamp-pinterest">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>60¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-thumbtack"></i>
+                                <span class="brand-name">Pinterest</span>
+                                <span class="brand-desc">Inspiration Hub</span>
+                            </div>
+                            <div class="stamp-footer">Mood Boards</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 Stamp 10: Dior -->
+                <div class="stamp-wrapper stamp-dior">
+                    <div class="brand-stamp">
+                        <div class="stamp-inner">
+                            <div class="stamp-header">
+                                <span>75¢</span>
+                                <span>Y.N.</span>
+                            </div>
+                            <div class="stamp-body">
+                                <i class="fa-solid fa-spray-can-sparkles"></i>
+                                <span class="brand-name">Dior</span>
+                                <span class="brand-desc">Couture Perfumes</span>
+                            </div>
+                            <div class="stamp-footer">Haute Edit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
