@@ -1477,7 +1477,7 @@
             position: relative;
             width: 100%;
             min-height: 100vh;
-            background: #fefbf3; /* Cozy warm vintage cream background */
+            background: url('Assests/content7.JPG') center center / 100% 100% no-repeat;
             /* Add a nice sewing dash outline on top and bottom borders */
             border-top: 3px dashed #dfd5c2;
             border-bottom: 3px dashed #dfd5c2;
@@ -1541,44 +1541,46 @@
         }
 
         /* Left Side Collab Card - Cozy handwriting layout */
+        /* Left Side Collab Card - Cozy handwriting layout */
         .pricing-intro-card {
             flex: 1.2 1 450px;
-            background: #ffffff;
-            border: 2px solid #e5dcce;
+            background: rgba(254, 251, 243, 0.96); /* Warm vintage parchment paper card */
+            border: 2.5px dashed #dfd5c2; /* Sewing stitching dashed line style */
             border-radius: 30px;
             padding: 40px 35px;
             text-align: left;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             box-shadow: 
-                0 15px 35px rgba(74, 16, 40, 0.04), 
-                0 5px 15px rgba(0, 0, 0, 0.02);
+                0 15px 35px rgba(74, 16, 40, 0.06), 
+                0 5px 15px rgba(0, 0, 0, 0.03);
             position: relative;
         }
 
-        /* Cute decorative recipe ribbon tab */
+        /* Cute decorative recipe ribbon tab — styled as a tilted washi tape snippet */
         .recipe-tag {
             align-self: flex-start;
-            background: #fff0f3;
-            border: 1.5px dashed #9c2d43;
+            background: rgba(224, 184, 122, 0.25);
+            border-left: 3px solid #9c2d43;
+            border-right: 3px solid #9c2d43;
             color: #9c2d43;
             font-family: 'Outfit', sans-serif;
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            padding: 6px 16px;
-            border-radius: 50px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(156, 45, 67, 0.05);
+            padding: 6px 18px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+            transform: rotate(-2deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
         }
 
         .pricing-intro-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-size: clamp(2rem, 3.8vw, 2.6rem);
             color: #3b0f1f;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             line-height: 1.25;
         }
 
@@ -1586,53 +1588,65 @@
             font-family: 'Outfit', sans-serif;
             font-size: clamp(0.95rem, 1.8vw, 1.05rem);
             color: #5a2e3f;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            line-height: 1.65;
+            margin-bottom: 30px;
         }
 
         .recipe-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 24px;
+            margin-bottom: 10px;
         }
 
         .recipe-list li {
             display: flex;
-            gap: 18px;
+            gap: 20px;
             align-items: flex-start;
+            background: #ffffff;
+            padding: 16px 20px;
+            border-radius: 20px;
+            border: 1px solid #f0e6d6;
+            box-shadow: 0 4px 12px rgba(74, 16, 40, 0.02);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .recipe-list li:hover {
+            transform: translateX(6px) rotate(0.5deg);
+            border-color: #e0b87a;
         }
 
         .recipe-num {
-            width: 32px;
-            height: 32px;
+            width: 38px;
+            height: 38px;
             background: #fffdf9;
-            border: 2px solid #e0b87a;
-            color: #c48c3b;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 700;
-            font-size: 1.1rem;
+            border: 2px dashed #9c2d43;
+            color: #9c2d43;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 800;
+            font-size: 1.3rem;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 3px 6px rgba(196, 140, 59, 0.1);
+            box-shadow: 0 3px 6px rgba(156, 45, 67, 0.08);
         }
 
         .recipe-list li div strong {
-            color: #3b0f1f;
-            font-weight: 700;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+            color: #9c2d43;
+            font-weight: 800;
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         .recipe-list li div {
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             color: #5a2e3f;
-            line-height: 1.45;
+            line-height: 1.5;
         }
 
         .btn-book-collab {
@@ -1712,6 +1726,38 @@
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+        }
+
+        /* Basket heading */
+        .basket-paper-header {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 800;
+            color: #9c2d43;
+            text-align: center;
+            letter-spacing: 1px;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            z-index: 15;
+            text-shadow:
+                2px 2px 0px #ffffff,
+                -2px -2px 0px #ffffff,
+                2px -2px 0px #ffffff,
+                -2px 2px 0px #ffffff,
+                0 0 8px #ffffff,
+                0 0 14px #ffffff;
+        }
+
+        .basket-paper-header.normal-header {
+            top: 8%;
+        }
+
+        .basket-paper-header.premium-header {
+            top: 52%;
         }
 
         /* Ruled list */
@@ -2277,33 +2323,31 @@
                 <!-- Left Side: Collab Intro Card -->
                 <div class="pricing-intro-card">
                     <div>
-                        <span class="recipe-tag">How It Works</span>
-                        <h3>Let's Whip Up Something Delicious!</h3>
-                        <p>Collaborating with me is as easy and satisfying as a weekend picnic. Here is our simple recipe for success:</p>
+                        <span class="recipe-tag">Our Recipe</span>
+                        <h3>Let's Bake Something Sweet! 🍓</h3>
+                        <p>Creating gorgeous, scroll-stopping videos for your brand is as sweet and effortless as packing a sunny weekend picnic! Here is our step-by-step recipe for success:</p>
                         
                         <ul class="recipe-list">
                             <li>
                                 <div class="recipe-num">1</div>
-                                <div><strong>Choose Your Ingredients:</strong> Select your preferred video length, package, or add-ons from the baskets.</div>
+                                <div><strong>🍒 Handpick Your Flavors</strong>Select your preferred video lengths and delicious add-ons from the picnic baskets.</div>
                             </li>
                             <li>
                                 <div class="recipe-num">2</div>
-                                <div><strong>Briefing &amp; Concept:</strong> We align on visual concepts, script hooks, and brand guidelines.</div>
+                                <div><strong>🥣 Blend &amp; Whisk</strong>We align on visual concepts, custom scripts, and aesthetic hooks tailored to your unique brand vibe.</div>
                             </li>
                             <li>
                                 <div class="recipe-num">3</div>
-                                <div><strong>Fresh Delivery:</strong> Get high-converting, aesthetic UGC within 5–7 days of product arrival.</div>
+                                <div><strong>🍰 Serve it Fresh!</strong>Your beautifully edited, high-converting UGC is delivered warm and ready to perform in just 5–7 days!</div>
                             </li>
                         </ul>
                     </div>
-
-                    <a href="mailto:yelikanagashruthiofficial@gmail.com?subject=UGC%20Collaboration%20Inquiry" class="btn-book-collab">
-                        <i class="fa-solid fa-paper-plane"></i> Let's Work Together!
-                    </a>
                 </div>
 
                 <!-- Right Side: Interactive Picnic Baskets -->
                 <div class="pricing-canvas">
+                    <!-- Top Basket Heading -->
+                    <h3 class="basket-paper-header normal-header">Regular Prices</h3>
                     <!-- Top Basket Paper -->
                     <div class="basket-paper normal-basket">
                         <ul class="price-list">
@@ -2330,6 +2374,8 @@
                         </ul>
                     </div>
 
+                    <!-- Bottom Basket Heading -->
+                    <h3 class="basket-paper-header premium-header">Premium Add-ons</h3>
                     <!-- Bottom Basket Paper -->
                     <div class="basket-paper premium-basket">
                         <ul class="price-list">
