@@ -25,18 +25,27 @@
             scroll-behavior: smooth;
         }
 
-        /* ── Hero Section with content1.jpg ── */
+        /* ── Hero Section with intro.mov ── */
         .hero {
             position: relative;
             width: 100%;
             height: 100vh;
-            background: url('Assests/content1.jpg') center center / 100% 100% no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
 
 
@@ -97,20 +106,30 @@
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4.5vw, 3.8rem);
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.8rem, 6.5vw, 5.2rem);
             font-weight: 700;
             line-height: 1.25;
-            color: #3b0f1f;
-            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.55);
+            color: #ffffff;
+            text-shadow: 
+                0 4px 25px rgba(0, 0, 0, 0.6),
+                0 2px 10px rgba(0, 0, 0, 0.4);
             opacity: 0;
             animation: fadeUp 0.9s ease 0.5s forwards;
+            letter-spacing: -1px;
         }
 
         .hero h1 span {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: #9c2d43; /* Match the gorgeous dusty rose theme */
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 
+                0 4px 30px rgba(156, 45, 67, 0.8),
+                0 2px 10px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            transform: rotate(-3deg);
+            margin-left: 8px;
         }
 
         .hero p {
@@ -1871,18 +1890,14 @@
     <a href="index.html" class="home-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
 
 
-    <!-- ── Hero with content1.jpg background ── -->
+    <!-- ── Hero with intro.mov background ── -->
     <section class="hero">
-        <!-- Label name on top of the cream strawberry tag in background -->
-        <span class="label-name">Ynshruthie</span>
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="Assests/intro.mov">
+        </video>
 
         <div class="hero-content">
-            <h1>Welcome to my <span>Content</span><br>Creation World.</h1>
-            <p>Content creation is the art of crafting stories, ideas, and moments that connect, inspire, and leave a
-                lasting impression — through videos, blogs, reels, and beyond.</p>
-            <div class="hero-actions">
-                <a href="#explore" class="btn-primary">Explore More</a>
-            </div>
+            <h1>Hi, I'm <span>Ynshruthie</span></h1>
         </div>
         <div class="scroll-hint">
             <span>Scroll</span>
