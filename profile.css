@@ -284,6 +284,18 @@ body {
 .cb-soc-btn[title="Facebook"]:hover { background: #1877F2; }
 .cb-soc-btn[title="Facebook"]:hover i { color: #fff; }
 
+.cb-soc-btn[title="Snapchat"] i { color: #111; }
+.cb-soc-btn[title="Snapchat"]:hover { background: #FFFC00; }
+.cb-soc-btn[title="Snapchat"]:hover i { color: #000; }
+
+.cb-soc-btn[title="YouTube"] i { color: #FF0000; }
+.cb-soc-btn[title="YouTube"]:hover { background: #FF0000; }
+.cb-soc-btn[title="YouTube"]:hover i { color: #fff; }
+
+.cb-soc-btn[title="Linktree"] svg { color: #28B873; fill: #28B873; transition: all 0.2s ease; }
+.cb-soc-btn[title="Linktree"]:hover { background: #28B873; }
+.cb-soc-btn[title="Linktree"]:hover svg { color: #fff; fill: #fff; }
+
 /* Intro Column */
 .intro-col {
     flex: 1;

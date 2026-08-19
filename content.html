@@ -501,6 +501,220 @@
             box-shadow: 0 3px 0 #611224;
         }
 
+        /* ── Accounts Dropdown ── */
+        .accounts-dropdown-wrapper {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            z-index: 1000;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .accounts-btn {
+            background: #fff;
+            border: 2px solid #8a1f38;
+            color: #8a1f38;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 0 #611224;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+        }
+
+        .accounts-btn:hover {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #611224;
+            background: #fff5f7;
+        }
+
+        .accounts-dropdown-wrapper.active .accounts-btn {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #611224;
+            background: #8a1f38;
+            color: #fff;
+        }
+
+        .dropdown-chevron {
+            font-size: 0.8rem;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-left: 2px;
+        }
+
+        .accounts-dropdown-wrapper.active .dropdown-chevron {
+            transform: rotate(180deg);
+        }
+
+        .accounts-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            right: 0;
+            min-width: 205px;
+            background: #ffffff;
+            border: 2px solid #8a1f38;
+            border-radius: 18px;
+            box-shadow: 0 12px 28px rgba(97, 18, 36, 0.2), 0 5px 0 #611224;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px) scale(0.95);
+            transform-origin: top right;
+            transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+            pointer-events: none;
+            z-index: 1001;
+        }
+
+        .accounts-dropdown-wrapper.active .accounts-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .accounts-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #4a1525;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: all 0.18s ease;
+            background: transparent;
+        }
+
+        .accounts-item .item-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+            flex-shrink: 0;
+        }
+
+        .accounts-item.ig .item-icon {
+            color: #E1306C;
+            background: rgba(225, 48, 108, 0.12);
+        }
+        .accounts-item.ig:hover {
+            background: rgba(225, 48, 108, 0.1);
+            color: #c12056;
+            transform: translateX(3px);
+        }
+        .accounts-item.ig:hover .item-icon {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .accounts-item.fb .item-icon {
+            color: #1877F2;
+            background: rgba(24, 119, 242, 0.12);
+        }
+        .accounts-item.fb:hover {
+            background: rgba(24, 119, 242, 0.1);
+            color: #1059bd;
+            transform: translateX(3px);
+        }
+        .accounts-item.fb:hover .item-icon {
+            background: #1877F2;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .accounts-item.pin .item-icon {
+            color: #E60023;
+            background: rgba(230, 0, 35, 0.12);
+        }
+        .accounts-item.pin:hover {
+            background: rgba(230, 0, 35, 0.1);
+            color: #bd001c;
+            transform: translateX(3px);
+        }
+        .accounts-item.pin:hover .item-icon {
+            background: #E60023;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .accounts-item.snap .item-icon {
+            color: #111;
+            background: #FFFC00;
+        }
+        .accounts-item.snap:hover {
+            background: rgba(255, 252, 0, 0.25);
+            color: #8c7600;
+            transform: translateX(3px);
+        }
+        .accounts-item.snap:hover .item-icon {
+            background: #FFFC00;
+            color: #000;
+            transform: scale(1.1);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .accounts-item.yt .item-icon {
+            color: #FF0000;
+            background: rgba(255, 0, 0, 0.12);
+        }
+        .accounts-item.yt:hover {
+            background: rgba(255, 0, 0, 0.08);
+            color: #cc0000;
+            transform: translateX(3px);
+        }
+        .accounts-item.yt:hover .item-icon {
+            background: #FF0000;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .accounts-item.linktree .item-icon {
+            color: #1ea342;
+            background: rgba(30, 163, 66, 0.12);
+        }
+        .accounts-item.linktree:hover {
+            background: rgba(30, 163, 66, 0.08);
+            color: #167a32;
+            transform: translateX(3px);
+        }
+        .accounts-item.linktree:hover .item-icon {
+            background: #28B873;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .accounts-item span {
+            flex: 1;
+        }
+
+        .accounts-item .item-arrow {
+            font-size: 0.72rem;
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: all 0.18s ease;
+            color: inherit;
+        }
+
+        .accounts-item:hover .item-arrow {
+            opacity: 0.6;
+            transform: translateX(0);
+        }
+
 
         /* ── Gallery Section (content3.JPEG background) ── */
         .gallery-section {
@@ -1881,6 +2095,23 @@
             }
         }
 
+        @media (max-width: 600px) {
+            .home-btn {
+                top: 20px;
+                left: 18px;
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+            .accounts-dropdown-wrapper {
+                top: 20px;
+                right: 18px;
+            }
+            .accounts-btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+        }
+
     </style>
 </head>
 
@@ -1888,6 +2119,45 @@
 
     <!-- ── Home Button ── -->
     <a href="index.html" class="home-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+
+    <!-- ── Accounts Dropdown ── -->
+    <div class="accounts-dropdown-wrapper" id="accountsDropdown">
+        <button class="accounts-btn" id="accountsBtn" aria-expanded="false" aria-haspopup="true" aria-label="Social Accounts Menu">
+            <i class="fa-solid fa-users"></i> Accounts <i class="fa-solid fa-chevron-down dropdown-chevron"></i>
+        </button>
+        <div class="accounts-dropdown-menu" id="accountsMenu" role="menu">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="accounts-item ig" role="menuitem">
+                <div class="item-icon"><i class="fa-brands fa-instagram"></i></div>
+                <span>Instagram</span>
+                <i class="fa-solid fa-arrow-up-right-from-square item-arrow"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="accounts-item fb" role="menuitem">
+                <div class="item-icon"><i class="fa-brands fa-facebook-f"></i></div>
+                <span>Facebook</span>
+                <i class="fa-solid fa-arrow-up-right-from-square item-arrow"></i>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="accounts-item pin" role="menuitem">
+                <div class="item-icon"><i class="fa-brands fa-pinterest-p"></i></div>
+                <span>Pinterest</span>
+                <i class="fa-solid fa-arrow-up-right-from-square item-arrow"></i>
+            </a>
+            <a href="https://snapchat.com" target="_blank" rel="noopener noreferrer" class="accounts-item snap" role="menuitem">
+                <div class="item-icon"><i class="fa-brands fa-snapchat"></i></div>
+                <span>Snapchat</span>
+                <i class="fa-solid fa-arrow-up-right-from-square item-arrow"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="accounts-item yt" role="menuitem">
+                <div class="item-icon"><i class="fa-brands fa-youtube"></i></div>
+                <span>YouTube</span>
+                <i class="fa-solid fa-arrow-up-right-from-square item-arrow"></i>
+            </a>
+            <a href="https://linktr.ee" target="_blank" rel="noopener noreferrer" class="accounts-item linktree" role="menuitem">
+                <div class="item-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="display:block;"><path d="m13.736 5.853 4.005-4.117 2.325 2.38-4.2 4.005h5.908v3.305h-5.937l4.229 4.108-2.325 2.38-4.005-4.117v5.979H10.264v-5.979l-4.005 4.117-2.325-2.38 4.2-4.005H2.226V8.121h5.909l-4.2-4.005 2.325-2.38 4.004 4.117V0h3.472v5.853z"/></svg></div>
+                <span>Linktree</span>
+                <i class="fa-solid fa-arrow-up-right-from-square item-arrow"></i>
+            </a>
+        </div>
+    </div>
 
 
     <!-- ── Hero with intro.mov background ── -->
@@ -2578,6 +2848,35 @@
             card.classList.toggle('flipped');
         });
     });
+
+    // ── Accounts Dropdown Toggle ──
+    const accountsDropdown = document.getElementById('accountsDropdown');
+    const accountsBtn = document.getElementById('accountsBtn');
+
+    if (accountsBtn && accountsDropdown) {
+        accountsBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = accountsDropdown.classList.toggle('active');
+            accountsBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!accountsDropdown.contains(e.target)) {
+                accountsDropdown.classList.remove('active');
+                accountsBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && accountsDropdown.classList.contains('active')) {
+                accountsDropdown.classList.remove('active');
+                accountsBtn.setAttribute('aria-expanded', 'false');
+                accountsBtn.focus();
+            }
+        });
+    }
 
     // ── Initialize with default category (beauty) ──
     window.addEventListener('DOMContentLoaded', function() {
