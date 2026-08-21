@@ -194,7 +194,7 @@ body {
 
 .polaroid-card {
     background: #fff;
-    padding: 18px 18px 22px 18px;
+    padding: 18px 18px 32px 18px;
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 12px 28px rgba(0,0,0,0.18);
@@ -628,7 +628,7 @@ body {
 .full-cert .marks-card-placeholder {
     width: 100%;
     max-width: 700px;
-    height: 400px;
+    height: 680px;
     position: relative;
     background: #fff;
     border: 4px solid var(--wood-dark);
@@ -724,8 +724,27 @@ body {
     padding: 40px;
     gap: 40px;
 }
+.bsc-modal-body {
+    display: block;
+}
+.bsc-modal-intro {
+    max-width: 900px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+.bsc-modal-intro .modal-title {
+    margin-bottom: 14px;
+}
+.bsc-modal-intro .modal-desc {
+    margin: 0;
+}
+.bsc-modal-content {
+    display: flex;
+    gap: 40px;
+}
 @media (max-width: 900px) {
     .modal-body { flex-direction: column; }
+    .bsc-modal-content { flex-direction: column; }
 }
 .modal-image-container {
     flex: 1.5; /* TAKE MORE SPACE FOR MORE BIGGER IMAGE */

@@ -68,16 +68,16 @@
                         <h3 class="polaroid-title">The Sirelle Emporium</h3>
                     </div>
 
-                    <!-- Project 5 (Placeholder) -->
-                    <div class="polaroid-card anim-slide-left" data-modal="modal-project5">
-                        <img src="Assests/placeholder5.png" class="polaroid-thumb" alt="Project 5">
-                        <h3 class="polaroid-title">Coming Soon</h3>
+                    <!-- Multimodal AI Research -->
+                    <div class="polaroid-card anim-slide-left" data-modal="modal-research">
+                        <img src="Assests/research.png" class="polaroid-thumb" alt="Multimodal AI Interface">
+                        <h3 class="polaroid-title">Multimodal AI Interface</h3>
                     </div>
 
-                    <!-- Project 6 (Placeholder) -->
-                    <div class="polaroid-card anim-slide-right" data-modal="modal-project6">
-                        <img src="Assests/placeholder6.png" class="polaroid-thumb" alt="Project 6">
-                        <h3 class="polaroid-title">Coming Soon</h3>
+                    <!-- Eduvirse AI Platform -->
+                    <div class="polaroid-card anim-slide-right" data-modal="modal-eduvirse">
+                        <img src="Assests/Eduvirse.png" class="polaroid-thumb" alt="Eduvirse AI Platform">
+                        <h3 class="polaroid-title">Eduvirse AI Library</h3>
                     </div>
                 </div>
             </div>
@@ -511,6 +511,62 @@
             </div>
         </div>
 
+        <!-- Research Paper / Multimodal AI Modal -->
+        <div class="storybook-modal hidden" id="modal-research">
+            <div class="modal-header">
+                <span class="modal-header-title">The Scholar's Scroll</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="Assests/research.png" alt="Hybrid LSTM & Rule-Based Fusion">
+                    <a href="https://github.com/ynshruthee" target="_blank" class="modal-github-btn">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">Emotion & Gesture AI</h2>
+                    <p class="modal-desc">
+                        A multimodal AI research system combining BiLSTM for emotion recognition (facial landmarks + speech MFCCs) with CNN-LSTM hand gesture tracking (MediaPipe). Implemented a context-aware rule-based fusion engine delivering 94.6% accuracy and real-time interactive media control on edge hardware (Jetson Nano).
+                    </p>
+                    <div class="tag-group modal-tech">
+                        <span class="story-tag">Multimodal AI</span>
+                        <span class="story-tag">BiLSTM / CNN-LSTM</span>
+                        <span class="story-tag">MediaPipe & OpenCV</span>
+                        <span class="story-tag">PyTorch / TensorFlow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Eduvirse Modal -->
+        <div class="storybook-modal hidden" id="modal-eduvirse">
+            <div class="modal-header">
+                <span class="modal-header-title">The Digital Archive</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="Assests/Eduvirse.png" alt="Eduvirse - AI-Powered Digital Lecture Library Platform">
+                    <a href="https://github.com/ynshruthee" target="_blank" class="modal-github-btn">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title">Eduvirse AI Platform</h2>
+                    <p class="modal-desc">
+                        An intelligent digital lecture library that organizes, analyzes, and delivers educational content through multimodal AI pipelines. Features Whisper ASR for speech-to-text transcription, LLM (Gemma/Mistral) automated summarization, and vector semantic search (BGE/E5 embeddings) with 97% accuracy and ultra-fast 120ms API response time.
+                    </p>
+                    <div class="tag-group modal-tech">
+                        <span class="story-tag">Node.js & Express</span>
+                        <span class="story-tag">Supabase / PostgreSQL</span>
+                        <span class="story-tag">Whisper ASR</span>
+                        <span class="story-tag">LLM & Vector Search</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- 10th Marks Modal -->
         <div class="storybook-modal hidden" id="modal-10th">
             <div class="modal-header">
@@ -612,7 +668,12 @@
                 <span class="modal-header-title">Academy Records - BSC</span>
                 <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bsc-modal-body">
+                <div class="bsc-modal-intro">
+                    <h2 class="modal-title">BSC – Math, Stat &amp; CS</h2>
+                    <p class="modal-desc">Graduated from REVA University with a cumulative CPI of <strong>8.90</strong> (First Class with Distinction).</p>
+                </div>
+                <div class="bsc-modal-content">
                 <div class="modal-image-container full-cert">
                     <p style="font-family:'Syne',sans-serif; font-weight:800; color:var(--wood-dark); margin-bottom:8px;">1st Semester</p>
                     <div class="marks-card-placeholder">
@@ -644,8 +705,161 @@
                     </div>
                 </div>
                 <div class="modal-details">
-                    <h2 class="modal-title">BSC – Math, Stat & CS</h2>
-                    <p class="modal-desc">Graduated from REVA University with a CPI of 8.90.</p>
+                    <!-- 1st Sem -->
+                    <h3 style="font-family:'Syne',sans-serif; color:var(--wood-dark); margin:10px 0 5px; font-size:1rem;">1st Sem — 567/650 (SGPA: 9.34)</h3>
+                    <table class="marks-table">
+                        <thead>
+                            <tr><th>Subject</th><th>Marks</th><th>Total</th><th>Grade</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Language - II: Kannada</td><td>41</td><td>50</td><td>A+</td></tr>
+                            <tr><td>Communicative English - I</td><td>38</td><td>50</td><td>A</td></tr>
+                            <tr><td>Mathematics - I</td><td>96</td><td>100</td><td>O</td></tr>
+                            <tr><td>Basic Statistics & Intro to Python</td><td>90</td><td>100</td><td>O</td></tr>
+                            <tr><td>Programming In C</td><td>82</td><td>100</td><td>A+</td></tr>
+                            <tr><td>Mathematics Practical - I</td><td>38</td><td>50</td><td>A</td></tr>
+                            <tr><td>Basic Statistics & Python Lab</td><td>49</td><td>50</td><td>O</td></tr>
+                            <tr><td>C Programming Lab</td><td>41</td><td>50</td><td>A+</td></tr>
+                            <tr><td>Discrete Mathematics & Graph Theory</td><td>92</td><td>100</td><td>O</td></tr>
+                            <tr><td>Constitution of India & Professional Ethics</td><td>74</td><td>100</td><td>Pass</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>Total</strong></td><td><strong>567</strong></td><td><strong>650</strong></td><td><strong>SGPA: 9.34</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <hr style="border:none; border-top:2px solid #d4c5a9; margin:30px 0;">
+
+                    <!-- 2nd Sem -->
+                    <h3 style="font-family:'Syne',sans-serif; color:var(--wood-dark); margin:0 0 5px; font-size:1rem;">2nd Sem — 543/650 (SGPA: 8.90)</h3>
+                    <table class="marks-table">
+                        <thead>
+                            <tr><th>Subject</th><th>Marks</th><th>Total</th><th>Grade</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Language - II: Kannada II</td><td>43</td><td>50</td><td>A+</td></tr>
+                            <tr><td>Communicative English - II</td><td>38</td><td>50</td><td>A</td></tr>
+                            <tr><td>Mathematics - II</td><td>92</td><td>100</td><td>O</td></tr>
+                            <tr><td>Random Variable & Probability Distributions</td><td>73</td><td>100</td><td>A</td></tr>
+                            <tr><td>Programming in Python</td><td>85</td><td>100</td><td>A+</td></tr>
+                            <tr><td>Mathematics Practical - II</td><td>48</td><td>50</td><td>O</td></tr>
+                            <tr><td>Probability Distributions Lab</td><td>40</td><td>50</td><td>A+</td></tr>
+                            <tr><td>Programming in Python Lab</td><td>47</td><td>50</td><td>O</td></tr>
+                            <tr><td>Statistical Quality Control</td><td>77</td><td>100</td><td>A</td></tr>
+                            <tr><td>Environmental Science</td><td>37</td><td>50</td><td>Pass</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>Total</strong></td><td><strong>543</strong></td><td><strong>650</strong></td><td><strong>SGPA: 8.90</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <hr style="border:none; border-top:2px solid #d4c5a9; margin:30px 0;">
+
+                    <!-- 3rd Sem -->
+                    <h3 style="font-family:'Syne',sans-serif; color:var(--wood-dark); margin:0 0 5px; font-size:1rem;">3rd Sem — 600/750 (SGPA: 8.51)</h3>
+                    <table class="marks-table">
+                        <thead>
+                            <tr><th>Subject</th><th>Marks</th><th>Total</th><th>Grade</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Language - II: Kannada</td><td>42</td><td>50</td><td>A+</td></tr>
+                            <tr><td>Mathematics-III</td><td>68</td><td>100</td><td>B+</td></tr>
+                            <tr><td>Sampling Distributions & Estimation Theory</td><td>76</td><td>100</td><td>A</td></tr>
+                            <tr><td>Relational Data Base Management Systems</td><td>82</td><td>100</td><td>A+</td></tr>
+                            <tr><td>Mathematics Practical - III</td><td>49</td><td>50</td><td>O</td></tr>
+                            <tr><td>Statistical Inference Lab</td><td>47</td><td>50</td><td>O</td></tr>
+                            <tr><td>RDBMS Lab</td><td>45</td><td>50</td><td>O</td></tr>
+                            <tr><td>Data Communications and Networks</td><td>78</td><td>100</td><td>A</td></tr>
+                            <tr><td>Skill Enhancement Course</td><td>49</td><td>50</td><td>O</td></tr>
+                            <tr><td>Fundamentals of Cloud Computing</td><td>64</td><td>100</td><td>B+</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>Total</strong></td><td><strong>600</strong></td><td><strong>750</strong></td><td><strong>SGPA: 8.51</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <hr style="border:none; border-top:2px solid #d4c5a9; margin:30px 0;">
+
+                    <!-- 4th Sem -->
+                    <h3 style="font-family:'Syne',sans-serif; color:var(--wood-dark); margin:0 0 5px; font-size:1rem;">4th Sem — 485/600 (SGPA: 8.76)</h3>
+                    <table class="marks-table">
+                        <thead>
+                            <tr><th>Subject</th><th>Marks</th><th>Total</th><th>Grade</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Language II: Kannada</td><td>43</td><td>50</td><td>A+</td></tr>
+                            <tr><td>Mathematics-IV</td><td>73</td><td>100</td><td>A</td></tr>
+                            <tr><td>Testing of Hypothesis & Non-Parametric Tests</td><td>79</td><td>100</td><td>A</td></tr>
+                            <tr><td>Unix and Shell Programming</td><td>70</td><td>100</td><td>A</td></tr>
+                            <tr><td>Mathematics Practical-IV</td><td>46</td><td>50</td><td>O</td></tr>
+                            <tr><td>Testing of Hypothesis Lab</td><td>48</td><td>50</td><td>O</td></tr>
+                            <tr><td>Unix and Shell Programming Lab</td><td>46</td><td>50</td><td>O</td></tr>
+                            <tr><td>Complex Analysis</td><td>80</td><td>100</td><td>A+</td></tr>
+                            <tr><td>Soft Skill Training</td><td>43</td><td>50</td><td>Pass</td></tr>
+                            <tr><td>Skill Enhancement Course</td><td>49</td><td>50</td><td>Pass</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>Total</strong></td><td><strong>485</strong></td><td><strong>600</strong></td><td><strong>SGPA: 8.76</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <hr style="border:none; border-top:2px solid #d4c5a9; margin:30px 0;">
+
+                    <!-- 5th Sem -->
+                    <h3 style="font-family:'Syne',sans-serif; color:var(--wood-dark); margin:0 0 5px; font-size:1rem;">5th Sem — 537/600 (SGPA: 9.35)</h3>
+                    <table class="marks-table">
+                        <thead>
+                            <tr><th>Subject</th><th>Marks</th><th>Total</th><th>Grade</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Mathematics-V</td><td>94</td><td>100</td><td>O</td></tr>
+                            <tr><td>Design and Analysis of Experiments</td><td>88</td><td>100</td><td>A+</td></tr>
+                            <tr><td>Basics of Web Programming</td><td>88</td><td>100</td><td>A+</td></tr>
+                            <tr><td>Mathematics Practical-V</td><td>49</td><td>50</td><td>O</td></tr>
+                            <tr><td>Design & Analysis of Experiments Lab</td><td>45</td><td>50</td><td>O</td></tr>
+                            <tr><td>Web Programming Lab</td><td>48</td><td>50</td><td>O</td></tr>
+                            <tr><td>Sampling Theory</td><td>78</td><td>100</td><td>A</td></tr>
+                            <tr><td>MOOC/SWAYAM</td><td>47</td><td>50</td><td>O</td></tr>
+                            <tr><td>Skill Enhancement Course</td><td>45</td><td>50</td><td>Pass</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>Total</strong></td><td><strong>537</strong></td><td><strong>600</strong></td><td><strong>SGPA: 9.35</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <hr style="border:none; border-top:2px solid #d4c5a9; margin:30px 0;">
+
+                    <!-- 6th Sem -->
+                    <h3 style="font-family:'Syne',sans-serif; color:var(--wood-dark); margin:0 0 5px; font-size:1rem;">6th Sem — 484/600 (SGPA: 8.59)</h3>
+                    <table class="marks-table">
+                        <thead>
+                            <tr><th>Subject</th><th>Marks</th><th>Total</th><th>Grade</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Mathematics-VI</td><td>87</td><td>100</td><td>A+</td></tr>
+                            <tr><td>Advanced Operation Research</td><td>73</td><td>100</td><td>A</td></tr>
+                            <tr><td>Data Mining and Data Warehousing</td><td>68</td><td>100</td><td>B+</td></tr>
+                            <tr><td>Project</td><td>42</td><td>50</td><td>A+</td></tr>
+                            <tr><td>Mathematics Practical - VI</td><td>43</td><td>50</td><td>A+</td></tr>
+                            <tr><td>Advanced Operation Research Lab</td><td>44</td><td>50</td><td>A+</td></tr>
+                            <tr><td>Machine Learning Lab</td><td>47</td><td>50</td><td>O</td></tr>
+                            <tr><td>Software Engineering</td><td>80</td><td>100</td><td>A+</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>Total</strong></td><td><strong>484</strong></td><td><strong>600</strong></td><td><strong>SGPA: 8.59</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <hr style="border:none; border-top:2px solid #d4c5a9; margin:30px 0;">
+
+                    <!-- Degree Summary -->
+                    <div style="background: rgba(74, 44, 17, 0.08); border-left: 4px solid var(--wood-dark); padding: 14px 18px; border-radius: 4px; margin-top: 10px;">
+                        <h4 style="font-family:'Syne',sans-serif; color:var(--wood-dark); margin:0 0 6px; font-size:1.05rem;">Degree Awarded: Bachelor of Science</h4>
+                        <p style="margin:0; font-size:0.95rem; font-weight:600; color:var(--text-main);">
+                            Cumulative CPI: <strong>8.90</strong> · Classification: <strong>First Class with Distinction</strong> · REVA University (2024)
+                        </p>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
