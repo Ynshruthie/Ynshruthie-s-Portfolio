@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Ynshruthie Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Dancing+Script:wght@700&family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            min-height: 100vh;
+            font-family: 'Outfit', sans-serif;
+            background: #fffdf9; /* Match the aesthetic warm white */
+            color: #4a1028;
+            scroll-behavior: smooth;
+        }
+        
+        .dashboard-main {
+            min-height: 100vh;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #9c2d43;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            color: #5a2e3f;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: #fff;
+            border: 2px solid #8a1f38;
+            color: #8a1f38;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 0 #611224;
+            transition: all 0.15s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #611224;
+            background: #fff5f7;
+        }
+    </style>
+</head>
+<body>
+    <a href="content.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Content</a>
+    
+    <div class="dashboard-main">
+        <div class="dashboard-header">
+            <h1>Your New Dashboard</h1>
+            <p>Ready to build something amazing! Tell me what to add next.</p>
+        </div>
+        <!-- Future content goes here -->
+    </div>
+</body>
+</html>

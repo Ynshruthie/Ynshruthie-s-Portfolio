@@ -2125,6 +2125,63 @@
             padding: 100px 20px;
             overflow: hidden;
         }
+        /* Work With Me Dashboard Styles */
+        .work-dashboard {
+            background: rgba(254, 251, 243, 0.92);
+            border: 2px dashed #e5dcce;
+            border-radius: 30px;
+            padding: 45px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(74, 16, 40, 0.08), 0 3px 6px rgba(0, 0, 0, 0.03);
+            text-align: center;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .work-dashboard:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-dashboard h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #9c2d43;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .work-dashboard p {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            color: #4a1028;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .work-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 35px;
+            background: #fff0f3;
+            border: 2px solid #9c2d43;
+            color: #9c2d43;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 0 #9c2d43;
+            transition: all 0.15s ease;
+            cursor: pointer;
+        }
+
+        .work-btn:hover {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #9c2d43;
+            background: #ffdbe2;
+        }
     </style>
 </head>
 
@@ -2702,6 +2759,11 @@
 
     <!-- ── Extra Section (content10.jpg background) ── -->
     <section class="extra-section" id="extra">
+        <div class="work-dashboard">
+            <h2>Work With Me</h2>
+            <p>Ready to create something beautiful together? Bring your brand's story to life with scroll-stopping content!</p>
+            <a href="dashboard.html" class="work-btn">Let's Go <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
+        </div>
     </section>
 
 
