@@ -3,87 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Ynshruthie Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Dancing+Script:wght@700&family=Parisienne&display=swap" rel="stylesheet">
+    <title>Brand Collaboration Portal | YN Shruthie</title>
+    <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            width: 100%;
-            min-height: 100vh;
-            font-family: 'Outfit', sans-serif;
-            background: #fffdf9; /* Match the aesthetic warm white */
-            color: #4a1028;
-            scroll-behavior: smooth;
-        }
-        
-        .dashboard-main {
-            min-height: 100vh;
-            padding: 50px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .dashboard-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .dashboard-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: #9c2d43;
-            margin-bottom: 10px;
-        }
-
-        .dashboard-header p {
-            font-size: 1.2rem;
-            color: #5a2e3f;
-        }
-
-        .back-btn {
-            position: absolute;
-            top: 30px;
-            left: 40px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 28px;
-            background: #fff;
-            border: 2px solid #8a1f38;
-            color: #8a1f38;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 4px 0 #611224;
-            transition: all 0.15s ease;
-        }
-
-        .back-btn:hover {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #611224;
-            background: #fff5f7;
-        }
-    </style>
 </head>
 <body>
-    <a href="content.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Content</a>
-    
-    <div class="dashboard-main">
-        <div class="dashboard-header">
-            <h1>Your New Dashboard</h1>
-            <p>Ready to build something amazing! Tell me what to add next.</p>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="content.html" class="back-btn" style="margin-bottom: 20px; align-self: flex-start;"><i class="fa-solid fa-arrow-left"></i> Back</a>
+        
+        <div class="logo-area">
+            <h1>ynshruthie</h1>
+            <p>Content Creator &bull; Influencer</p>
         </div>
-        <!-- Future content goes here -->
-    </div>
+
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#overview" class="nav-link active"><i class="fa-solid fa-border-all"></i> Overview</a></li>
+                <li><a href="#about" class="nav-link"><i class="fa-regular fa-heart"></i> About Me</a></li>
+                <li><a href="#mediakit" class="nav-link"><i class="fa-regular fa-file-image"></i> Media Kit</a></li>
+                <li><a href="#platforms" class="nav-link"><i class="fa-solid fa-hashtag"></i> Social Platforms</a></li>
+                <li><a href="#pricing" class="nav-link"><i class="fa-solid fa-tag"></i> Pricing & Packages</a></li>
+                <li><a href="#portfolio" class="nav-link"><i class="fa-regular fa-folder-open"></i> Portfolio</a></li>
+                <li><a href="#collab-form" class="nav-link"><i class="fa-regular fa-handshake"></i> Brand Collaborations</a></li>
+                <li><a href="#ugc" class="nav-link"><i class="fa-solid fa-camera-retro"></i> UGC Services</a></li>
+                <li><a href="#past-collabs" class="nav-link"><i class="fa-solid fa-clock-rotate-left"></i> Past Collaborations</a></li>
+                <li><a href="#testimonials" class="nav-link"><i class="fa-regular fa-comment"></i> Testimonials</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fa-regular fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Let's create something beautiful ✨</p>
+            <a href="mailto:workwithynshruthie@gmail.com">workwithynshruthie@gmail.com</a>
+            <div class="social-mini">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- OVERVIEW TAB -->
+        <div id="overview" class="tab-pane active">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-text">
+                    <div class="eyebrow">Work with ynshruthie / Collaborate</div>
+                    <h2>Let's create something amazing.</h2>
+                    <p>Content Creator &bull; Influencer &bull; UGC Creator</p>
+                </div>
+                <a href="#collab-form" class="btn-primary" onclick="switchTab('#collab-form')">Start Collaboration &rarr;</a>
+            </header>
+
+            <!-- Hero Card -->
+            <section class="hero-card section-mb">
+                <div class="hero-content">
+                    <h3><i class="fa-solid fa-users"></i> Total Audience Across Platforms</h3>
+                    <div class="hero-number">152K+</div>
+                    <p class="hero-text">A growing community of dreamers & doers.</p>
+                    <div class="hero-actions">
+                        <a href="#mediakit" class="btn-primary" onclick="switchTab('#mediakit')">View Media Kit &darr;</a>
+                        <a href="#portfolio" class="btn-secondary" onclick="switchTab('#portfolio')">View Portfolio &rarr;</a>
+                    </div>
+                </div>
+                <img src="assets/hero-image.jpg" alt="YN Shruthie working at desk" class="hero-image">
+            </section>
+
+            <!-- Social Analytics -->
+            <section class="social-grid section-mb">
+                <div class="card social-card">
+                    <div class="social-card-header">
+                        <div class="social-platform">
+                            <div class="platform-icon icon-ig"><i class="fa-brands fa-instagram"></i></div>
+                            <div class="platform-info">
+                                <h4>Instagram</h4>
+                                <span>@ynshruthie</span>
+                            </div>
+                        </div>
+                        <div class="live-badge"><div class="live-dot"></div> Live</div>
+                    </div>
+                    <div class="social-stats">
+                        <div class="stat-block">
+                            <h3 id="ig-followers">125K</h3>
+                            <p>Followers</p>
+                        </div>
+                        <div class="stat-block secondary">
+                            <h3 id="ig-engagement">8.7%</h3>
+                            <p>Avg. Engagement</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-secondary" style="width: 100%; justify-content: center;">View Instagram &rarr;</a>
+                </div>
+
+                <div class="card social-card">
+                    <div class="social-card-header">
+                        <div class="social-platform">
+                            <div class="platform-icon icon-yt"><i class="fa-brands fa-youtube"></i></div>
+                            <div class="platform-info">
+                                <h4>YouTube</h4>
+                                <span>YNSHRUTHIE</span>
+                            </div>
+                        </div>
+                        <div class="live-badge"><div class="live-dot"></div> Live</div>
+                    </div>
+                    <div class="social-stats">
+                        <div class="stat-block">
+                            <h3 id="yt-subs">27.3K</h3>
+                            <p>Subscribers</p>
+                        </div>
+                        <div class="stat-block secondary">
+                            <h3 id="yt-views">45K</h3>
+                            <p>Avg. Views</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-secondary" style="width: 100%; justify-content: center;">View YouTube &rarr;</a>
+                </div>
+
+                <div class="card social-card">
+                    <div class="social-card-header">
+                        <div class="social-platform">
+                            <div class="platform-icon icon-tt"><i class="fa-brands fa-tiktok"></i></div>
+                            <div class="platform-info">
+                                <h4>TikTok</h4>
+                                <span>@ynshruthiee</span>
+                            </div>
+                        </div>
+                        <div class="live-badge"><div class="live-dot"></div> Live</div>
+                    </div>
+                    <div class="social-stats">
+                        <div class="stat-block">
+                            <h3 id="tt-followers">68K</h3>
+                            <p>Followers</p>
+                        </div>
+                        <div class="stat-block secondary">
+                            <h3 id="tt-engagement">9.2%</h3>
+                            <p>Avg. Engagement</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-secondary" style="width: 100%; justify-content: center;">View TikTok &rarr;</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABOUT TAB -->
+        <div id="about" class="tab-pane">
+            <div class="snapshot-grid section-mb">
+                <div class="card snapshot-left">
+                    <h3>Why work with me?</h3>
+                    <ul class="check-list">
+                        <li><i class="fa-solid fa-check"></i> Authentic & relatable content</li>
+                        <li><i class="fa-solid fa-check"></i> High engagement & loyal audience</li>
+                        <li><i class="fa-solid fa-check"></i> Aesthetic, clean & on-brand visuals</li>
+                        <li><i class="fa-solid fa-check"></i> Experience across multiple niches</li>
+                        <li><i class="fa-solid fa-check"></i> UGC designed to convert</li>
+                        <li><i class="fa-solid fa-check"></i> Professional communication</li>
+                        <li><i class="fa-solid fa-check"></i> Reliable delivery</li>
+                    </ul>
+                </div>
+                
+                <div class="card snapshot-right">
+                    <h3>I create content around</h3>
+                    <div class="tags-container">
+                        <span class="tag">Beauty</span>
+                        <span class="tag">Lifestyle</span>
+                        <span class="tag">Fashion</span>
+                        <span class="tag">Self Care</span>
+                        <span class="tag">Productivity</span>
+                        <span class="tag">Food</span>
+                        <span class="tag">Travel</span>
+                        <span class="tag">Room Decor</span>
+                        <span class="tag">Tech</span>
+                        <span class="tag">Wellness</span>
+                    </div>
+                    
+                    <h3 style="font-size: 18px; margin-top: 10px;">Available for</h3>
+                    <p style="color: var(--text-medium); line-height: 1.6;">Reels &bull; UGC &bull; YouTube Videos &bull; Brand Shoots &bull; Giveaways &bull; Product Features &bull; Campaigns &bull; Ambassadorships</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEDIA KIT TAB -->
+        <div id="mediakit" class="tab-pane">
+            <section class="card section-mb" style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.7);">
+                <div style="max-width: 60%;">
+                    <h3 style="font-family: var(--font-heading); font-size: 28px; margin-bottom: 12px; color: var(--brown);">Download Media Kit</h3>
+                    <p style="color: var(--text-medium); margin-bottom: 24px; line-height: 1.6; font-weight: 600;">Get a detailed look at my audience, statistics, demographics, previous work, packages & collaboration options.</p>
+                    <div style="display: flex; gap: 16px;">
+                        <a href="#" class="btn-primary">Download Media Kit &darr;</a>
+                        <a href="#" class="btn-secondary" style="background: #fff;">View Media Kit Online &rarr;</a>
+                    </div>
+                </div>
+                <div style="width: 200px; height: 280px; background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; transform: rotate(5deg);">
+                    <span style="color: var(--text-light); font-weight: 600;">Media Kit Preview</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- PRICING TAB -->
+        <div id="pricing" class="tab-pane">
+            <section class="section-mb">
+                <div style="margin-bottom: 30px; text-align: center;">
+                    <h2 style="font-family: var(--font-heading); font-size: 36px; margin-bottom: 8px; color: var(--brown);">Pricing & Packages</h2>
+                    <p style="color: var(--text-medium); font-weight: 600;">Transparent collaboration packages.</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="card pricing-card">
+                        <h4>Instagram Reel</h4>
+                        <div class="price">Starting at ₹XXX</div>
+                        <ul class="pricing-features">
+                            <li>1 High-quality Instagram Reel (up to 60s)</li>
+                            <li>1 Round of revisions</li>
+                            <li>Cross-posting to Stories</li>
+                            <li>30 days organic usage rights</li>
+                        </ul>
+                        <a href="#collab-form" class="btn-secondary" onclick="switchTab('#collab-form')" style="width: 100%; justify-content: center;">Select Package</a>
+                    </div>
+                    <div class="card pricing-card">
+                        <h4>YouTube Integration</h4>
+                        <div class="price">Starting at ₹XXX</div>
+                        <ul class="pricing-features">
+                            <li>60-90 second dedicated mention</li>
+                            <li>Link in top of description</li>
+                            <li>1 Round of revisions</li>
+                            <li>Perpetual organic usage</li>
+                        </ul>
+                        <a href="#collab-form" class="btn-secondary" onclick="switchTab('#collab-form')" style="width: 100%; justify-content: center;">Select Package</a>
+                    </div>
+                    <div class="card pricing-card">
+                        <h4>UGC Bundle</h4>
+                        <div class="price">Starting at ₹XXX</div>
+                        <ul class="pricing-features">
+                            <li>3 UGC Videos formatted for ads</li>
+                            <li>3 Months paid ad usage rights</li>
+                            <li>Raw footage included</li>
+                            <li>Fast turnaround available</li>
+                        </ul>
+                        <a href="#collab-form" class="btn-secondary" onclick="switchTab('#collab-form')" style="width: 100%; justify-content: center;">Select Package</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- COLLABORATION FORM TAB -->
+        <div id="collab-form" class="tab-pane">
+            <section class="card section-mb">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-family: var(--font-heading); font-size: 36px; margin-bottom: 8px; color: var(--brown);">Start a Collaboration</h2>
+                    <p style="color: var(--text-medium); font-weight: 600;">Fill out the form below to get started on our next campaign.</p>
+                </div>
+
+                <form id="collaboration-form" class="form-section">
+                    <!-- Step 1 -->
+                    <div class="form-step" id="step-1">
+                        <h3 style="margin-bottom: 24px; font-size: 20px; color: var(--brown);">1. About You</h3>
+                        <div class="form-group">
+                            <label class="form-label">Company/Brand Name *</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label class="form-label">Contact Person *</label>
+                                <input type="text" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Designation</label>
+                                <input type="text" class="form-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Work Email *</label>
+                            <input type="email" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="form-step" id="step-2" style="margin-top: 40px;">
+                        <h3 style="margin-bottom: 24px; font-size: 20px; color: var(--brown);">2. Collaboration Type</h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox"> Paid Brand Collaboration</label>
+                            <label class="checkbox-label"><input type="checkbox"> Barter Collaboration</label>
+                            <label class="checkbox-label"><input type="checkbox"> UGC Creation</label>
+                            <label class="checkbox-label"><input type="checkbox"> Instagram Reel</label>
+                            <label class="checkbox-label"><input type="checkbox"> YouTube Integration</label>
+                            <label class="checkbox-label"><input type="checkbox"> Product Photography</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 40px; text-align: center;">
+                        <button type="button" class="btn-primary" onclick="submitMockForm()">Send Collaboration Request &rarr;</button>
+                    </div>
+                </form>
+                
+                <div id="form-success" style="display: none; text-align: center; padding: 40px;">
+                    <i class="fa-solid fa-circle-check" style="font-size: 48px; color: var(--navy); margin-bottom: 20px;"></i>
+                    <h3 style="font-family: var(--font-heading); font-size: 28px; margin-bottom: 12px; color: var(--brown);">Request Sent Successfully!</h3>
+                    <p style="color: var(--text-medium); font-weight: 600;">Thank you for reaching out. I'll review your collaboration request and get back to you shortly.</p>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script>
+        // Switch between tabs
+        function switchTab(tabId) {
+            // Hide all tab panes
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            
+            // Show the target tab pane
+            const targetPane = document.querySelector(tabId);
+            if(targetPane) {
+                targetPane.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update active state in navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === tabId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Setup sidebar links
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId.startsWith('#')) {
+                    e.preventDefault();
+                    switchTab(targetId);
+                }
+            });
+        });
+
+        function submitMockForm() {
+            document.getElementById('collaboration-form').style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+        }
+        
+        // Handle URL hashes on load
+        window.onload = function() {
+            if(window.location.hash) {
+                switchTab(window.location.hash);
+            }
+        };
+    </script>
 </body>
 </html>
