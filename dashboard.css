@@ -189,8 +189,9 @@ body {
 .main-content {
     margin-left: var(--sidebar-width);
     flex: 1;
+    width: calc(100% - var(--sidebar-width));
+    min-width: 0;
     padding: 40px 60px;
-    max-width: 1400px;
 }
 
 .top-header {
@@ -1719,7 +1720,7 @@ body {
 
 .mk-plat-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -1899,7 +1900,7 @@ body {
 /* 3 Platform Cards */
 .sp-cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -2798,7 +2799,9 @@ body {
 
 .cf-form-card {
     background: rgba(255, 255, 255, 0.95);
-    padding: 36px 32px;
+    padding: 48px 52px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .cf-section-block {
@@ -3052,10 +3055,20 @@ body {
 }
 
 /* Sidebar Column */
+/* cf-sidebar-column kept for fallback */
 .cf-sidebar-column {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+/* Below-form 2-column info row */
+.cf-below-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 20px;
+    align-items: start;
+    margin-top: 4px;
 }
 
 .cf-creator-summary-card {

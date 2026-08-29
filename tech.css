@@ -881,3 +881,161 @@ body {
 .modal-github-btn i {
     font-size: 1.3rem;
 }
+
+/* ==========================================================================
+   INTERNSHIP SECTION STYLING
+   ========================================================================== */
+.internship-card-layout {
+    background: #ffffff;
+    border: 2px solid var(--wood-light);
+    border-top: 6px solid #003366;
+    border-radius: 14px;
+    padding: 30px 34px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.internship-card-layout::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 51, 102, 0.03), transparent);
+    pointer-events: none;
+}
+
+.internship-card-layout:hover {
+    transform: translateY(-5px);
+    border-color: #003366;
+    box-shadow: 0 16px 35px rgba(0, 51, 102, 0.18);
+    background: #fffdf9;
+}
+
+.internship-badge-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.internship-icon-box {
+    width: 66px;
+    height: 66px;
+    background: linear-gradient(135deg, #003366, #00529b);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 2rem;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.28);
+    transition: transform 0.3s;
+}
+
+.internship-card-layout:hover .internship-icon-box {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.internship-meta {
+    flex: 1;
+    min-width: 250px;
+}
+
+.internship-tag {
+    display: inline-block;
+    background: rgba(0, 51, 102, 0.08);
+    color: #003366;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+}
+
+.internship-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--wood-dark);
+    margin: 2px 0 4px;
+    line-height: 1.25;
+}
+
+.internship-company {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.internship-period {
+    font-size: 0.88rem;
+    color: #666;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.internship-action-hint .cert-view-btn {
+    background: #003366;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(0, 51, 102, 0.25);
+    transition: all 0.25s ease;
+}
+
+.internship-card-layout:hover .cert-view-btn {
+    background: #002244;
+    transform: translateX(4px);
+    box-shadow: 0 6px 18px rgba(0, 51, 102, 0.35);
+}
+
+.internship-desc {
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.65;
+    margin-bottom: 18px;
+}
+
+.internship-skills-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.int-skill {
+    background: #f0f4f8;
+    color: #003366;
+    border: 1px solid rgba(0, 51, 102, 0.15);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.int-skill:hover {
+    background: #003366;
+    color: #ffffff;
+    border-color: #003366;
+}

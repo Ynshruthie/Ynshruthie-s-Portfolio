@@ -316,6 +316,42 @@
                 </div>
             </div>
 
+            <!-- INTERNSHIP EXPERIENCE -->
+            <div class="internship-column full-width-column"
+                style="grid-column: 1 / -1; margin-top: 40px; margin-bottom: 60px;">
+                <h2 class="sec-head anim-fade-up"><i class="fa-solid fa-briefcase"></i> Internship Experience</h2>
+                <div class="parchment-panel anim-fade-up">
+                    <div class="internship-card-layout" data-modal="modal-internship">
+                        <div class="internship-badge-header">
+                            <div class="internship-icon-box">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <div class="internship-meta">
+                                <span class="internship-tag">Verified Internship</span>
+                                <h3 class="internship-role">Backend &amp; AI Development Intern</h3>
+                                <h4 class="internship-company"><i class="fa-solid fa-building"></i> NC SQUAREE ED TECH PVT. LTD</h4>
+                                <span class="internship-period"><i class="fa-regular fa-calendar-check"></i> Completed: June 30, 2026</span>
+                            </div>
+                            <div class="internship-action-hint">
+                                <span class="cert-view-btn"><i class="fa-solid fa-certificate"></i> View Certificate &rarr;</span>
+                            </div>
+                        </div>
+                        <div class="internship-body-content">
+                            <p class="internship-desc">
+                                Successfully completed comprehensive internship training and project development focused on robust backend architectures and AI-driven solutions. Key contributions included REST API development, backend logic optimization, AI algorithm integrations, and database design.
+                            </p>
+                            <div class="internship-skills-chips">
+                                <span class="int-skill"><i class="fa-brands fa-python"></i> Python</span>
+                                <span class="int-skill"><i class="fa-solid fa-brain"></i> AI Development</span>
+                                <span class="int-skill"><i class="fa-solid fa-server"></i> Backend Engineering</span>
+                                <span class="int-skill"><i class="fa-solid fa-database"></i> Database Architecture</span>
+                                <span class="int-skill"><i class="fa-solid fa-network-wired"></i> RESTful APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- EXTRA-CURRICULAR ACHIEVEMENTS (NEW) -->
             <div class="cert-column full-width-column"
                 style="grid-column: 1 / -1; margin-top: 40px; margin-bottom: 60px;">
@@ -1281,6 +1317,31 @@
             </div>
         </div>
 
+        <!-- Internship Certificate Modal -->
+        <div class="storybook-modal hidden" id="modal-internship">
+            <div class="modal-header">
+                <span class="modal-header-title"><i class="fa-solid fa-briefcase" style="margin-right:8px; color:var(--wood-dark);"></i> Internship Certificate of Completion</span>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body cert-modal-body">
+                <div class="modal-image-container full-cert">
+                    <div class="marks-card-placeholder certificate-glow" style="background:#fff; padding:12px; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.18); border: 2px solid var(--wood-light);">
+                        <img src="Assests/internship.PNG" alt="Internship Certificate - NC SQUAREE ED TECH" style="width:100%; height:auto; max-height:550px; object-fit:contain; border-radius:8px; display:block; margin:0 auto;">
+                    </div>
+                </div>
+                <div class="modal-details" style="text-align:center;">
+                    <h2 class="modal-title" style="color:var(--wood-dark);">Backend &amp; AI Development Internship</h2>
+                    <h3 style="font-family:'Syne',sans-serif; color:#003366; font-size:1.15rem; margin:6px 0 12px; font-weight:800;">NC SQUAREE ED TECH PVT. LTD</h3>
+                    <p class="modal-desc" style="max-width:650px; margin:0 auto 18px; color:var(--text-main); font-size:0.95rem; line-height:1.6;">
+                        Awarded to <strong>Yelika Nagashruthi</strong> on June 30th, 2026 for successfully completing the internship in <strong>Backend &amp; AI Development</strong>. Signed by Manoranjan Swain (Director) and Kosal Raj Choudhary (CEO).
+                    </p>
+                    <a href="Assests/internship.PNG" target="_blank" class="wood-btn" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; width:auto; padding:10px 24px; font-size:0.95rem;">
+                        <i class="fa-solid fa-up-right-from-square"></i> Open Full Certificate Image
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- SCRIPTS -->
@@ -1368,7 +1429,7 @@
             });
 
             // 4. Modal Logic
-            const modalTriggers = document.querySelectorAll('.polaroid-card, .rm-node, .cert-item, .resume-trigger');
+            const modalTriggers = document.querySelectorAll('.polaroid-card, .rm-node, .cert-item, .resume-trigger, .internship-card-layout');
             const overlay = document.getElementById('modal-overlay');
             const modals = document.querySelectorAll('.storybook-modal');
             const closeBtns = document.querySelectorAll('.modal-close');
