@@ -1890,7 +1890,7 @@
                             <span class="pr-price-label">Starting at</span>
                             <div class="ugc-pkg-price">₹6,000</div>
                         </div>
-                        <a href="#" class="mk-plat-cta" style="margin-top:auto;">View Details &rarr;</a>
+                        <a href="#" class="mk-plat-cta" style="margin-top:auto;" onclick="openUgcModal('unboxing'); return false;">View Details &rarr;</a>
                     </div>
 
                     <!-- Package 6 -->
@@ -1902,7 +1902,7 @@
                             <span class="pr-price-label">Starting at</span>
                             <div class="ugc-pkg-price">₹5,000</div>
                         </div>
-                        <a href="#" class="mk-plat-cta" style="margin-top:auto;">View Details &rarr;</a>
+                        <a href="#" class="mk-plat-cta" style="margin-top:auto;" onclick="openUgcModal('voiceover'); return false;">View Details &rarr;</a>
                     </div>
                 </div>
             </section>
@@ -3753,6 +3753,28 @@
                     'Problem/Solution format',
                     'Usage rights for organic posting'
                 ]
+            },
+            'unboxing': {
+                title: 'Unboxing Video',
+                price: '₹6,000',
+                features: [
+                    '1 Exciting Unboxing Video',
+                    'Aesthetic packaging reveal shots',
+                    'Honest first impressions',
+                    'Engaging commentary & reactions',
+                    'Usage rights for organic posting'
+                ]
+            },
+            'voiceover': {
+                title: 'Voiceover Video',
+                price: '₹5,000',
+                features: [
+                    '1 Faceless / Voiceover Video',
+                    'Professional script & narration',
+                    'Aesthetic B-roll footage',
+                    'Background music included',
+                    'Usage rights for organic posting'
+                ]
             }
         };
 
@@ -3762,21 +3784,24 @@
             
             let listHtml = '';
             data.features.forEach(f => {
-                listHtml += `<li><i class="fa-solid fa-check" style="color:#ff6b8b; margin-right:12px; margin-top:2px;"></i>${f}</li>`;
+                listHtml += `<li style="display:flex;align-items:flex-start;margin-bottom:12px;font-size:15px;color:#555;"><i class="fa-solid fa-check" style="color:#e1306c;margin-right:12px;margin-top:3px;flex-shrink:0;"></i>${f}</li>`;
             });
 
             document.getElementById('ugc-modal-body').innerHTML = `
-                <h3 class="ugc-modal-title">${data.title}</h3>
-                <div class="ugc-modal-price">Starting at ${data.price}</div>
-                <ul class="ugc-modal-list" style="list-style:none; padding:0;">
+                <h3 style="font-family:Outfit,sans-serif;font-size:26px;font-weight:800;color:#4a3b32;margin-bottom:5px;">${data.title}</h3>
+                <div style="font-size:20px;font-weight:800;color:#e1306c;margin-bottom:22px;">Starting at ${data.price}</div>
+                <ul style="list-style:none;padding:0;margin:0;">
                     ${listHtml}
                 </ul>
             `;
-            document.getElementById('ugc-modal').classList.add('active');
+            const modal = document.getElementById('ugc-modal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeUgcModal() {
-            document.getElementById('ugc-modal').classList.remove('active');
+            document.getElementById('ugc-modal').style.display = 'none';
+            document.body.style.overflow = '';
         }
     </script>
     <style>
@@ -3821,11 +3846,11 @@
     </style>
 
     <!-- UGC Modal -->
-    <div id="ugc-modal" class="ugc-modal-overlay" onclick="if(event.target===this) closeUgcModal()">
-        <div class="ugc-modal-content card">
-            <span class="ugc-modal-close" onclick="closeUgcModal()">&times;</span>
+    <div id="ugc-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.55); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(6px);" onclick="if(event.target===this){this.style.display='none';document.body.style.overflow='';}"> 
+        <div style="background:#fff8f6; max-width:420px; width:92%; padding:35px; border-radius:28px; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.15); max-height:85vh; overflow-y:auto; animation:fadeInCard 0.25s ease;">
+            <span onclick="document.getElementById('ugc-modal').style.display='none'; document.body.style.overflow='';" style="position:absolute; top:18px; right:24px; font-size:26px; cursor:pointer; color:#aaa; line-height:1;">&times;</span>
             <div id="ugc-modal-body"></div>
-            <a href="#collab-form" class="btn-primary" onclick="closeUgcModal(); switchTab('#collab-form')" style="margin-top:20px; display:inline-flex; width: 100%; justify-content: center;">Request This Package &rarr;</a>
+            <button onclick="document.getElementById('ugc-modal').style.display='none'; document.body.style.overflow=''; document.querySelector('[data-tab=\"contact\"]') && document.querySelector('[data-tab=\"contact\"]').click();" style="margin-top:22px; display:block; width:100%; padding:14px; background:linear-gradient(135deg,#e1306c,#f4a7b9); color:#fff; border:none; border-radius:50px; font-size:15px; font-weight:800; cursor:pointer; font-family:Outfit,sans-serif;">Request This Package &rarr;</button>
         </div>
     </div>
 
