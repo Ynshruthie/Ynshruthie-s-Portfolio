@@ -64,7 +64,7 @@
             <section class="hero-card section-mb">
                 <div class="hero-content">
                     <h3><i class="fa-solid fa-users"></i> Total Audience Across Platforms</h3>
-                    <div class="hero-number">152K+</div>
+                    <div class="hero-number" id="hero-total-audience">1.4K+</div>
                     <p class="hero-text">A growing community of dreamers & doers.</p>
                     <div class="hero-actions">
                         <a href="#mediakit" class="btn-primary" onclick="switchTab('#mediakit')">View Media Kit &darr;</a>
@@ -139,7 +139,7 @@
                         From skincare routines and room makeovers to productivity hacks and travel diaries — I create content that's genuine, aesthetic, and deeply relatable.
                     </p>
                     <p class="about-bio" style="margin-top: 14px;">
-                        With a community of <strong>152K+ across platforms</strong>, I partner with brands that share my values of authenticity, quality, and creativity.
+                        With a community of <strong id="about-text-audience">1.4K+ across platforms</strong>, I partner with brands that share my values of authenticity, quality, and creativity.
                         Whether it's a dedicated Reel, a YouTube integration, or a UGC campaign — I put real care into every collaboration.
                     </p>
                     <div class="about-hero-actions" style="margin-top: 32px;">
@@ -156,7 +156,7 @@
             <!-- Creator Stats Strip -->
             <section class="about-stats-strip section-mb">
                 <div class="about-stat-card">
-                    <div class="about-stat-num">152K+</div>
+                    <div class="about-stat-num" id="about-stat-audience">1.4K+</div>
                     <div class="about-stat-label">Total Audience</div>
                 </div>
                 <div class="about-stat-divider"></div>
@@ -321,7 +321,7 @@
                     <div class="mk-glance-grid">
                         <div class="mk-glance-item">
                             <i class="fa-regular fa-user mk-glance-icon" style="color:#888;"></i>
-                            <div class="mk-glance-num" id="mk-glance-total">69K+</div>
+                            <div class="mk-glance-num" id="mk-glance-total">1.4K+</div>
                             <div class="mk-glance-lbl">Total Audience</div>
                         </div>
                         <div class="mk-glance-item">
@@ -361,7 +361,7 @@
                     <!-- Top follower stats -->
                     <div class="mk-aud-stats">
                         <div class="mk-aud-stat">
-                            <div class="mk-aud-num">152K+</div>
+                            <div class="mk-aud-num" id="mk-aud-audience">1.4K+</div>
                             <div class="mk-aud-lbl">Total Followers</div>
                         </div>
                         <div class="mk-aud-stat">
@@ -695,7 +695,7 @@
                     <!-- 4 key metrics -->
                     <div class="sp-metrics-row">
                         <div class="sp-metric-pill-box">
-                            <div class="sp-pill-val" id="sp-global-followers">69K+</div>
+                            <div class="sp-pill-val" id="sp-global-followers">1.4K+</div>
                             <div class="sp-pill-lbl">Total Followers</div>
                         </div>
                         <div class="sp-metric-pill-box">
@@ -3302,7 +3302,7 @@
                         <span class="cf-creator-tag">Content Creator &bull; Influencer</span>
 
                         <div class="cf-quick-stats">
-                            <div class="cf-qstat"><div class="cf-qnum">152K+</div><div class="cf-qlbl">Total Audience</div></div>
+                            <div class="cf-qstat"><div class="cf-qnum" id="cf-qnum-audience">1.4K+</div><div class="cf-qlbl">Total Audience</div></div>
                             <div class="cf-qstat"><div class="cf-qnum">120+</div><div class="cf-qlbl">Campaigns</div></div>
                             <div class="cf-qstat"><div class="cf-qnum">98%</div><div class="cf-qlbl">Brand Satisfaction</div></div>
                         </div>
@@ -3675,12 +3675,23 @@
                 const glbImp = document.getElementById('sp-global-impressions');
                 const glbEng = document.getElementById('sp-global-engagement');
                 const mkGlanceTotal = document.getElementById('mk-glance-total');
+                const heroTotal = document.getElementById('hero-total-audience');
+                const aboutTextTotal = document.getElementById('about-text-audience');
+                const aboutStatTotal = document.getElementById('about-stat-audience');
+                const mkAudTotal = document.getElementById('mk-aud-audience');
+                const cfQnumTotal = document.getElementById('cf-qnum-audience');
 
                 if (glbFoll && stats.global.totalFollowers) glbFoll.textContent = stats.global.totalFollowers;
                 if (glbReach && stats.global.totalReach) glbReach.textContent = stats.global.totalReach;
                 if (glbImp && stats.global.totalImpressions) glbImp.textContent = stats.global.totalImpressions;
                 if (glbEng && stats.global.avgEngagement) glbEng.textContent = stats.global.avgEngagement;
                 if (mkGlanceTotal && stats.global.totalFollowers) mkGlanceTotal.textContent = stats.global.totalFollowers;
+                
+                if (heroTotal && stats.global.totalFollowers) heroTotal.textContent = stats.global.totalFollowers;
+                if (aboutTextTotal && stats.global.totalFollowers) aboutTextTotal.innerHTML = `${stats.global.totalFollowers} across platforms`;
+                if (aboutStatTotal && stats.global.totalFollowers) aboutStatTotal.textContent = stats.global.totalFollowers;
+                if (mkAudTotal && stats.global.totalFollowers) mkAudTotal.textContent = stats.global.totalFollowers;
+                if (cfQnumTotal && stats.global.totalFollowers) cfQnumTotal.textContent = stats.global.totalFollowers;
             }
         }
 
