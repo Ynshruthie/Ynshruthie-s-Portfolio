@@ -6,6 +6,7 @@
     <title>Brand Collaboration Portal | YN Shruthie</title>
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -283,7 +284,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="#collab-form" class="btn-primary" onclick="switchTab('#collab-form')">Start Collaboration &rarr;</a>
-                    <a href="Assests/resume.pdf" download class="mk-download-link"><i class="fa-solid fa-download"></i> Download Media Kit PDF</a>
+                    <a href="#" onclick="downloadSectionAsPDF('mediakit', 'Ynshruthie_MediaKit.pdf'); return false;" class="mk-download-link"><i class="fa-solid fa-download"></i> Download Media Kit PDF</a>
                 </div>
             </header>
 
@@ -542,7 +543,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="#collab-form" class="btn-dark-pill" onclick="switchTab('#collab-form')">Start Collaboration &rarr;</a>
-                    <a href="Assests/resume.pdf" download class="mk-download-link"><i class="fa-solid fa-download"></i> Download Social Stats PDF</a>
+                    <a href="#" onclick="downloadSectionAsPDF('platforms', 'Ynshruthie_SocialStats.pdf'); return false;" class="mk-download-link"><i class="fa-solid fa-download"></i> Download Social Stats PDF</a>
                 </div>
             </header>
 
@@ -918,7 +919,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="#collab-form" class="btn-dark-pill" onclick="switchTab('#collab-form')">Start Collaboration &rarr;</a>
-                    <a href="Assests/resume.pdf" download class="mk-download-link"><i class="fa-solid fa-download"></i> Download Rate Card PDF</a>
+                    <a href="#" onclick="downloadSectionAsPDF('pricing', 'Ynshruthie_RateCard.pdf'); return false;" class="mk-download-link"><i class="fa-solid fa-download"></i> Download Rate Card PDF</a>
                 </div>
             </header>
 
@@ -1205,7 +1206,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="#collab-form" class="btn-dark-pill" onclick="switchTab('#collab-form')">Start Collaboration &rarr;</a>
-                    <a href="Assests/resume.pdf" download class="mk-download-link"><i class="fa-solid fa-download"></i> Download Collaboration Deck</a>
+                    <a href="#" onclick="downloadSectionAsPDF('brand-collabs', 'Ynshruthie_CollabDeck.pdf'); return false;" class="mk-download-link"><i class="fa-solid fa-download"></i> Download Collaboration Deck</a>
                 </div>
             </header>
 
@@ -1504,7 +1505,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="#collab-form" class="btn-dark-pill" onclick="switchTab('#collab-form')">Start a Project &rarr;</a>
-                    <a href="Assests/resume.pdf" download class="mk-download-link"><i class="fa-solid fa-download"></i> Download Portfolio PDF</a>
+                    <a href="#" onclick="downloadSectionAsPDF('portfolio', 'Ynshruthie_Portfolio.pdf'); return false;" class="mk-download-link"><i class="fa-solid fa-download"></i> Download Portfolio PDF</a>
                 </div>
             </header>
 
@@ -1778,7 +1779,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="#collab-form" class="btn-dark-pill" onclick="switchTab('#collab-form')">Request UGC Package &rarr;</a>
-                    <a href="Assests/resume.pdf" download class="mk-download-link"><i class="fa-solid fa-download"></i> Download UGC Rate Card PDF</a>
+                    <a href="#" onclick="downloadSectionAsPDF('ugc', 'Ynshruthie_UGC_RateCard.pdf'); return false;" class="mk-download-link"><i class="fa-solid fa-download"></i> Download UGC Rate Card PDF</a>
                 </div>
             </header>
 
@@ -2124,7 +2125,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="#collab-form" class="btn-dark-pill" onclick="switchTab('#collab-form')">Start a New Collab &rarr;</a>
-                    <a href="Assests/resume.pdf" download class="mk-download-link"><i class="fa-solid fa-download"></i> Download Collab Deck PDF</a>
+                    <a href="#" onclick="downloadSectionAsPDF('past-collabs', 'Ynshruthie_CollabDeck.pdf'); return false;" class="mk-download-link"><i class="fa-solid fa-download"></i> Download Collab Deck PDF</a>
                 </div>
             </header>
 
@@ -2395,7 +2396,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="#collab-form" class="btn-dark-pill" onclick="switchTab('#collab-form')">Start Collaboration &rarr;</a>
-                    <a href="Assests/resume.pdf" download class="mk-download-link"><i class="fa-solid fa-download"></i> Download Testimonials PDF</a>
+                    <a href="#" onclick="downloadSectionAsPDF('testimonials', 'Ynshruthie_Testimonials.pdf'); return false;" class="mk-download-link"><i class="fa-solid fa-download"></i> Download Testimonials PDF</a>
                 </div>
             </header>
 
@@ -2645,7 +2646,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="#collab-form" class="btn-dark-pill" onclick="switchTab('#collab-form')">Start Collaboration &rarr;</a>
-                    <a href="Assests/resume.pdf" download class="cnt-download-btn"><i class="fa-solid fa-download"></i> Download Contact Card</a>
+                    <a href="#" onclick="downloadSectionAsPDF('contact', 'Ynshruthie_Contact.pdf'); return false;" class="cnt-download-btn"><i class="fa-solid fa-download"></i> Download Contact Card</a>
                 </div>
             </header>
 
@@ -2974,7 +2975,7 @@
                 </div>
                 <div class="mk-header-actions">
                     <a href="mailto:workwithynshruthie@gmail.com" class="mk-download-link"><i class="fa-regular fa-envelope"></i> workwithynshruthie@gmail.com</a>
-                    <a href="Assests/resume.pdf" download class="mk-download-link"><i class="fa-solid fa-download"></i> Download Media Kit PDF</a>
+                    <a href="#" onclick="downloadSectionAsPDF('mediakit', 'Ynshruthie_MediaKit.pdf'); return false;" class="mk-download-link"><i class="fa-solid fa-download"></i> Download Media Kit PDF</a>
                 </div>
             </header>
 
@@ -3699,11 +3700,43 @@
         window.addEventListener('DOMContentLoaded', () => {
             fetchLiveStats();
         });
+
+        // Export Section as PDF
+        function downloadSectionAsPDF(sectionId, filename) {
+            const element = document.getElementById(sectionId);
+            if (!element) return;
+            
+            element.classList.add('exporting-pdf');
+            
+            const opt = {
+                margin:       [0.5, 0, 0.5, 0], // top, left, bottom, right
+                filename:     filename,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, windowWidth: element.scrollWidth },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+            
+            html2pdf().set(opt).from(element).save().then(() => {
+                element.classList.remove('exporting-pdf');
+            }).catch(err => {
+                console.error("PDF Export error:", err);
+                element.classList.remove('exporting-pdf');
+            });
+        }
     </script>
     <style>
         @keyframes fadeInCard {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Hide UI elements when exporting to PDF */
+        .exporting-pdf .mk-download-link,
+        .exporting-pdf .mk-header-actions,
+        .exporting-pdf .btn-primary,
+        .exporting-pdf .btn-secondary {
+            display: none !important;
         }
     </style>
 
