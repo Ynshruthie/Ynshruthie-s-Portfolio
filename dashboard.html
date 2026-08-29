@@ -6,7 +6,6 @@
     <title>Brand Collaboration Portal | YN Shruthie</title>
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -3703,26 +3702,9 @@
 
         // Export Section as PDF
         function downloadSectionAsPDF(sectionId, filename) {
-            const element = document.getElementById(sectionId);
-            if (!element) return;
-            
-            element.classList.add('exporting-pdf');
-            
-            const opt = {
-                margin:       [0.5, 0, 0.5, 0], // top, left, bottom, right
-                filename:     filename,
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true, windowWidth: element.scrollWidth },
-                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' },
-                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
-            };
-            
-            html2pdf().set(opt).from(element).save().then(() => {
-                element.classList.remove('exporting-pdf');
-            }).catch(err => {
-                console.error("PDF Export error:", err);
-                element.classList.remove('exporting-pdf');
-            });
+            // Using native print is much more reliable for local files (avoids CORS canvas tainting)
+            // The user will be prompted to "Save as PDF"
+            window.print();
         }
     </script>
     <style>
@@ -3731,12 +3713,38 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Hide UI elements when exporting to PDF */
-        .exporting-pdf .mk-download-link,
-        .exporting-pdf .mk-header-actions,
-        .exporting-pdf .btn-primary,
-        .exporting-pdf .btn-secondary {
-            display: none !important;
+        /* Native Print CSS */
+        @media print {
+            .sidebar {
+                display: none !important;
+            }
+            .main-content {
+                margin-left: 0 !important;
+                width: 100% !important;
+                padding: 0 !important;
+                background: none !important;
+            }
+            /* Hide buttons during print */
+            .mk-download-link,
+            .mk-header-actions,
+            .btn-primary,
+            .btn-secondary,
+            .btn-dark-pill,
+            .cnt-download-btn,
+            .back-btn {
+                display: none !important;
+            }
+            /* Force background colors and gradients to print */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            /* Ensure the active tab fills the page */
+            .tab-pane.active {
+                display: block !important;
+                page-break-after: auto;
+            }
         }
     </style>
 
