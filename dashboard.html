@@ -1842,7 +1842,7 @@
                             <span class="pr-price-label">Starting at</span>
                             <div class="ugc-pkg-price">₹6,000</div>
                         </div>
-                        <a href="#" class="mk-plat-cta" style="margin-top:auto;">View Details &rarr;</a>
+                        <a href="#" class="mk-plat-cta" style="margin-top:auto;" onclick="openUgcModal('video'); return false;">View Details &rarr;</a>
                     </div>
 
                     <!-- Package 2 -->
@@ -1854,7 +1854,7 @@
                             <span class="pr-price-label">Starting at</span>
                             <div class="ugc-pkg-price">₹15,000</div>
                         </div>
-                        <a href="#" class="mk-plat-cta" style="margin-top:auto;">View Details &rarr;</a>
+                        <a href="#" class="mk-plat-cta" style="margin-top:auto;" onclick="openUgcModal('bundle'); return false;">View Details &rarr;</a>
                     </div>
 
                     <!-- Package 3 -->
@@ -1866,7 +1866,7 @@
                             <span class="pr-price-label">Starting at</span>
                             <div class="ugc-pkg-price">₹7,000</div>
                         </div>
-                        <a href="#" class="mk-plat-cta" style="margin-top:auto;">View Details &rarr;</a>
+                        <a href="#" class="mk-plat-cta" style="margin-top:auto;" onclick="openUgcModal('demo'); return false;">View Details &rarr;</a>
                     </div>
 
                     <!-- Package 4 -->
@@ -1878,7 +1878,7 @@
                             <span class="pr-price-label">Starting at</span>
                             <div class="ugc-pkg-price">₹5,000</div>
                         </div>
-                        <a href="#" class="mk-plat-cta" style="margin-top:auto;">View Details &rarr;</a>
+                        <a href="#" class="mk-plat-cta" style="margin-top:auto;" onclick="openUgcModal('testimonial'); return false;">View Details &rarr;</a>
                     </div>
 
                     <!-- Package 5 -->
@@ -3706,6 +3706,78 @@
             // The user will be prompted to "Save as PDF"
             window.print();
         }
+        
+        // UGC Modal Logic
+        const ugcDetails = {
+            'video': {
+                title: 'UGC Video',
+                price: '₹6,000',
+                features: [
+                    '1 High-Quality UGC Video (15-60 sec)',
+                    'Scriptwriting & Hook ideation',
+                    'Basic editing & text overlays',
+                    'Raw footage included on request',
+                    '1 round of revisions',
+                    'Usage rights for organic posting (30 days)'
+                ]
+            },
+            'bundle': {
+                title: 'UGC Bundle',
+                price: '₹15,000',
+                features: [
+                    '3 High-Quality UGC Videos',
+                    'A/B Testing hooks included',
+                    'Advanced editing & trending audios',
+                    'Priority delivery (5-7 days)',
+                    '2 rounds of revisions',
+                    'Usage rights for organic & paid ads (90 days)'
+                ]
+            },
+            'demo': {
+                title: 'Product Demo',
+                price: '₹7,000',
+                features: [
+                    '1 Detailed Product Demonstration Video',
+                    'Focus on features & benefits',
+                    'Voiceover & text highlighting key specs',
+                    'Close-up shots of product',
+                    'Usage rights for website/product page'
+                ]
+            },
+            'testimonial': {
+                title: 'Testimonial',
+                price: '₹5,000',
+                features: [
+                    '1 Authentic Review/Testimonial Video',
+                    'Relatable, face-to-camera storytelling',
+                    'Problem/Solution format',
+                    'Usage rights for organic posting'
+                ]
+            }
+        };
+
+        function openUgcModal(pkgKey) {
+            const data = ugcDetails[pkgKey];
+            if(!data) return;
+            
+            let listHtml = '';
+            data.features.forEach(f => {
+                listHtml += `<li><i class="fa-solid fa-check" style="color:#ff6b8b; margin-right:12px; margin-top:2px;"></i>${f}</li>`;
+            });
+
+            document.getElementById('ugc-modal-body').innerHTML = `
+                <h3 class="ugc-modal-title">${data.title}</h3>
+                <div class="ugc-modal-price">Starting at ${data.price}</div>
+                <ul class="ugc-modal-list" style="list-style:none; padding:0;">
+                    ${listHtml}
+                </ul>
+            `;
+            document.getElementById('ugc-modal').classList.add('active');
+        }
+
+        function closeUgcModal() {
+            document.getElementById('ugc-modal').classList.remove('active');
+        }
     </script>
     <style>
         @keyframes fadeInCard {
@@ -3747,6 +3819,15 @@
             }
         }
     </style>
+
+    <!-- UGC Modal -->
+    <div id="ugc-modal" class="ugc-modal-overlay" onclick="if(event.target===this) closeUgcModal()">
+        <div class="ugc-modal-content card">
+            <span class="ugc-modal-close" onclick="closeUgcModal()">&times;</span>
+            <div id="ugc-modal-body"></div>
+            <a href="#collab-form" class="btn-primary" onclick="closeUgcModal(); switchTab('#collab-form')" style="margin-top:20px; display:inline-flex; width: 100%; justify-content: center;">Request This Package &rarr;</a>
+        </div>
+    </div>
 
 </body>
 </html>
