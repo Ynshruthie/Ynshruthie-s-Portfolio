@@ -17,6 +17,25 @@
     <!-- HOME BUTTON -->
     <a href="index.html" class="home-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
 
+    <!-- ── Accounts Dropdown ── -->
+    <div class="accounts-dropdown-wrapper" id="accountsDropdown">
+        <button class="accounts-btn" id="accountsBtn" aria-expanded="false" aria-haspopup="true" aria-label="Social Accounts Menu">
+            <i class="fa-solid fa-users"></i> Accounts <i class="fa-solid fa-chevron-down dropdown-chevron"></i>
+        </button>
+        <div class="accounts-dropdown-menu" id="accountsMenu" role="menu">
+            <a href="https://www.linkedin.com/in/nagashruthiyelika" target="_blank" rel="noopener noreferrer" class="accounts-item li" role="menuitem">
+                <div class="item-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                <span>LinkedIn</span>
+                <i class="fa-solid fa-arrow-up-right-from-square item-arrow"></i>
+            </a>
+            <a href="https://github.com/ynshruthie" target="_blank" rel="noopener noreferrer" class="accounts-item gh" role="menuitem">
+                <div class="item-icon"><i class="fa-brands fa-github"></i></div>
+                <span>GitHub</span>
+                <i class="fa-solid fa-arrow-up-right-from-square item-arrow"></i>
+            </a>
+        </div>
+    </div>
+
     <div class="container">
 
         <!-- HEADER -->
@@ -1469,6 +1488,23 @@
 
             // Make sure all modals are initially hidden
             modals.forEach(m => m.style.display = 'none');
+
+            // ── Accounts Dropdown Toggle ──
+            const accountsBtn = document.getElementById('accountsBtn');
+            const accountsDropdown = document.getElementById('accountsDropdown');
+            if (accountsBtn && accountsDropdown) {
+                accountsBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isActive = accountsDropdown.classList.toggle('active');
+                    accountsBtn.setAttribute('aria-expanded', isActive);
+                });
+                document.addEventListener('click', (e) => {
+                    if (!accountsDropdown.contains(e.target)) {
+                        accountsDropdown.classList.remove('active');
+                        accountsBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
         });
     </script>
 </body>

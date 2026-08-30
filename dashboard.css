@@ -354,7 +354,7 @@ body {
 /* Social Grid */
 .social-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
 }
 
@@ -633,7 +633,7 @@ body {
 /* Packages Grid */
 .pr-packages-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
 }
 
@@ -5306,4 +5306,94 @@ body {
     color: #555;
     display: flex;
     align-items: flex-start;
+}
+
+/* Print Agreement Mode */
+@media print {
+    body.print-agreement-mode {
+        background: #ffffff !important;
+        background-image: none !important;
+        background-color: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    @page {
+        margin: 1.5cm;
+    }
+}
+body.print-agreement-mode .sidebar,
+body.print-agreement-mode .main-content,
+body.print-agreement-mode #ugc-modal,
+body.print-agreement-mode .floating-decor,
+body.print-agreement-mode nav {
+    display: none !important;
+}
+body.print-agreement-mode #agreement-pdf-view {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: #fff;
+    color: #000;
+    z-index: 9999;
+}
+#agreement-pdf-view {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #222;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+#agreement-pdf-view .agreement-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #111;
+    padding-bottom: 20px;
+}
+#agreement-pdf-view .agreement-header h2 {
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+}
+#agreement-pdf-view .agreement-section {
+    margin-bottom: 30px;
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    page-break-inside: avoid;
+}
+#agreement-pdf-view .agreement-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    color: #111;
+    letter-spacing: 1px;
+}
+#agreement-pdf-view .agreement-section p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 14px;
+    display: flex;
+}
+#agreement-pdf-view .agreement-section p strong {
+    width: 220px;
+    flex-shrink: 0;
+    color: #333;
+}
+#agreement-pdf-view .agreement-footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 12px;
+    color: #888;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
 }
