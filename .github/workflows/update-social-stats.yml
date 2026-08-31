@@ -2,8 +2,8 @@ name: Update Social Statistics
 
 on:
   schedule:
-    - cron: '0 */12 * * *' # Runs every 12 hours
-  workflow_dispatch: # Allows manual trigger anytime from GitHub Actions tab
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
 
 jobs:
   update-stats:
@@ -19,240 +19,21 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Fetch Live Statistics (YouTube + Instagram)
+      - name: Fetch Live Statistics
         env:
-          YT_KEY: ${{ secrets.YOUTUBE_API_KEY || 'AIzaSyBJdxzmJQYTUVgLZZjJ5VirzEUoS0EIMCU' }}
+          YT_KEY: AIzaSyBJdxzmJQYTUVgLZZjJ5VirzEUoS0EIMCU
           YT_CHANNEL: UCOhEIzFSqQVifi-dAzyTBgw
-          RAPID_KEY: ${{ secrets.RAPIDAPI_KEY || '0b845a102cmshca0b6e90e110f9cp13ee10jsna73149c56e30' }}
+          RAPID_KEY: 0b845a102cmshca0b6e90e110f9cp13ee10jsna73149c56e30
           RAPID_HOST: instagram-scraper-ai3.p.rapidapi.com
           YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-        run: |
-          node -e '
-          const fs = require("fs");
-          const https = require("https");
-          const querystring = require("querystring");
-
-          const YT_KEY = process.env.YT_KEY;
-          const YT_CHANNEL = process.env.YT_CHANNEL;
-          const RAPID_KEY = process.env.RAPID_KEY;
-          const RAPID_HOST = process.env.RAPID_HOST;
-          
-          // YouTube Analytics Secrets
-          const YT_CLIENT_ID = process.env.YT_CLIENT_ID || "";
-          const YT_CLIENT_SECRET = process.env.YT_CLIENT_SECRET || "";
-          const YT_REFRESH_TOKEN = process.env.YT_REFRESH_TOKEN || "";
-          
-          const statsPath = "./social-stats.json";
-
-          let currentStats = fs.existsSync(statsPath) ? JSON.parse(fs.readFileSync(statsPath)) : {};
-          currentStats.lastUpdated = new Date().toISOString();
-
-          function saveStats() {
-            fs.writeFileSync(statsPath, JSON.stringify(currentStats, null, 2));
-            console.log("Social stats updated successfully:", JSON.stringify(currentStats, null, 2));
-          }
-
-          // 1. Fetch YouTube Live Stats
-          function fetchYouTube() {
-            return new Promise((resolve) => {
-              https.get(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${YT_CHANNEL}&key=${YT_KEY}`, (res) => {
-                let data = "";
-                res.on("data", chunk => data += chunk);
-                res.on("end", () => {
-                  try {
-                    const json = JSON.parse(data);
-                    if (json.items && json.items.length > 0) {
-                      const s = json.items[0].statistics;
-                      currentStats.youtube = currentStats.youtube || {};
-                      currentStats.youtube.subscribers = parseInt(s.subscriberCount) || currentStats.youtube.subscribers;
-                      currentStats.youtube.views = parseInt(s.viewCount) || currentStats.youtube.views;
-                      currentStats.youtube.videos = parseInt(s.videoCount) || currentStats.youtube.videos;
-                    }
-                  } catch(e) {
-                    console.error("YouTube parse error", e);
-                  }
-                  resolve();
-                });
-              }).on("error", (e) => {
-                console.error("YouTube network error", e);
-                resolve();
-              });
-            });
-          }
-          // 1b. Fetch YouTube Analytics (Monthly Views & Watch Time)
-          function fetchYouTubeAnalytics() {
-            return new Promise((resolve) => {
-              if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) {
-                console.log("No YouTube Analytics secrets found, skipping advanced stats.");
-                return resolve();
-              }
-              
-              // First get Access Token
-              const postData = JSON.stringify({
-                  client_id: YT_CLIENT_ID,
-                  client_secret: YT_CLIENT_SECRET,
-                  refresh_token: YT_REFRESH_TOKEN,
-                  grant_type: 'refresh_token'
-              });
-
-              const tokenOpts = {
-                  hostname: 'oauth2.googleapis.com',
-                  port: 443,
-                  path: '/token',
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                      'Content-Length': postData.length
-                  }
-              };
-
-              const req = https.request(tokenOpts, (res) => {
-                  let data = '';
-                  res.on('data', chunk => data += chunk);
-                  res.on('end', () => {
-                      try {
-                          const json = JSON.parse(data);
-                          if (json.access_token) {
-                              const today = new Date();
-                              const thirtyDaysAgo = new Date();
-                              thirtyDaysAgo.setDate(today.getDate() - 30);
-                              
-                              const formatDate = (date) => date.toISOString().split('T')[0];
-                              const startDate = formatDate(thirtyDaysAgo);
-                              const endDate = formatDate(today);
-
-                              const url = `https://youtubeanalytics.googleapis.com/v2/reports?ids=channel==MINE&startDate=${startDate}&endDate=${endDate}&metrics=views,estimatedMinutesWatched`;
-                              
-                              https.get(url, { headers: { 'Authorization': `Bearer ${json.access_token}` } }, (res2) => {
-                                let d2 = '';
-                                res2.on('data', chunk => d2 += chunk);
-                                res2.on('end', () => {
-                                  try {
-                                    const analytics = JSON.parse(d2);
-                                    if (analytics.rows && analytics.rows.length > 0) {
-                                      currentStats.youtube.monthlyViews = Math.round(analytics.rows[0][0] / 1000) + 'K';
-                                      currentStats.youtube.watchTime = Math.round(analytics.rows[0][1] / 60) + ' hrs';
-                                    }
-                                  } catch (e) {
-                                    console.error("Analytics parse error", e);
-                                  }
-                                  resolve();
-                                });
-                              }).on('error', () => resolve());
-                          } else {
-                              resolve();
-                          }
-                      } catch(e) {
-                          resolve();
-                      }
-                  });
-              });
-              req.on('error', () => resolve());
-              req.write(postData);
-              req.end();
-            });
-          }
-          // 2. Fetch Instagram Live Stats via RapidAPI
-          function fetchInstagram() {
-            return new Promise((resolve) => {
-              const postData = querystring.stringify({ username: "ynshruthie" });
-              const options = {
-                hostname: RAPID_HOST,
-                port: 443,
-                path: "/index.php",
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/x-www-form-urlencoded",
-                  "Content-Length": Buffer.byteLength(postData),
-                  "x-rapidapi-host": RAPID_HOST,
-                  "x-rapidapi-key": RAPID_KEY
-                }
-              };
-
-              const req = https.request(options, (res) => {
-                let data = "";
-                res.on("data", chunk => data += chunk);
-                res.on("end", () => {
-                  try {
-                    const json = JSON.parse(data);
-                    currentStats.instagram = currentStats.instagram || {};
-                    
-                    const u = json.user || json;
-                    if (u.follower_count || u.followersCount || u.followers) {
-                      currentStats.instagram.followers = parseInt(u.follower_count || u.followersCount || u.followers) || currentStats.instagram.followers;
-                    }
-                    if (u.media_count || u.postsCount || u.posts) {
-                      currentStats.instagram.posts = parseInt(u.media_count || u.postsCount || u.posts) || currentStats.instagram.posts;
-                    }
-                    if (json.postsStatistics && json.postsStatistics.percentOfFollowersWhoLikes) {
-                      currentStats.instagram.engagementRate = (json.postsStatistics.percentOfFollowersWhoLikes / 100).toFixed(1) + "%";
-                    }
-                  } catch(e) {
-                    console.error("Instagram parse error", e);
-                  }
-                  resolve();
-                });
-              });
-
-              req.on("error", (e) => {
-                console.error("Instagram network error", e);
-                resolve();
-              });
-
-              req.write(postData);
-              req.end();
-            });
-          }
-
-          async function main() {
-            await fetchYouTube();
-            await fetchYouTubeAnalytics();
-            await fetchInstagram();
-
-            // Calculate global/estimated stats (Option 2)
-            currentStats.global = currentStats.global || {};
-            let totalFoll = 0;
-            let totalReach = 0;
-            let totalImp = 0;
-
-            if (currentStats.youtube.subscribers) totalFoll += currentStats.youtube.subscribers;
-            if (currentStats.instagram && currentStats.instagram.followers) totalFoll += currentStats.instagram.followers;
-
-            currentStats.global.totalFollowers = Math.round(totalFoll / 1000) + 'K+';
-
-            // Instagram estimate: Reach = 3x total likes, Impressions = 4.5x total likes
-            if (currentStats.instagram && currentStats.instagram.totalLikes) {
-                const igReach = currentStats.instagram.totalLikes * 3;
-                const igImp = igReach * 1.5;
-                currentStats.instagram.estimatedReach = Math.round(igReach / 1000) + 'K+';
-                currentStats.instagram.estimatedImpressions = Math.round(igImp / 1000) + 'K+';
-
-                totalReach += igReach;
-                totalImp += igImp;
-            }
-
-            // YouTube real views as reach/impressions proxy
-            if (currentStats.youtube && currentStats.youtube.views) {
-                totalReach += currentStats.youtube.views;
-                totalImp += currentStats.youtube.views * 2;
-            }
-
-            if (totalReach > 0) currentStats.global.totalReach = Math.round(totalReach / 1000) + 'K+';
-            if (totalImp > 0) currentStats.global.totalImpressions = Math.round(totalImp / 1000) + 'K+';
-            currentStats.global.avgEngagement = '12%+'; // Keep a static impressive number or calculate realistically
-
-            saveStats();
-          }
-
-          main();
-          '
+        run: node fetch-stats.js
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add social-stats.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update live YouTube and Instagram statistics [skip ci]"
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update social statistics [skip ci]"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
