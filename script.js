@@ -57,13 +57,23 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 loader.classList.add('hidden');
                 sessionStorage.setItem('hasPlayedEntry', 'true');
+                // Remove from DOM rendering entirely to save GPU
+                setTimeout(() => { loader.style.display = 'none'; }, 1500);
             }, 1500);
         } else {
             loader.style.display = 'none';
         }
 
         updateLayout();
-        window.addEventListener('resize', updateLayout);
+        
+        let lastWidth = window.innerWidth;
+        window.addEventListener('resize', () => {
+            // Only update layout on width changes (prevents lag from mobile address bar hiding/showing during scroll)
+            if (window.innerWidth !== lastWidth) {
+                lastWidth = window.innerWidth;
+                updateLayout();
+            }
+        });
         
         setupInteractions();
         initParticles();
@@ -264,7 +274,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 canvas.style.height = '100%';
             }
         }
-        window.addEventListener('resize', resizeCanvas);
+        
+        let lastCanvasWidth = window.innerWidth;
+        window.addEventListener('resize', () => {
+            if (window.innerWidth !== lastCanvasWidth) {
+                lastCanvasWidth = window.innerWidth;
+                resizeCanvas();
+            }
+        });
         resizeCanvas();
 
         // Create initial particles (fireflies/dust)
