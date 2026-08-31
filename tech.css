@@ -1164,3 +1164,86 @@ body {
     color: #fff;
     transform: scale(1.1);
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .container {
+        padding-top: 90px; /* Space for absolute buttons */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .home-btn {
+        top: 15px; left: 15px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    .accounts-dropdown-wrapper {
+        top: 15px; right: 15px;
+    }
+    .storybook-title {
+        font-size: 2.2rem;
+    }
+    .typewriter {
+        font-size: 1.3rem;
+    }
+    .resume-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 20px 15px;
+    }
+    .rm-node:nth-child(odd), .rm-node:nth-child(even) {
+        padding-right: 0;
+        padding-left: 0;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        transform: translateY(0);
+    }
+    .rm-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .rm-text-details {
+        text-align: center !important;
+    }
+    .roadmap-svg {
+        display: none; /* Hide the background line */
+    }
+    .polaroid-title {
+        font-size: 1.8rem;
+    }
+    .modal-title {
+        font-size: 2.2rem;
+    }
+    .modal-body {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    .marks-table {
+        font-size: 0.8rem;
+    }
+    .marks-table th, .marks-table td {
+        padding: 6px 10px;
+    }
+    .full-cert .marks-card-placeholder {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .storybook-title { font-size: 1.8rem; }
+    .typewriter { font-size: 1.1rem; }
+    .sec-head { font-size: 1.1rem; flex-wrap: wrap; text-align: center; }
+    .skill-label { font-size: 0.8rem; }
+    .cert-item { font-size: 0.9rem; min-height: 100px; padding: 15px 10px; }
+    .cert-icon-lead { font-size: 1.8rem !important; width: 35px; height: 35px; }
+    .internship-role { font-size: 1.2rem; }
+    .internship-company { font-size: 0.95rem; }
+    .internship-badge-header { justify-content: center; text-align: center; }
+    .internship-skills-chips { justify-content: center; }
+}

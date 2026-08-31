@@ -877,3 +877,53 @@ body, html {
     40% { opacity: 1; }
     100% { transform: translate(-50%, -50%) scale(4000); opacity: 1; background: #fff; }
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .id-card-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 20px;
+        gap: 20px;
+    }
+    .id-left {
+        align-items: center;
+    }
+    .id-right {
+        text-align: center;
+    }
+    .id-skills-row {
+        justify-content: center;
+    }
+    .id-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .profile-glass {
+        padding: 25px;
+    }
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-body p {
+        text-align: center;
+    }
+    .profile-socials {
+        justify-content: center;
+    }
+    .ambient-light {
+        position: fixed;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container { top: 15px; left: 15px; }
+    .logo-text { font-size: 1.1rem; }
+    .welcome-title { font-size: 2rem; }
+    .welcome-hand { font-size: 1.5rem; }
+    .hover-label { font-size: 1.5rem; top: -40px; }
+    #girl .hover-label { top: -80px; }
+}

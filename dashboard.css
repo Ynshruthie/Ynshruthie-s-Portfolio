@@ -5504,3 +5504,65 @@ body.print-agreement-mode #agreement-pdf-view {
     border-top: 1px solid #ddd;
     padding-top: 20px;
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 900px) {
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+    .sidebar {
+        display: none; /* In a real scenario, this would become a hamburger menu */
+    }
+    .snapshot-grid {
+        grid-template-columns: 1fr;
+    }
+    .pr-info-banners {
+        grid-template-columns: 1fr 1fr;
+    }
+    .hero-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+    .hero-image {
+        width: 100%;
+        height: auto;
+    }
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+    .pr-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-text h2 {
+        font-size: 28px;
+    }
+    .header-text p {
+        font-size: 14px;
+    }
+    .top-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .header-text {
+        max-width: 100%;
+    }
+    .pr-info-banners {
+        grid-template-columns: 1fr;
+    }
+    .stat-block h3 {
+        font-size: 32px;
+    }
+}

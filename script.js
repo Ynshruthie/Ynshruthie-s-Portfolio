@@ -73,19 +73,67 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateLayout() {
         const winW = window.innerWidth;
         const winH = window.innerHeight;
+        const isMobile = winW <= 768;
 
         // Calculate scale to cover the entire screen
         const scaleX = winW / CONFIG.originalWidth;
         const scaleY = winH / CONFIG.originalHeight;
-        scale = Math.max(scaleX, scaleY); // Use max for cover, min for contain
+        
+        if (isMobile) {
+            // On mobile, scale by height to allow horizontal scrolling
+            scale = scaleY;
+        } else {
+            scale = Math.max(scaleX, scaleY); // Use max for cover, min for contain
+        }
 
         // Calculate new dimensions
         const newW = CONFIG.originalWidth * scale;
         const newH = CONFIG.originalHeight * scale;
 
         // Calculate offset to center the scaled image
-        const offsetX = (winW - newW) / 2;
-        const offsetY = (winH - newH) / 2;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        const sceneContainer = document.getElementById('scene-container');
+
+        if (isMobile) {
+            // For mobile, start at left 0 and allow scrolling
+            offsetX = 0;
+            offsetY = (winH - newH) / 2;
+            
+            sceneContainer.style.overflowX = 'auto';
+            sceneContainer.style.overflowY = 'hidden';
+            sceneContainer.style.justifyContent = 'flex-start';
+            
+            // Adjust welcome text to be fixed to viewport so it doesn't scroll away
+            const welcomeText = document.querySelector('.welcome-container');
+            if (welcomeText) {
+                welcomeText.style.position = 'fixed';
+                welcomeText.style.top = '15%';
+                welcomeText.style.left = '5%';
+            }
+            
+            // Center the scroll on first load
+            if (!window.hasCenteredScene) {
+                setTimeout(() => {
+                    sceneContainer.scrollLeft = (newW - winW) / 2;
+                }, 100);
+                window.hasCenteredScene = true;
+            }
+        } else {
+            offsetX = (winW - newW) / 2;
+            offsetY = (winH - newH) / 2;
+            
+            sceneContainer.style.overflow = 'hidden';
+            sceneContainer.style.justifyContent = 'center';
+            
+            const welcomeText = document.querySelector('.welcome-container');
+            if (welcomeText) {
+                welcomeText.style.position = 'absolute';
+                welcomeText.style.top = '15%';
+                welcomeText.style.left = '8%';
+            }
+        }
 
         // Apply to background image
         bgImage.style.width = `${newW}px`;
@@ -201,8 +249,20 @@ document.addEventListener('DOMContentLoaded', () => {
         let birds = [];
 
         function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                const scaleY = window.innerHeight / CONFIG.originalHeight;
+                const newW = CONFIG.originalWidth * scaleY;
+                canvas.width = newW;
+                canvas.height = window.innerHeight;
+                canvas.style.width = `${newW}px`;
+                canvas.style.height = `${window.innerHeight}px`;
+            } else {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+            }
         }
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
