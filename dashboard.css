@@ -2964,6 +2964,113 @@ body {
     box-shadow: 0 4px 12px rgba(255, 107, 139, 0.25);
 }
 
+/* Rates Calculator */
+.rate-calculator-container {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    margin-top: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.rate-calc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: #fafafa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.rate-calc-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.step-badge {
+    background: #e9e4ff;
+    color: #3b28cc;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.rate-calc-toggle {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.rate-calc-body {
+    padding: 20px;
+}
+
+.rate-calc-notice {
+    background: #f3f0ff;
+    color: #4b36d6;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.rate-card-section, .rate-ask-section {
+    margin-top: 24px;
+}
+
+.ask-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.ask-checkbox-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.ask-check {
+    margin-top: 4px;
+    accent-color: #3b28cc;
+}
+
+.ask-content strong {
+    display: block;
+    font-size: 14px;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.ask-content p {
+    font-size: 12px;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.deliverable-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
 .cf-textarea {
     resize: vertical;
     min-height: 100px;
