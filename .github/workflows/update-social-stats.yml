@@ -8,6 +8,8 @@ on:
 jobs:
   update-stats:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -245,4 +247,4 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add social-stats.json
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update live YouTube and Instagram statistics [skip ci]"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
