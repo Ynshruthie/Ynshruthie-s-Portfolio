@@ -5506,12 +5506,30 @@ body.print-agreement-mode #agreement-pdf-view {
 }
 
 /* ==========================================================================
-   MOBILE RESPONSIVENESS
+   MOBILE & TABLET RESPONSIVENESS (HORIZONTAL SCROLLING)
    ========================================================================== */
 @media (max-width: 1024px) {
-    /* Force desktop layout on mobile & tablet to allow horizontal scrolling */
     html, body {
-        min-width: 1200px;
         overflow-x: auto;
+        overflow-y: auto;
+    }
+
+    body {
+        display: flex;
+        min-width: 1360px; /* 260px sidebar + 1100px main content */
+    }
+
+    .sidebar {
+        position: relative; /* Un-fix sidebar so it scrolls naturally left & right without floating over content */
+        height: auto;
+        min-height: 100vh;
+        flex-shrink: 0;
+        z-index: 1;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 1100px;
+        flex-shrink: 0;
     }
 }
