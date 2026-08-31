@@ -21,9 +21,9 @@ jobs:
 
       - name: Fetch Live Statistics
         env:
-          YT_KEY: AIzaSyBJdxzmJQYTUVgLZZjJ5VirzEUoS0EIMCU
+          YT_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           YT_CHANNEL: UCOhEIzFSqQVifi-dAzyTBgw
-          RAPID_KEY: 0b845a102cmshca0b6e90e110f9cp13ee10jsna73149c56e30
+          RAPID_KEY: ${{ secrets.RAPIDAPI_KEY }}
           RAPID_HOST: instagram-scraper-ai3.p.rapidapi.com
           YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
