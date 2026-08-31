@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateLayout() {
         const winW = window.innerWidth;
         const winH = window.innerHeight;
-        const isMobile = winW <= 768;
+        const isMobile = winW <= 1024; // Cover tablets too
 
         // Calculate scale to cover the entire screen
         const scaleX = winW / CONFIG.originalWidth;
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let birds = [];
 
         function resizeCanvas() {
-            const isMobile = window.innerWidth <= 768;
+            const isMobile = window.innerWidth <= 1024;
             if (isMobile) {
                 const scaleY = window.innerHeight / CONFIG.originalHeight;
                 const newW = CONFIG.originalWidth * scaleY;
