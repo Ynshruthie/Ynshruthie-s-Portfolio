@@ -20,21 +20,29 @@ jobs:
           node-version: '18'
 
       - name: Fetch Live Statistics (YouTube + Instagram)
+        env:
+          YT_KEY: ${{ secrets.YOUTUBE_API_KEY || 'AIzaSyBJdxzmJQYTUVgLZZjJ5VirzEUoS0EIMCU' }}
+          YT_CHANNEL: UCOhEIzFSqQVifi-dAzyTBgw
+          RAPID_KEY: ${{ secrets.RAPIDAPI_KEY || '0b845a102cmshca0b6e90e110f9cp13ee10jsna73149c56e30' }}
+          RAPID_HOST: instagram-scraper-ai3.p.rapidapi.com
+          YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
           node -e '
           const fs = require("fs");
           const https = require("https");
           const querystring = require("querystring");
 
-          const YT_KEY = "${{ secrets.YOUTUBE_API_KEY || "AIzaSyBJdxzmJQYTUVgLZZjJ5VirzEUoS0EIMCU" }}";
-          const YT_CHANNEL = "UCOhEIzFSqQVifi-dAzyTBgw";
-          const RAPID_KEY = "${{ secrets.RAPIDAPI_KEY || "0b845a102cmshca0b6e90e110f9cp13ee10jsna73149c56e30" }}";
-          const RAPID_HOST = "instagram-scraper-ai3.p.rapidapi.com";
+          const YT_KEY = process.env.YT_KEY;
+          const YT_CHANNEL = process.env.YT_CHANNEL;
+          const RAPID_KEY = process.env.RAPID_KEY;
+          const RAPID_HOST = process.env.RAPID_HOST;
           
           // YouTube Analytics Secrets
-          const YT_CLIENT_ID = "${{ secrets.YOUTUBE_CLIENT_ID || "" }}";
-          const YT_CLIENT_SECRET = "${{ secrets.YOUTUBE_CLIENT_SECRET || "" }}";
-          const YT_REFRESH_TOKEN = "${{ secrets.YOUTUBE_REFRESH_TOKEN || "" }}";
+          const YT_CLIENT_ID = process.env.YT_CLIENT_ID || "";
+          const YT_CLIENT_SECRET = process.env.YT_CLIENT_SECRET || "";
+          const YT_REFRESH_TOKEN = process.env.YT_REFRESH_TOKEN || "";
           
           const statsPath = "./social-stats.json";
 
