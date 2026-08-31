@@ -4545,7 +4545,7 @@
             /* Force background colors and gradients to print */
             * {
                 -webkit-print-color-adjust: exact !important;
-                color-adjust: exact !important;
+
                 print-color-adjust: exact !important;
             }
             /* Ensure the active tab fills the page */
@@ -4561,7 +4561,7 @@
         <div style="background:#fff8f6; max-width:420px; width:92%; padding:35px; border-radius:28px; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.15); max-height:85vh; overflow-y:auto; animation:fadeInCard 0.25s ease;">
             <span onclick="document.getElementById('ugc-modal').style.display='none'; document.body.style.overflow='';" style="position:absolute; top:18px; right:24px; font-size:26px; cursor:pointer; color:#aaa; line-height:1;">&times;</span>
             <div id="ugc-modal-body"></div>
-            <button onclick="document.getElementById('ugc-modal').style.display='none'; document.body.style.overflow=''; document.querySelector('[data-tab=\"contact\"]') && document.querySelector('[data-tab=\"contact\"]').click();" style="margin-top:22px; display:block; width:100%; padding:14px; background:linear-gradient(135deg,#e1306c,#f4a7b9); color:#fff; border:none; border-radius:50px; font-size:15px; font-weight:800; cursor:pointer; font-family:Outfit,sans-serif;">Request This Package &rarr;</button>
+            <button onclick="document.getElementById('ugc-modal').style.display='none'; document.body.style.overflow=''; document.querySelector('[data-tab=contact]') && document.querySelector('[data-tab=contact]').click();" style="margin-top:22px; display:block; width:100%; padding:14px; background:linear-gradient(135deg,#e1306c,#f4a7b9); color:#fff; border:none; border-radius:50px; font-size:15px; font-weight:800; cursor:pointer; font-family:Outfit,sans-serif;">Request This Package &rarr;</button>
         </div>
     </div>
 
