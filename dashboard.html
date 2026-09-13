@@ -4113,8 +4113,6 @@
         // ==========================================
         // REAL-TIME LIVE SOCIAL STATS LOADER
         // ==========================================
-        const YT_API_KEY = "AIzaSyBJdxzmJQYTUVgLZZjJ5VirzEUoS0EIMCU";
-        const YT_CHANNEL_ID = "UCOhEIzFSqQVifi-dAzyTBgw";
 
         function formatNum(num) {
             if (isNaN(num)) return num;
@@ -4126,71 +4124,17 @@
         async function fetchLiveStats(isManualRefresh = false) {
             const refreshBtn = document.getElementById('sp-refresh-btn');
             const lastUpdatedEl = document.getElementById('sp-last-updated');
-            
+
             if (refreshBtn) refreshBtn.classList.add('spinning');
 
             try {
-                // 1. Fetch default stats from social-stats.json
-                const res = await fetch('social-stats.json?t=' + Date.now());
+                const endpoint = '/api/social-stats' + (isManualRefresh ? '?refresh=1' : '');
+                const res = await fetch(endpoint + '&t=' + Date.now());
                 let stats = {};
                 if (res.ok) {
                     stats = await res.json();
                 }
 
-                // 2. Query Live YouTube API directly for real-time subscribers & views
-                try {
-                    const ytRes = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`);
-                    if (ytRes.ok) {
-                        const ytData = await ytRes.json();
-                        if (ytData.items && ytData.items.length > 0) {
-                            const item = ytData.items[0];
-                            const s = item.statistics;
-                            stats.youtube = stats.youtube || {};
-                            stats.youtube.subscribers = parseInt(s.subscriberCount) || stats.youtube.subscribers;
-                            stats.youtube.views = parseInt(s.viewCount) || stats.youtube.views;
-                            stats.youtube.videos = parseInt(s.videoCount) || stats.youtube.videos;
-                            if (item.snippet && item.snippet.thumbnails && item.snippet.thumbnails.default) {
-                                stats.youtube.thumbnail = item.snippet.thumbnails.medium.url;
-                            }
-                        }
-                    }
-                } catch (ytErr) {
-                    console.log("YouTube live fetch fallback to local json", ytErr);
-                }
-
-                // 3. Query Live Instagram API via RapidAPI (on manual refresh to avoid rate limits)
-                if (isManualRefresh) {
-                    try {
-                        const igRes = await fetch('https://instagram-scraper-ai3.p.rapidapi.com/index.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                                'x-rapidapi-host': 'instagram-scraper-ai3.p.rapidapi.com',
-                                'x-rapidapi-key': '0b845a102cmshca0b6e90e110f9cp13ee10jsna73149c56e30'
-                            },
-                            body: 'username=ynshruthie'
-                        });
-                        if (igRes.ok) {
-                            const igData = await igRes.json();
-                            // API returns: { accountInfo: { followedByCount, mediaCount, profilePicUrl }, postsStatistics: { likesCount, commentsCount } }
-                            const acc = igData.accountInfo || igData.user || igData;
-                            const ps = igData.postsStatistics || {};
-                            stats.instagram = stats.instagram || {};
-
-                            if (acc.followedByCount !== undefined) stats.instagram.followers = parseInt(acc.followedByCount);
-                            if (acc.mediaCount !== undefined) stats.instagram.posts = parseInt(acc.mediaCount);
-                            if (acc.mediaCount !== undefined) stats.instagram.reels = parseInt(acc.mediaCount);
-                            if (acc.profilePicUrl) stats.instagram.profilePicUrl = acc.profilePicUrl;
-                            if (ps.likesCount) stats.instagram.totalLikes = parseInt(ps.likesCount);
-                            if (ps.commentsCount) stats.instagram.totalComments = parseInt(ps.commentsCount);
-                            if (ps.averageCountOfLikes) stats.instagram.avgReelViews = formatNum(ps.averageCountOfLikes) + '+';
-                        }
-                    } catch (igErr) {
-                        console.log('Instagram live fetch fallback to local json', igErr);
-                    }
-                }
-
-                // 3. Update DOM with animations
                 applyStatsToDOM(stats);
 
                 if (lastUpdatedEl) {
